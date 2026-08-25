@@ -1,0 +1,57 @@
+# ==========================================
+# Unity generated
+# ==========================================
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# ==========================================
+# Unity 3D generated meta files
+# ==========================================
+*.pidb.meta
+*.pdb.mdl2x.gen
+*.pdb.mdl2x.gen.meta
+*.pdb.mdl2x.dll
+*.pdb.mdl2x.dll.meta
+*.pdb.mdl2x.exe
+*.pdb.mdl2x.exe.meta
+
+# ==========================================
+# Visual Studio / IDE generated
+# ==========================================
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vsconfig
+UpgradeLog.htm
+
+# ==========================================
+# OS generated
+# ==========================================
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Project specific
+# ==========================================
+# 散落的空场景备份（Assets/cundang/d.unity）
+Assets/cundang/
