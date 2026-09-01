@@ -90,6 +90,25 @@ public static class GameState
     public static string lastReliefClaim = "";
     public static Expedition expedition = null;
 
+    // ===== v1.9 物资仓库 =====
+    public static int warehouseCapacity = 50;
+    public static Dictionary<string,int> warehouseItems = new Dictionary<string,int>();
+
+    // ===== v1.9 育种温室 =====
+    public static GreenhousePlot[] greenhousePlots = new GreenhousePlot[0];
+    public static int greenhouseUnlockedPlots = 4;
+    public static string selectedGreenhousePlant = "golden_wheat";
+    public static List<string> unlockedGreenhousePlants = new List<string>{ "golden_wheat", "void_mushroom" };
+    public static float weaponBonus = 0f;
+    public static bool expBoostActive = false;
+
+    public static void EnsureGreenhousePlots()
+    {
+        if (greenhousePlots.Length == 16) return;
+        greenhousePlots = new GreenhousePlot[16];
+        for (int i = 0; i < 16; i++) greenhousePlots[i] = new GreenhousePlot();
+    }
+
     public static void EnsurePlots()
     {
         if (farmPlots.Length == 36) return;
@@ -100,6 +119,85 @@ public static class GameState
 
 [Serializable] public class Plot { public CropDef crop; public double plantedAt; public bool ready; public string status; }
 [Serializable] public class Card { public string id, rarity, skillId, icon, name, desc; public int power; public bool singleUse; }
+[Serializable] public class GreenhousePlot { public GreenhousePlantDef plant; public double plantedAt; public bool ready; public string status; }
+
+// ================= v1.9 育种温室 - 稀有植物定义 =================
+[Serializable] public class GreenhousePlantDef
+{
+    public string id, name, icon, rarity, desc;
+    public float growTime;
+    public int seedPrice;
+    public GreenhouseDrop[] drops;
+}
+[Serializable] public class GreenhouseDrop { public string id; public float chance; public int minAmount, maxAmount; }
+
+public static class GreenhouseData
+{
+    public static readonly GreenhousePlantDef[] Plants = new GreenhousePlantDef[]
+    {
+        new GreenhousePlantDef{ id="golden_wheat", name="黄金小麦", icon="🌟", rarity="rare", growTime=90, seedPrice=50,
+            desc="闪耀着金光的小麦，成熟后有概率产出金币卡和催化剂",
+            drops=new GreenhouseDrop[]{
+                new GreenhouseDrop{ id="gold_card", chance=0.6f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="growth_catalyst", chance=0.4f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="gold", chance=0.8f, minAmount=80, maxAmount=150 }
+            }},
+        new GreenhousePlantDef{ id="void_mushroom", name="虚空蘑菇", icon="🍄", rarity="rare", growTime=180, seedPrice=80,
+            desc="来自虚空的蘑菇，能产出经验加成和神秘道具",
+            drops=new GreenhouseDrop[]{
+                new GreenhouseDrop{ id="gold_card", chance=0.4f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="exp_boost_card", chance=0.5f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="growth_catalyst", chance=0.3f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="gold", chance=0.7f, minAmount=100, maxAmount=200 }
+            }},
+        new GreenhousePlantDef{ id="crystal_corn", name="水晶玉米", icon="💎", rarity="epic", growTime=150, seedPrice=120,
+            desc="晶莹剔透的玉米，能产出作物转化卡和大量金币",
+            drops=new GreenhouseDrop[]{
+                new GreenhouseDrop{ id="gold_card", chance=0.5f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="transform_card", chance=0.5f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="growth_catalyst", chance=0.3f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="gold", chance=0.9f, minAmount=150, maxAmount=300 }
+            }},
+        new GreenhousePlantDef{ id="rainbow_pumpkin", name="彩虹南瓜", icon="🎃", rarity="epic", growTime=200, seedPrice=200,
+            desc="七彩斑斓的南瓜，蕴含着转化的魔力",
+            drops=new GreenhouseDrop[]{
+                new GreenhouseDrop{ id="big_gold_card", chance=0.4f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="transform_card", chance=0.6f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="growth_catalyst", chance=0.5f, minAmount=1, maxAmount=2 },
+                new GreenhouseDrop{ id="gold", chance=1f, minAmount=200, maxAmount=400 }
+            }},
+        new GreenhousePlantDef{ id="moonlight_rice", name="月光稻", icon="🌙", rarity="legendary", growTime=280, seedPrice=400,
+            desc="只在月光下生长的神秘稻子，产出传说级奖励",
+            drops=new GreenhouseDrop[]{
+                new GreenhouseDrop{ id="big_gold_card", chance=0.6f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="transform_card", chance=0.5f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="growth_catalyst", chance=0.7f, minAmount=1, maxAmount=3 },
+                new GreenhouseDrop{ id="rare_seed_pack", chance=0.3f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="gold", chance=1f, minAmount=400, maxAmount=800 }
+            }},
+        new GreenhousePlantDef{ id="thunder_dragon_fruit", name="雷龙果", icon="⚡", rarity="legendary", growTime=350, seedPrice=600,
+            desc="蕴含雷龙之力的果实，能强化武器和产出巨额奖励",
+            drops=new GreenhouseDrop[]{
+                new GreenhouseDrop{ id="big_gold_card", chance=0.7f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="transform_card", chance=0.4f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="weapon_upgrade_stone", chance=0.4f, minAmount=1, maxAmount=1 },
+                new GreenhouseDrop{ id="growth_catalyst", chance=0.5f, minAmount=2, maxAmount=4 },
+                new GreenhouseDrop{ id="gold", chance=1f, minAmount=600, maxAmount=1200 }
+            }}
+    };
+
+    public static readonly Dictionary<string, GreenhouseDropDef> Drops = new Dictionary<string, GreenhouseDropDef>
+    {
+        { "gold_card", new GreenhouseDropDef{ id="gold_card", name="金币卡", icon="💰", desc="使用获得500金币", value=500, sellPrice=200, category="consumable" } },
+        { "big_gold_card", new GreenhouseDropDef{ id="big_gold_card", name="大金币卡", icon="💎", desc="使用获得2000金币", value=2000, sellPrice=800, category="consumable" } },
+        { "transform_card", new GreenhouseDropDef{ id="transform_card", name="作物转化卡", icon="🔄", desc="将一块成熟普通作物转化为随机稀有作物", sellPrice=150, category="consumable" } },
+        { "rare_seed_pack", new GreenhouseDropDef{ id="rare_seed_pack", name="稀有种子包", icon="🌱", desc="随机解锁一种新的稀有植物", sellPrice=100, category="consumable" } },
+        { "exp_boost_card", new GreenhouseDropDef{ id="exp_boost_card", name="经验加成卡", icon="📈", desc="下次远征击杀经验+50%", sellPrice=120, category="consumable" } },
+        { "weapon_upgrade_stone", new GreenhouseDropDef{ id="weapon_upgrade_stone", name="武器强化石", icon="⚔️", desc="永久提升当前武器伤害10%", sellPrice=300, category="consumable" } }
+    };
+}
+
+[Serializable] public class GreenhouseDropDef { public string id, name, icon, desc, category; public int value, sellPrice; }
 
 // ================= 工具函数 =================
 public static class G

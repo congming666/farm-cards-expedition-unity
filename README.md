@@ -28,6 +28,8 @@ Unity.exe -batchmode -quit -projectPath "<本目录>" -executeMethod BuildPlayer
 | 数据配置 | `GameConfig.cs` | 武器 / 地图 / 技能 / 消耗品 / 怪物 / 作物全量数据 |
 | 存档 | `SaveSystem.cs` | JsonUtility → `persistentDataPath/save.json` |
 | 农场 | `CardFarmReward.cs` | 6×6 地块、种植/生长/状态（旱/虫/草）、收获、扩建、催化剂 |
+| 物资仓库 | `GreenhouseSystem.cs` | 所有收获物和远征战利品自动入仓、容量管理、出售、扩建 |
+| 育种温室 | `GreenhouseSystem.cs` | 4×4 温室格子、6种稀有植物、6种掉落道具、逐步解锁 |
 | 卡牌工坊 | `CardFarmReward.cs` | 品质掉落、技能强化卡、携带卡、消耗卡 |
 | 每日奖励 | `CardFarmReward.cs` | 7 天连签、开荒保障 |
 | 远征（核心） | `Expedition.cs` / `Combat` / `Terrain` / `Render` | 地图程序化生成、地形块烘焙、摄像机、战争迷雾 |

@@ -131,12 +131,12 @@ public partial class Expedition
         List<GroundLoot> kept=new List<GroundLoot>(), lost=new List<GroundLoot>();
         if(result=="success"){
             kept.AddRange(bag); GameState.gold+=(int)totalGold;
-            foreach(var i in bag) if(i.type=="seed"){ GameState.seeds+=(int)i.amount; if(!string.IsNullOrEmpty(i.cropId) && !GameState.unlockedCrops.Contains(i.cropId)){ GameState.unlockedCrops.Add(i.cropId); Toast("解锁新作物："+(CropName(i.cropId)),"gold"); } }
-            foreach(var i in bag) if(i.type=="material") GameState.materials+=(int)i.amount;
-            foreach(var i in bag) if(i.type=="consumable") GameState.loadout[i.cropId]=(GameState.loadout.ContainsKey(i.cropId)?GameState.loadout[i.cropId]:0)+(int)i.amount;
-            foreach(var i in bag) if(i.type=="farm_item") GameState.farmItems[i.cropId]=(GameState.farmItems.ContainsKey(i.cropId)?GameState.farmItems[i.cropId]:0)+(int)i.amount;
+            foreach(var i in bag) if(i.type=="seed"){ GreenhouseSystem.AddWarehouseItem("seeds",(int)i.amount); if(!string.IsNullOrEmpty(i.cropId) && !GameState.unlockedCrops.Contains(i.cropId)){ GameState.unlockedCrops.Add(i.cropId); Toast("解锁新作物："+(CropName(i.cropId)),"gold"); } }
+            foreach(var i in bag) if(i.type=="material") GreenhouseSystem.AddWarehouseItem("materials",(int)i.amount);
+            foreach(var i in bag) if(i.type=="consumable") GreenhouseSystem.AddWarehouseItem(i.cropId,(int)i.amount);
+            foreach(var i in bag) if(i.type=="farm_item") GreenhouseSystem.AddWarehouseItem(i.cropId,(int)i.amount);
         } else {
-            foreach(var i in bag){ if(RandPct(20)){ kept.Add(i); if(i.type=="gold") GameState.gold+=(int)Math.Floor(i.amount*0.2f); if(i.type=="seed") GameState.seeds+=(int)Math.Floor(i.amount*0.5f); } else lost.Add(i); }
+            foreach(var i in bag){ if(RandPct(20)){ kept.Add(i); if(i.type=="gold") GameState.gold+=(int)Math.Floor(i.amount*0.2f); if(i.type=="seed") GreenhouseSystem.AddWarehouseItem("seeds",(int)Math.Floor(i.amount*0.5f)); if(i.type=="material") GreenhouseSystem.AddWarehouseItem("materials",(int)Math.Floor(i.amount*0.5f)); if(i.type=="consumable") GreenhouseSystem.AddWarehouseItem(i.cropId,Math.Max(1,(int)Math.Floor(i.amount*0.5f))); } else lost.Add(i); }
         }
         SaveSystem.Save();
         UIHost.ShowResult(result=="success", map.name, (720-timeLeft).ToString("F1"), killCount, chestOpened, (int)damageTaken, result=="success"?(int)totalGold:(int)Math.Floor(totalGold*0.2f), kept, lost);

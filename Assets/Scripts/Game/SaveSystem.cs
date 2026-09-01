@@ -7,6 +7,7 @@ using UnityEngine;
 [Serializable] public class KeyVal { public string key; public int val; public KeyVal(){} public KeyVal(string k, int v){ key=k; val=v; } }
 [Serializable] public class CardSave { public string id, rarity, skillId, icon, name, desc; public int power; public bool singleUse; }
 [Serializable] public class PlotSave { public string cropId; public double plantedAt; public string status; }
+[Serializable] public class GreenhousePlotSave { public string plantId; public double plantedAt; public string status; }
 [Serializable] public class SaveData
 {
     public int version = 1;
@@ -21,6 +22,18 @@ using UnityEngine;
     public string lastDailyClaim = "", lastReliefClaim = "";
     public int dailyStreak;
     public List<PlotSave> farmPlots = new List<PlotSave>();
+
+    // v1.9 物资仓库
+    public int warehouseCapacity = 50;
+    public List<KeyVal> warehouseItems = new List<KeyVal>();
+
+    // v1.9 育种温室
+    public int greenhouseUnlockedPlots = 4;
+    public string selectedGreenhousePlant = "golden_wheat";
+    public List<string> unlockedGreenhousePlants = new List<string>();
+    public float weaponBonus = 0f;
+    public bool expBoostActive = false;
+    public List<GreenhousePlotSave> greenhousePlots = new List<GreenhousePlotSave>();
 }
 
 public static class SaveSystem
@@ -54,6 +67,25 @@ public static class SaveSystem
             if (d.farmPlots != null && d.farmPlots.Count == 36) {
                 for (int i=0;i<36;i++){ var p=d.farmPlots[i]; GameState.farmPlots[i]=new Plot{ crop=CropById(p.cropId), plantedAt=p.plantedAt, status=p.status, ready=false }; }
             }
+
+            // v1.9 加载物资仓库
+            GameState.warehouseCapacity = d.warehouseCapacity > 0 ? d.warehouseCapacity : 50;
+            GameState.warehouseItems = new Dictionary<string,int>();
+            if (d.warehouseItems != null) ApplyKv(d.warehouseItems, GameState.warehouseItems);
+
+            // v1.9 加载育种温室
+            GameState.greenhouseUnlockedPlots = G.Clamp(d.greenhouseUnlockedPlots, 4, 16);
+            GameState.selectedGreenhousePlant = d.selectedGreenhousePlant ?? "golden_wheat";
+            GameState.unlockedGreenhousePlants = new List<string>();
+            if (d.unlockedGreenhousePlants != null) foreach (var id in d.unlockedGreenhousePlants) if (!GameState.unlockedGreenhousePlants.Contains(id)) GameState.unlockedGreenhousePlants.Add(id);
+            if (GameState.unlockedGreenhousePlants.Count == 0) { GameState.unlockedGreenhousePlants.Add("golden_wheat"); GameState.unlockedGreenhousePlants.Add("void_mushroom"); }
+            GameState.weaponBonus = d.weaponBonus;
+            GameState.expBoostActive = d.expBoostActive;
+            GameState.EnsureGreenhousePlots();
+            if (d.greenhousePlots != null && d.greenhousePlots.Count == 16) {
+                for (int i=0;i<16;i++){ var p=d.greenhousePlots[i]; var plant=GreenhousePlantById(p.plantId); GameState.greenhousePlots[i]=new GreenhousePlot{ plant=plant, plantedAt=p.plantedAt, status=p.status, ready=false }; }
+            }
+
             return true;
         } catch (Exception e) { Debug.LogWarning("读取存档失败："+e.Message); return false; }
     }
@@ -72,6 +104,21 @@ public static class SaveSystem
             d.lastDailyClaim=GameState.lastDailyClaim; d.dailyStreak=GameState.dailyStreak; d.lastReliefClaim=GameState.lastReliefClaim;
             d.farmPlots=new List<PlotSave>();
             for (int i=0;i<GameState.farmPlots.Length;i++){ var p=GameState.farmPlots[i]; d.farmPlots.Add(new PlotSave{ cropId=p.crop?.id, plantedAt=p.plantedAt, status=p.status }); }
+
+            // v1.9 保存物资仓库
+            d.warehouseCapacity = GameState.warehouseCapacity;
+            d.warehouseItems = ToKv(GameState.warehouseItems);
+
+            // v1.9 保存育种温室
+            d.greenhouseUnlockedPlots = GameState.greenhouseUnlockedPlots;
+            d.selectedGreenhousePlant = GameState.selectedGreenhousePlant;
+            d.unlockedGreenhousePlants = new List<string>(GameState.unlockedGreenhousePlants);
+            d.weaponBonus = GameState.weaponBonus;
+            d.expBoostActive = GameState.expBoostActive;
+            d.greenhousePlots = new List<GreenhousePlotSave>();
+            GameState.EnsureGreenhousePlots();
+            for (int i=0;i<GameState.greenhousePlots.Length;i++){ var p=GameState.greenhousePlots[i]; d.greenhousePlots.Add(new GreenhousePlotSave{ plantId=p.plant?.id, plantedAt=p.plantedAt, status=p.status }); }
+
             File.WriteAllText(Path_, JsonUtility.ToJson(d, true));
         } catch (Exception e) { Debug.LogWarning("保存存档失败："+e.Message); }
     }
@@ -82,5 +129,6 @@ public static class SaveSystem
     public static MapDef MapById(string id){ foreach(var m in GameData.Maps) if(m.id==id) return m; return null; }
     public static WeaponDef WeaponById(string id){ foreach(var w in GameData.Weapons) if(w.id==id) return w; return null; }
     public static CropDef CropById(string id){ foreach(var c in GameData.Crops) if(c.id==id) return c; return null; }
+    public static GreenhousePlantDef GreenhousePlantById(string id){ foreach(var p in GreenhouseData.Plants) if(p.id==id) return p; return null; }
     public static SkillDef SkillById(string id){ foreach(var s in GameData.Skills) if(s.id==id) return s; return null; }
 }

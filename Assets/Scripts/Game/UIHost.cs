@@ -75,6 +75,8 @@ public static class UIHost
             case "result": DrawResult(gf); break;
         }
         if(workshopOpen) DrawWorkshop(gf);
+        if(GreenhouseSystem.warehouseOpen) DrawWarehouse(gf);
+        if(GreenhouseSystem.greenhouseOpen) DrawGreenhouse(gf);
         DrawToasts(gf); DrawDropBanners(gf);
         if(gf.signalFlash>0){ GUI.color=new Color(1f,0.34f,0.24f,gf.signalFlash*0.72f); GUI.DrawTexture(new Rect(0,0,1280,720),white); GUI.color=Color.white; }
         GUI.matrix=Matrix4x4.identity;
@@ -85,15 +87,15 @@ public static class UIHost
         GUI.Label(new Rect(0,210,1280,40),"荒 野 远 征",subtitle);
         if(GUI.Button(new Rect(500,320,280,50),"开始游戏",btn)){ gf.StartGame(); }
         if(GUI.Button(new Rect(500,380,280,50),"游戏说明",btn)){ gf.AddToast("WASD移动，左键攻击/交互，1-4技能，Q/R/E消耗品","success"); }
-        GUI.Label(new Rect(0,690,1280,20),"v1.8 · 农场卡牌 · 荒野远征",small);
+        GUI.Label(new Rect(0,690,1280,20),"v1.9 · 农场卡牌 · 荒野远征 · 物资仓库&育种温室",small);
     }
 
     static void DrawFarm(GameFlow gf){
         Fill(new Rect(0,0,1280,64),new Color(0.025f,0.105f,0.075f,0.94f));
         GUI.Label(new Rect(34,14,400,34),"我的家园农场",Col2(Color.white,25,TextAnchor.MiddleLeft));
         DrawResourceBadge(610,13,120,"金币",GameState.gold,G.ParseColor("#f5c84c"));
-        DrawResourceBadge(740,13,110,"种子",GameState.seeds,G.ParseColor("#78e48c"));
-        DrawResourceBadge(860,13,110,"材料",GameState.materials,G.ParseColor("#ee9540"));
+        DrawResourceBadge(740,13,110,"种子",GreenhouseSystem.GetWarehouseCount("seeds"),G.ParseColor("#78e48c"));
+        DrawResourceBadge(860,13,110,"材料",GreenhouseSystem.GetWarehouseCount("materials"),G.ParseColor("#ee9540"));
         if(GUI.Button(new Rect(1132,13,120,38),"返回菜单",btn)){ gf.BackToMenu(); }
 
         Fill(new Rect(26,80,704,612),new Color(0.045f,0.11f,0.072f,0.90f)); Outline(new Rect(26,80,704,612),new Color(0.31f,0.58f,0.37f,0.55f),1);
@@ -128,10 +130,10 @@ public static class UIHost
         float px=760;
         DrawPanel(px,80,492,126,"家园设施");
         DrawFacility(px+12,120,148,72,"工","卡牌工坊",()=>gf.OpenWorkshop());
-        DrawFacility(px+172,120,148,72,"仓","物资仓库",()=>gf.AddToast("仓库会保存远征带回的物资","success"));
-        DrawFacility(px+332,120,148,72,"档","远征档案",()=>gf.AddToast("T1–T4 情报已登记","gold"));
+        DrawFacility(px+172,120,148,72,"仓","物资仓库",()=>{ GreenhouseSystem.warehouseOpen=true; });
+        DrawFacility(px+332,120,148,72,"温","育种温室",()=>{ GreenhouseSystem.greenhouseOpen=true; GreenhouseSystem.Init(); });
         float sy2=218; DrawPanel(px,sy2,492,132,"家园补给站");
-        GUI.Label(new Rect(px+12,sy2+34,160,24),"生长催化剂 ×"+GameState.farmItems["growth_catalyst"],small);
+        GUI.Label(new Rect(px+12,sy2+34,160,24),"生长催化剂 ×"+GreenhouseSystem.GetWarehouseCount("growth_catalyst"),small);
         if(GUI.Button(new Rect(px+174,sy2+30,122,32),"使用催化剂")){ gf.UseCatalyst(); }
         int day=RewardSystem.GetNextDailyDay(); bool claimed=RewardSystem.DailyClaimedToday();
         GUI.Label(new Rect(px+12,sy2+72,150,24),claimed?("已领 第"+RewardSystem.TodayDay()+"天"):("每日 第"+day+"天"),small);
@@ -229,6 +231,169 @@ public static class UIHost
             GUIStyle st=new GUIStyle(GUI.skin.button){fontSize=11,alignment=TextAnchor.MiddleCenter,wordWrap=true}; st.normal.textColor=card.rarity=="legendary"?G.ParseColor("#ee9637"):card.rarity=="rare"?G.ParseColor("#55aaf1"):Color.white;
             if(GUI.Button(new Rect(bx,by,138,74),card.icon+" "+sk.name+" +"+card.power+"\n"+card.rarity+"\n点击使用",st)){ CardSystem.Apply(card.id); } count++; }
         if(GUI.Button(new Rect(560,620,160,40),"关闭")){ workshopOpen=false; }
+    }
+
+    // ===== v1.9 物资仓库 =====
+    static void DrawWarehouse(GameFlow gf){
+        GUI.color=new Color(0,0,0,0.75f); GUI.DrawTexture(new Rect(0,0,1280,720),white); GUI.color=Color.white;
+        DrawPanel(200,40,880,640,"");
+        GUI.Label(new Rect(220,56,600,32),"📦 物资仓库",Col2(G.ParseColor("#8ac8d8"),24,TextAnchor.MiddleLeft));
+
+        int used = GreenhouseSystem.GetWarehouseUsed();
+        int cap = GameState.warehouseCapacity;
+        GUI.Label(new Rect(220,100,300,20),"仓库容量："+used+" / "+cap,label);
+        DrawBar(220,124,400,14,Mathf.Clamp01((float)used/cap),G.ParseColor("#5a9a5a"),new Color(0.13f,0.13f,0.13f,1));
+
+        if(GUI.Button(new Rect(660,100,180,40),"一键出售作物",new GUIStyle(GUI.skin.button){fontSize=14}))){
+            // 出售所有作物类物品
+            var toRemove = new List<string>();
+            foreach(var kv in GameState.warehouseItems){
+                var crop = SaveSystem.CropById(kv.Key);
+                if(crop != null){ GameState.gold += (int)crop.sellPrice * kv.Value; toRemove.Add(kv.Key); }
+            }
+            foreach(var id in toRemove) GameState.warehouseItems.Remove(id);
+            if(toRemove.Count > 0){ gf.AddToast("一键出售完成","gold"); SaveSystem.Save(); }
+        }
+        if(GUI.Button(new Rect(860,100,200,40),"扩建仓库 (+25)\n💰"+GreenhouseSystem.GetWarehouseUpgradeCost(),new GUIStyle(GUI.skin.button){fontSize=12}))){
+            GreenhouseSystem.UpgradeWarehouse();
+        }
+
+        // 物品列表
+        float y = 160;
+        int col = 0;
+        foreach(var kv in GameState.warehouseItems){
+            if(kv.Value <= 0) continue;
+            float bx = 220 + (col % 4) * 210;
+            float by = y + (col / 4) * 100;
+            var def = GreenhouseData.Drops.ContainsKey(kv.Key) ? GreenhouseData.Drops[kv.Key] : null;
+            var crop = SaveSystem.CropById(kv.Key);
+            string icon = def != null ? def.icon : crop != null ? crop.icon : "📦";
+            string name = def != null ? def.name : crop != null ? crop.name : kv.Key;
+            int sellPrice = def != null ? def.sellPrice : crop != null ? (int)crop.sellPrice : 0;
+
+            GUI.Box(new Rect(bx,by,190,90),"");
+            GUI.Label(new Rect(bx+8,by+6,174,24),icon+" "+name,Col2(Color.white,14,TextAnchor.MiddleLeft));
+            GUI.Label(new Rect(bx+8,by+28,174,20),"×"+kv.Value,Col2(G.ParseColor("#ffd700"),16,TextAnchor.MiddleLeft));
+            if(sellPrice > 0){
+                if(GUI.Button(new Rect(bx+8,by+52,82,30),"出售 💰"+sellPrice,new GUIStyle(GUI.skin.button){fontSize=11})){
+                    GreenhouseSystem.SellWarehouseItem(kv.Key, 1);
+                }
+                if(GUI.Button(new Rect(bx+96,by+52,86,30),"全部出售",new GUIStyle(GUI.skin.button){fontSize=11}))){
+                    GreenhouseSystem.SellWarehouseItem(kv.Key, kv.Value);
+                }
+            } else {
+                GUI.Label(new Rect(bx+8,by+56,174,20),"不可出售",small);
+            }
+            col++;
+        }
+        if(GameState.warehouseItems.Count == 0){
+            GUI.Label(new Rect(220,300,840,40),"📦 仓库空空如也",Col2(G.ParseColor("#888"),20,TextAnchor.MiddleCenter));
+            GUI.Label(new Rect(220,340,840,24),"收获作物和远征战利品会自动存入这里",small);
+        }
+
+        if(GUI.Button(new Rect(560,640,160,40),"关闭")){ GreenhouseSystem.warehouseOpen=false; }
+    }
+
+    // ===== v1.9 育种温室 =====
+    static void DrawGreenhouse(GameFlow gf){
+        GUI.color=new Color(0,0,0,0.75f); GUI.DrawTexture(new Rect(0,0,1280,720),white); GUI.color=Color.white;
+        DrawPanel(140,30,1000,660,"");
+        GUI.Label(new Rect(160,46,600,32),"🏡 育种温室",Col2(G.ParseColor("#8ac8d8"),24,TextAnchor.MiddleLeft));
+
+        // 植物选择器
+        GUI.Label(new Rect(160,86,200,20),"选择稀有植物：",label);
+        int pcol = 0;
+        foreach(var plant in GreenhouseData.Plants){
+            bool unlocked = GameState.unlockedGreenhousePlants.Contains(plant.id);
+            bool selected = GameState.selectedGreenhousePlant == plant.id;
+            float px = 160 + pcol * 145;
+            Color c = plant.rarity=="legendary"?G.ParseColor("#ee9637"):plant.rarity=="epic"?G.ParseColor("#a878d8"):G.ParseColor("#78c878");
+            GUI.Box(new Rect(px,110,135,60),"");
+            GUI.color = unlocked ? c : new Color(0.4f,0.4f,0.4f,1);
+            GUI.Label(new Rect(px+4,114,127,24),(unlocked?plant.icon:"🔒")+" "+plant.name,Col2(unlocked?Color.white:new Color(0.5f,0.5f,0.5f,1),13,TextAnchor.MiddleCenter));
+            GUI.color=Color.white;
+            GUI.Label(new Rect(px+4,138,127,16),plant.growTime+"秒 · 💰"+plant.seedPrice,Col2(new Color(0.7f,0.7f,0.7f,1),10,TextAnchor.MiddleCenter));
+            if(unlocked && GUI.Button(new Rect(px,110,135,60),new GUIStyle{normal={background=null}})){
+                GameState.selectedGreenhousePlant = plant.id;
+            }
+            if(selected && unlocked){
+                GUI.Box(new Rect(px-2,108,139,64),"");
+            }
+            pcol++;
+        }
+
+        // 温室格子 4x4
+        GUI.Label(new Rect(160,190,400,20),"温室 "+GameState.greenhouseUnlockedPlots+"/16（点击空地播种，点击成熟植物收获）",label);
+        int gs = 110;
+        float gx = 160, gy = 216;
+        GameState.EnsureGreenhousePlots();
+        double nowSec = DateTime.UtcNow.Subtract(new DateTime(1970,1,1)).TotalSeconds;
+        for(int i=0;i<16;i++){
+            float cx = gx + (i%4)*gs, cy = gy + (i/4)*gs;
+            var plot = GameState.greenhousePlots[i];
+            if(i >= GameState.greenhouseUnlockedPlots){
+                int goldCost = GreenhouseSystem.GetUnlockCost(i);
+                int matCost = GreenhouseSystem.GetUnlockMatCost(i);
+                GUI.Box(new Rect(cx,cy,gs-6,gs-6),"");
+                GUI.Label(new Rect(cx,cy+20,gs-6,20),"🔒",Col2(Color.white,20,TextAnchor.MiddleCenter));
+                GUI.Label(new Rect(cx,cy+42,gs-6,16),"💰"+goldCost+" 🔧"+matCost,Col2(new Color(0.7f,0.7f,0.7f,1),10,TextAnchor.MiddleCenter));
+                if(i == GameState.greenhouseUnlockedPlots && GUI.Button(new Rect(cx,cy,gs-6,gs-6),new GUIStyle{normal={background=null}})){
+                    GreenhouseSystem.UnlockPlot(i);
+                }
+            } else if(plot.plant != null){
+                double elapsed = nowSec - plot.plantedAt;
+                float progress = Mathf.Clamp01((float)(elapsed / plot.plant.growTime));
+                plot.ready = progress >= 1;
+                Color pc = plot.plant.rarity=="legendary"?G.ParseColor("#ee9637"):plot.plant.rarity=="epic"?G.ParseColor("#a878d8"):G.ParseColor("#78c878");
+                GUI.Box(new Rect(cx,cy,gs-6,gs-6),"");
+                GUI.Label(new Rect(cx,cy+8,gs-6,28),plot.plant.icon,Col2(Color.white,24,TextAnchor.MiddleCenter));
+                GUI.Label(new Rect(cx,cy+36,gs-6,16),plot.plant.name,Col2(pc,11,TextAnchor.MiddleCenter));
+                if(plot.ready){
+                    GUI.Label(new Rect(cx,cy+54,gs-6,16),"✨可收获",Col2(G.ParseColor("#ffd700"),11,TextAnchor.MiddleCenter));
+                } else {
+                    DrawBar(cx+8,cy+56,gs-22,8,progress,G.ParseColor("#5a9a5a"),new Color(0.13f,0.13f,0.13f,1));
+                    GUI.Label(new Rect(cx,cy+66,gs-6,12),Mathf.FloorToInt(progress*100)+"%",Col2(new Color(0.7f,0.7f,0.7f,1),9,TextAnchor.MiddleCenter));
+                }
+                if(GUI.Button(new Rect(cx,cy,gs-6,gs-6),new GUIStyle{normal={background=null}})){
+                    if(plot.ready) GreenhouseSystem.Harvest(i);
+                    else gf.AddToast("还没成熟呢","warning");
+                }
+            } else {
+                GUI.Box(new Rect(cx,cy,gs-6,gs-6),"");
+                GUI.Label(new Rect(cx,cy+24,gs-6,24),"➕",Col2(new Color(0.4f,0.6f,0.4f,1),20,TextAnchor.MiddleCenter));
+                GUI.Label(new Rect(cx,cy+50,gs-6,16),"播种",Col2(new Color(0.5f,0.7f,0.5f,1),11,TextAnchor.MiddleCenter));
+                if(GUI.Button(new Rect(cx,cy,gs-6,gs-6),new GUIStyle{normal={background=null}})){
+                    GreenhouseSystem.Plant(i);
+                }
+            }
+        }
+
+        // 右侧道具栏
+        GUI.Label(new Rect(640,190,200,20),"🧪 温室道具：",label);
+        float dy = 216;
+        bool hasItems = false;
+        foreach(var kv in GameState.warehouseItems){
+            if(kv.Value <= 0) continue;
+            var def = GreenhouseData.Drops.ContainsKey(kv.Key) ? GreenhouseData.Drops[kv.Key] : null;
+            if(def == null) continue;
+            hasItems = true;
+            GUI.Box(new Rect(640,dy,340,50),"");
+            GUI.Label(new Rect(648,dy+4,40,42),def.icon,Col2(Color.white,24,TextAnchor.MiddleCenter));
+            GUI.Label(new Rect(694,dy+6,200,18),def.name+" ×"+kv.Value,Col2(Color.white,13,TextAnchor.MiddleLeft));
+            GUI.Label(new Rect(694,dy+24,200,18),def.desc,Col2(new Color(0.7f,0.7f,0.7f,1),10,TextAnchor.MiddleLeft));
+            if(GUI.Button(new Rect(900,dy+10,72,30),"使用",new GUIStyle(GUI.skin.button){fontSize=12}))){
+                GreenhouseSystem.UseDropItem(kv.Key);
+            }
+            dy += 56;
+        }
+        if(!hasItems){
+            GUI.Label(new Rect(640,240,340,40),"收获稀有植物获取道具",Col2(new Color(0.6f,0.6f,0.6f,1),13,TextAnchor.MiddleCenter));
+        }
+
+        // 提示
+        GUI.Label(new Rect(640,500,340,120),"💡 温室提示\n\n· 种植稀有植物消耗金币购买种子\n· 稀有植物成熟后可收获各种道具\n· 传说植物有概率解锁新的稀有植物\n· 温室格子需要金币和材料解锁\n· 作物转化卡可将普通作物变为稀有作物",Col2(new Color(0.7f,0.7f,0.7f,1),11,TextAnchor.UpperLeft));
+
+        if(GUI.Button(new Rect(560,650,160,40),"关闭")){ GreenhouseSystem.greenhouseOpen=false; }
     }
 
     static void DrawToasts(GameFlow gf){ float y=84; foreach(var t in gf.toasts){ float alpha=Math.Min(1,t.life/0.4f); Color c=t.type=="warning"?G.ParseColor("#ff8866"):t.type=="gold"?G.ParseColor("#ffd700"):t.type=="success"?G.ParseColor("#99ff99"):Color.white; c.a=Math.Max(0,alpha);
