@@ -52,9 +52,9 @@ public static class UIHost
     }
     static void Fill(Rect r,Color c){ GUI.color=c; GUI.DrawTexture(r,white); GUI.color=Color.white; }
     static void Outline(Rect r,Color c,float n=2){ Fill(new Rect(r.x,r.y,r.width,n),c); Fill(new Rect(r.x,r.yMax-n,r.width,n),c); Fill(new Rect(r.x,r.y,n,r.height),c); Fill(new Rect(r.xMax-n,r.y,n,r.height),c); }
-    static string CropGlyph(string id){ return id=="pea_shooter"?"豌":id=="sunflower"?"葵":id=="watermelon"?"瓜":id=="cabbage"?"菜":id=="wheat"?"麦":id=="carrot"?"萝":id=="corn"?"玉":id=="pumpkin"?"南":"月"; }
-    static string SkillGlyph(string id){ return id=="straw_smash"?"稻":id=="vine_bind"?"藤":id=="earth_dash"?"遁":"烟"; }
-    static string ConsumableGlyph(string id){ return id=="herb_kit"?"药":id=="thorn_storm"?"棘":"信"; }
+    static string CropGlyph(string id){ return id=="pea_shooter"?"🌱":id=="sunflower"?"🌻":id=="watermelon"?"🍉":id=="cabbage"?"🥬":id=="wheat"?"🌾":id=="carrot"?"🥕":id=="corn"?"🌽":id=="pumpkin"?"🎃":"🌿"; }
+    static string SkillGlyph(string id){ return id=="straw_smash"?"💥":id=="vine_bind"?"🌿":id=="earth_dash"?"💨":"🌫️"; }
+    static string ConsumableGlyph(string id){ return id=="herb_kit"?"💊":id=="thorn_storm"?"🌵":"🔥"; }
     static string ItemText(GroundLoot item){ return item==null?"":item.name; }
 
     static void DrawBar(float x,float y,float w,float h,float pct,Color fill,Color bg){ GUI.color=bg; GUI.DrawTexture(new Rect(x,y,w,h),white); GUI.color=fill; GUI.DrawTexture(new Rect(x,y,w*pct,h),white); GUI.color=Color.white; }
@@ -83,11 +83,23 @@ public static class UIHost
     }
 
     static void DrawMenu(GameFlow gf){
-        GUI.Label(new Rect(0,120,1280,90),"农庄牌",title);
-        GUI.Label(new Rect(0,210,1280,40),"荒 野 远 征",subtitle);
-        if(GUI.Button(new Rect(500,320,280,50),"开始游戏",btn)){ gf.StartGame(); }
-        if(GUI.Button(new Rect(500,380,280,50),"游戏说明",btn)){ gf.AddToast("WASD移动，左键攻击/交互，1-4技能，Q/R/E消耗品","success"); }
-        GUI.Label(new Rect(0,690,1280,20),"v1.9 · 农场卡牌 · 荒野远征 · 物资仓库&育种温室",small);
+        // 标题区域 - 添加装饰边框
+        Fill(new Rect(340,80,600,4),G.ParseColor("#7fff7f"));
+        Fill(new Rect(340,250,600,4),G.ParseColor("#7fff7f"));
+        Fill(new Rect(336,80,4,174),G.ParseColor("#7fff7f"));
+        Fill(new Rect(940,80,4,174),G.ParseColor("#7fff7f"));
+        GUI.Label(new Rect(0,100,1280,90),"🌾 农庄牌",title);
+        GUI.Label(new Rect(0,195,1280,40),"荒 野 远 征",subtitle);
+        // 副标题描述
+        GUI.Label(new Rect(0,270,1280,24),"农场经营 × 卡牌构筑 × 搜打撤撤离",Col2(G.ParseColor("#aaccaa"),16,TextAnchor.MiddleCenter));
+        // 按钮区域 - 更大更明显
+        var menuBtn=new GUIStyle(GUI.skin.button){fontSize=22,fontStyle=FontStyle.Bold,fixedHeight=60};
+        menuBtn.normal.textColor=Color.white;
+        if(GUI.Button(new Rect(440,340,400,60),"🌱 开始游戏",menuBtn)){ gf.StartGame(); }
+        if(GUI.Button(new Rect(440,420,400,60),"📖 游戏说明",menuBtn)){ gf.AddToast("WASD移动，左键攻击/交互，1-4技能，Q/R/E消耗品","success"); }
+        // 特色展示
+        GUI.Label(new Rect(200,520,880,30),"✨ 物资仓库  ·  🏡 育种温室  ·  ⚔️ T1-T4远征  ·  🚁 双撤离机制",Col2(G.ParseColor("#8ac8d8"),15,TextAnchor.MiddleCenter));
+        GUI.Label(new Rect(0,690,1280,20),"v1.9 · 农场卡牌 · 荒野远征",small);
     }
 
     static void DrawFarm(GameFlow gf){
@@ -129,9 +141,9 @@ public static class UIHost
         }
         float px=760;
         DrawPanel(px,80,492,126,"家园设施");
-        DrawFacility(px+12,120,148,72,"工","卡牌工坊",()=>gf.OpenWorkshop());
-        DrawFacility(px+172,120,148,72,"仓","物资仓库",()=>{ GreenhouseSystem.warehouseOpen=true; });
-        DrawFacility(px+332,120,148,72,"温","育种温室",()=>{ GreenhouseSystem.greenhouseOpen=true; GreenhouseSystem.Init(); });
+        DrawFacility(px+12,120,148,72,"🔨","卡牌工坊",()=>gf.OpenWorkshop());
+        DrawFacility(px+172,120,148,72,"📦","物资仓库",()=>{ GreenhouseSystem.warehouseOpen=true; });
+        DrawFacility(px+332,120,148,72,"🏡","育种温室",()=>{ GreenhouseSystem.greenhouseOpen=true; GreenhouseSystem.Init(); });
         float sy2=218; DrawPanel(px,sy2,492,132,"家园补给站");
         GUI.Label(new Rect(px+12,sy2+34,160,24),"生长催化剂 ×"+GreenhouseSystem.GetWarehouseCount("growth_catalyst"),small);
         if(GUI.Button(new Rect(px+174,sy2+30,122,32),"使用催化剂")){ gf.UseCatalyst(); }
@@ -148,7 +160,14 @@ public static class UIHost
     static float CropProgress(Plot p){ if(p.crop==null) return 0; double now=DateTime.Now.Ticks/(double)TimeSpan.TicksPerMillisecond; double elapsed=(now-p.plantedAt)/1000.0; float f=p.status=="drought"?0.55f:p.status=="pest"?0.72f:p.status=="weeds"?0.82f:1f; double pr=(elapsed*f)/p.crop.growTime; return (float)Math.Min(1,Math.Max(0,pr)); }
     static string StatusIcon(string s){ return s=="drought"?"缺水":s=="pest"?"虫害":"杂草"; }
     static void DrawResourceBadge(float x,float y,float w,string name,int value,Color c){ Fill(new Rect(x,y,w,38),new Color(0.04f,0.12f,0.085f,0.96f)); Outline(new Rect(x,y,w,38),new Color(c.r,c.g,c.b,0.52f),1); GUI.Label(new Rect(x+8,y+6,w-16,26),name+"  "+value,Col2(c,15,TextAnchor.MiddleCenter)); }
-    static void DrawFacility(float x,float y,float w,float h,string icon,string name,Action onClick){ DrawPanel(x,y,w,h,""); GUI.Label(new Rect(x,y+4,w,30),icon,Col2(Color.white,26,TextAnchor.MiddleCenter)); GUI.Label(new Rect(x,y+38,w,22),name,Col2(Color.white,13,TextAnchor.MiddleCenter)); if(GUI.Button(new Rect(x,y,w,h),"",new GUIStyle())) onClick(); }
+    static void DrawFacility(float x,float y,float w,float h,string icon,string name,Action onClick){
+        DrawPanel(x,y,w,h,"");
+        // 图标背景
+        Fill(new Rect(x+w/2-22,y+8,44,44),new Color(0.15f,0.25f,0.18f,0.9f));
+        GUI.Label(new Rect(x,y+10,w,40),icon,Col2(Color.white,28,TextAnchor.MiddleCenter));
+        GUI.Label(new Rect(x,y+h-26,w,22),name,Col2(G.ParseColor("#e8d8a8"),13,TextAnchor.MiddleCenter));
+        if(GUI.Button(new Rect(x,y,w,h),"",new GUIStyle())) onClick();
+    }
     static void DrawPanel(float x,float y,float w,float h,string t){ GUI.color=new Color(0,0,0,0.5f); GUI.DrawTexture(new Rect(x,y,w,h),white); GUI.color=Color.white; if(!string.IsNullOrEmpty(t)){ GUI.Label(new Rect(x+12,y+8,w-24,26),t,panelTitle); } }
 
     static void DrawPrep(GameFlow gf){

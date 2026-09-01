@@ -104,15 +104,51 @@ public class WorldRenderer
 
     void BuildEntities(Expedition exp){
         circleSpr = MakeColorSprite(new Color(1,1,1,1));
-        // 玩家
+        // 玩家 - 用更大更明显的精灵
         var pgo=new GameObject("Player"); pgo.transform.SetParent(root.transform);
-        playerSprite=pgo.AddComponent<SpriteRenderer>(); playerSprite.sprite=MakeColorSprite(G.ParseColor("#c84e2f")); playerSprite.sortingOrder=10;
-        playerSprite.transform.localScale=new Vector3(0.9f,0.9f,1f);
-        playerSprite.transform.position=new Vector3(exp.player.x*S,0,exp.player.y*S);
+        playerSprite=pgo.AddComponent<SpriteRenderer>();
+        playerSprite.sprite=MakePlayerSprite();
+        playerSprite.sortingOrder=100;
+        playerSprite.transform.localScale=new Vector3(2.2f,2.2f,1f);
+        playerSprite.transform.position=new Vector3(exp.player.x*S,0.1f,exp.player.y*S);
+        // 立即设置相机到玩家位置，避免Lerp延迟导致看不到玩家
+        if(Camera.main!=null){
+            var cam=Camera.main;
+            cam.transform.position=new Vector3(exp.player.x*S, 14f, exp.player.y*S-11f);
+            cam.transform.rotation=Quaternion.Euler(58f,0,0);
+            cam.orthographic=false;
+            cam.fieldOfView=55f;
+            cam.nearClipPlane=0.1f;
+            cam.farClipPlane=200f;
+            cam.clearFlags=CameraClearFlags.SolidColor;
+            cam.backgroundColor=new Color(0.08f,0.12f,0.08f,1);
+        }
         // 怪物
         foreach(var m in exp.monsters) AddMonster(m);
         // 障碍
-        foreach(var o in exp.obstacles){ var spr=ObstacleSprite(o.type); var go=new GameObject("O_"+o.type); go.transform.SetParent(root.transform); var sr=go.AddComponent<SpriteRenderer>(); sr.sprite=spr; obstacles.Add(new EntityRef{sr=sr,o=o}); }
+        foreach(var o in exp.obstacles){ var spr=ObstacleSprite(o.type); var go=new GameObject("O_"+o.type); go.transform.SetParent(root.transform); var sr=go.AddComponent<SpriteRenderer>(); sr.sprite=spr; sr.transform.localScale=new Vector3(1.5f,1.5f,1f); obstacles.Add(new EntityRef{sr=sr,o=o}); }
+    }
+    // 制作更明显的玩家精灵（农夫角色简化版）
+    static Sprite MakePlayerSprite(){
+        const int n=64; var t=new Texture2D(n,n,TextureFormat.RGBA32,false); var px=new Color32[n*n];
+        for(int y=0;y<n;y++) for(int x=0;x<n;x++){
+            float dx=x-(n-1)*0.5f, dy=y-(n-1)*0.5f;
+            float dist=Mathf.Sqrt(dx*dx+dy*dy);
+            Color32 c=new Color32(0,0,0,0);
+            // 身体（红色衣服）
+            if(dist<22 && y>n*0.35f && y<n*0.85f){ c=new Color32(200,78,47,255); }
+            // 头部（肤色）
+            if(dist<14 && y>n*0.1f && y<n*0.4f){ c=new Color32(239,176,146,255); }
+            // 帽子（草帽）
+            if(dy<-10 && Mathf.Abs(dx)<18 && y<n*0.18f){ c=new Color32(216,184,93,255); }
+            // 眼睛
+            if(Mathf.Abs(dx-4)<2 && Mathf.Abs(dy-6)<2){ c=new Color32(42,33,29,255); }
+            if(Mathf.Abs(dx+4)<2 && Mathf.Abs(dy-6)<2){ c=new Color32(42,33,29,255); }
+            // 边框光晕
+            if(dist>20 && dist<24){ c=new Color32(255,220,100,128); }
+            px[y*n+x]=c;
+        }
+        t.SetPixels32(px); t.Apply(); return Sprite.Create(t,new Rect(0,0,n,n),new Vector2(0.5f,0.5f),64f);
     }
     public int NumMonsterRenders(){ int n=0; foreach(var er in monsters) if(er.sr!=null&&er.sr.enabled) n++; return n; }
     Sprite MonsterSprite(Monster m){ return m.type=="boss"?SpriteStore.Boss(LastTier):SpriteStore.Monster(m.type,m.hitFlash>0?"hit":(m.state=="death"?"death":(m.state=="attack"?"attack":"idle"))); }
