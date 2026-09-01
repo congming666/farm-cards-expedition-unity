@@ -263,7 +263,7 @@ public static class UIHost
         GUI.Label(new Rect(220,100,300,20),"仓库容量："+used+" / "+cap,label);
         DrawBar(220,124,400,14,Mathf.Clamp01((float)used/cap),G.ParseColor("#5a9a5a"),new Color(0.13f,0.13f,0.13f,1));
 
-        if(GUI.Button(new Rect(660,100,180,40),"一键出售作物",new GUIStyle(GUI.skin.button){fontSize=14}))){
+        if(GUI.Button(new Rect(660,100,180,40),"一键出售作物",new GUIStyle(GUI.skin.button){fontSize=14})){
             // 出售所有作物类物品
             var toRemove = new List<string>();
             foreach(var kv in GameState.warehouseItems){
@@ -273,7 +273,7 @@ public static class UIHost
             foreach(var id in toRemove) GameState.warehouseItems.Remove(id);
             if(toRemove.Count > 0){ gf.AddToast("一键出售完成","gold"); SaveSystem.Save(); }
         }
-        if(GUI.Button(new Rect(860,100,200,40),"扩建仓库 (+25)\n💰"+GreenhouseSystem.GetWarehouseUpgradeCost(),new GUIStyle(GUI.skin.button){fontSize=12}))){
+        if(GUI.Button(new Rect(860,100,200,40),"扩建仓库 (+25)\n💰"+GreenhouseSystem.GetWarehouseUpgradeCost(),new GUIStyle(GUI.skin.button){fontSize=12})){
             GreenhouseSystem.UpgradeWarehouse();
         }
 
@@ -297,7 +297,7 @@ public static class UIHost
                 if(GUI.Button(new Rect(bx+8,by+52,82,30),"出售 💰"+sellPrice,new GUIStyle(GUI.skin.button){fontSize=11})){
                     GreenhouseSystem.SellWarehouseItem(kv.Key, 1);
                 }
-                if(GUI.Button(new Rect(bx+96,by+52,86,30),"全部出售",new GUIStyle(GUI.skin.button){fontSize=11}))){
+                if(GUI.Button(new Rect(bx+96,by+52,86,30),"全部出售",new GUIStyle(GUI.skin.button){fontSize=11})){
                     GreenhouseSystem.SellWarehouseItem(kv.Key, kv.Value);
                 }
             } else {
@@ -400,7 +400,7 @@ public static class UIHost
             GUI.Label(new Rect(648,dy+4,40,42),def.icon,Col2(Color.white,24,TextAnchor.MiddleCenter));
             GUI.Label(new Rect(694,dy+6,200,18),def.name+" ×"+kv.Value,Col2(Color.white,13,TextAnchor.MiddleLeft));
             GUI.Label(new Rect(694,dy+24,200,18),def.desc,Col2(new Color(0.7f,0.7f,0.7f,1),10,TextAnchor.MiddleLeft));
-            if(GUI.Button(new Rect(900,dy+10,72,30),"使用",new GUIStyle(GUI.skin.button){fontSize=12}))){
+            if(GUI.Button(new Rect(900,dy+10,72,30),"使用",new GUIStyle(GUI.skin.button){fontSize=12})){
                 GreenhouseSystem.UseDropItem(kv.Key);
             }
             dy += 56;
