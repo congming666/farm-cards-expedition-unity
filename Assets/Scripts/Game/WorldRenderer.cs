@@ -109,16 +109,17 @@ public class WorldRenderer
         playerSprite=pgo.AddComponent<SpriteRenderer>();
         playerSprite.sprite=MakePlayerSprite();
         playerSprite.sortingOrder=100;
-        playerSprite.transform.localScale=new Vector3(2.2f,2.2f,1f);
+        playerSprite.transform.localScale=new Vector3(4f,4f,1f);
         playerSprite.transform.position=new Vector3(exp.player.x*S,0.1f,exp.player.y*S);
         // 立即设置相机到玩家位置，避免Lerp延迟导致看不到玩家
         if(Camera.main!=null){
             var cam=Camera.main;
+            // 保持正交相机（与GameSceneBoot一致）
+            cam.orthographic=true;
+            cam.orthographicSize=9f;
             cam.transform.position=new Vector3(exp.player.x*S, 14f, exp.player.y*S-11f);
             cam.transform.rotation=Quaternion.Euler(58f,0,0);
-            cam.orthographic=false;
-            cam.fieldOfView=55f;
-            cam.nearClipPlane=0.1f;
+            cam.nearClipPlane=0.3f;
             cam.farClipPlane=200f;
             cam.clearFlags=CameraClearFlags.SolidColor;
             cam.backgroundColor=new Color(0.08f,0.12f,0.08f,1);
@@ -128,24 +129,28 @@ public class WorldRenderer
         // 障碍
         foreach(var o in exp.obstacles){ var spr=ObstacleSprite(o.type); var go=new GameObject("O_"+o.type); go.transform.SetParent(root.transform); var sr=go.AddComponent<SpriteRenderer>(); sr.sprite=spr; sr.transform.localScale=new Vector3(1.5f,1.5f,1f); obstacles.Add(new EntityRef{sr=sr,o=o}); }
     }
-    // 制作更明显的玩家精灵（农夫角色简化版）
+    // 制作更明显的玩家精灵（简单可靠的农夫角色）
     static Sprite MakePlayerSprite(){
         const int n=64; var t=new Texture2D(n,n,TextureFormat.RGBA32,false); var px=new Color32[n*n];
         for(int y=0;y<n;y++) for(int x=0;x<n;x++){
-            float dx=x-(n-1)*0.5f, dy=y-(n-1)*0.5f;
+            float dx=x-32f, dy=y-32f;
             float dist=Mathf.Sqrt(dx*dx+dy*dy);
             Color32 c=new Color32(0,0,0,0);
-            // 身体（红色衣服）
-            if(dist<22 && y>n*0.35f && y<n*0.85f){ c=new Color32(200,78,47,255); }
-            // 头部（肤色）
-            if(dist<14 && y>n*0.1f && y<n*0.4f){ c=new Color32(239,176,146,255); }
-            // 帽子（草帽）
-            if(dy<-10 && Mathf.Abs(dx)<18 && y<n*0.18f){ c=new Color32(216,184,93,255); }
-            // 眼睛
-            if(Mathf.Abs(dx-4)<2 && Mathf.Abs(dy-6)<2){ c=new Color32(42,33,29,255); }
-            if(Mathf.Abs(dx+4)<2 && Mathf.Abs(dy-6)<2){ c=new Color32(42,33,29,255); }
-            // 边框光晕
-            if(dist>20 && dist<24){ c=new Color32(255,220,100,128); }
+            // 外发光边框（金色）
+            if(dist<30 && dist>26){ c=new Color32(255,220,100,200); }
+            // 身体（红色衣服）- 下半部分
+            if(dist<26 && y>=36){ c=new Color32(200,78,47,255); }
+            // 头部（肤色）- 上半部分
+            if(dist<20 && y<36 && y>=16){ c=new Color32(239,176,146,255); }
+            // 草帽（黄色）- 顶部
+            if(dist<24 && y<18){ c=new Color32(216,184,93,255); }
+            // 帽檐
+            if(y>=14 && y<=20 && Mathf.Abs(dx)<22 && dist>15){ c=new Color32(180,150,70,255); }
+            // 眼睛（黑色）
+            if(Mathf.Abs(dx-5)<3 && Mathf.Abs(dy+2)<3 && y>=24 && y<=32){ c=new Color32(30,20,15,255); }
+            if(Mathf.Abs(dx+5)<3 && Mathf.Abs(dy+2)<3 && y>=24 && y<=32){ c=new Color32(30,20,15,255); }
+            // 腰带（棕色）
+            if(y>=44 && y<=48 && dist<24){ c=new Color32(100,60,30,255); }
             px[y*n+x]=c;
         }
         t.SetPixels32(px); t.Apply(); return Sprite.Create(t,new Rect(0,0,n,n),new Vector2(0.5f,0.5f),64f);
