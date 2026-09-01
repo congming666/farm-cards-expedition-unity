@@ -332,7 +332,7 @@ public static class UIHost
             GUI.Label(new Rect(px+4,114,127,24),(unlocked?plant.icon:"🔒")+" "+plant.name,Col2(unlocked?Color.white:new Color(0.5f,0.5f,0.5f,1),13,TextAnchor.MiddleCenter));
             GUI.color=Color.white;
             GUI.Label(new Rect(px+4,138,127,16),plant.growTime+"秒 · 💰"+plant.seedPrice,Col2(new Color(0.7f,0.7f,0.7f,1),10,TextAnchor.MiddleCenter));
-            if(unlocked && GUI.Button(new Rect(px,110,135,60),new GUIStyle{normal={background=null}})){
+            if(unlocked && GUI.Button(new Rect(px,110,135,60),"",new GUIStyle{normal={background=null}})){
                 GameState.selectedGreenhousePlant = plant.id;
             }
             if(selected && unlocked){
@@ -356,7 +356,7 @@ public static class UIHost
                 GUI.Box(new Rect(cx,cy,gs-6,gs-6),"");
                 GUI.Label(new Rect(cx,cy+20,gs-6,20),"🔒",Col2(Color.white,20,TextAnchor.MiddleCenter));
                 GUI.Label(new Rect(cx,cy+42,gs-6,16),"💰"+goldCost+" 🔧"+matCost,Col2(new Color(0.7f,0.7f,0.7f,1),10,TextAnchor.MiddleCenter));
-                if(i == GameState.greenhouseUnlockedPlots && GUI.Button(new Rect(cx,cy,gs-6,gs-6),new GUIStyle{normal={background=null}})){
+                if(i == GameState.greenhouseUnlockedPlots && GUI.Button(new Rect(cx,cy,gs-6,gs-6),"",new GUIStyle{normal={background=null}})){
                     GreenhouseSystem.UnlockPlot(i);
                 }
             } else if(plot.plant != null){
@@ -373,7 +373,7 @@ public static class UIHost
                     DrawBar(cx+8,cy+56,gs-22,8,progress,G.ParseColor("#5a9a5a"),new Color(0.13f,0.13f,0.13f,1));
                     GUI.Label(new Rect(cx,cy+66,gs-6,12),Mathf.FloorToInt(progress*100)+"%",Col2(new Color(0.7f,0.7f,0.7f,1),9,TextAnchor.MiddleCenter));
                 }
-                if(GUI.Button(new Rect(cx,cy,gs-6,gs-6),new GUIStyle{normal={background=null}})){
+                if(GUI.Button(new Rect(cx,cy,gs-6,gs-6),"",new GUIStyle{normal={background=null}})){
                     if(plot.ready) GreenhouseSystem.Harvest(i);
                     else gf.AddToast("还没成熟呢","warning");
                 }
@@ -381,7 +381,7 @@ public static class UIHost
                 GUI.Box(new Rect(cx,cy,gs-6,gs-6),"");
                 GUI.Label(new Rect(cx,cy+24,gs-6,24),"➕",Col2(new Color(0.4f,0.6f,0.4f,1),20,TextAnchor.MiddleCenter));
                 GUI.Label(new Rect(cx,cy+50,gs-6,16),"播种",Col2(new Color(0.5f,0.7f,0.5f,1),11,TextAnchor.MiddleCenter));
-                if(GUI.Button(new Rect(cx,cy,gs-6,gs-6),new GUIStyle{normal={background=null}})){
+                if(GUI.Button(new Rect(cx,cy,gs-6,gs-6),"",new GUIStyle{normal={background=null}})){
                     GreenhouseSystem.Plant(i);
                 }
             }
