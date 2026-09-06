@@ -28,8 +28,58 @@ public partial class Expedition
             MoveEntityWithCollisions(m,(float)Math.Cos(angle)*m.speed*0.3f*dt,(float)Math.Sin(angle)*m.speed*0.3f*dt);
         }
         // 首领与特殊能力（沿 web updateWorldSystems）
-        if(m.type=="boss" && m.abilityCd<=0){ m.phase=m.hp/m.maxHp<0.5f?2:1; m.abilityCd=m.phase==2?2.7f:4.2f; SpawnAoeEffect(player.x,player.y,88,"#d59aff","ring"); if(d<155) DamagePlayer(m.damage*0.72f); }
-        if(m.type=="boar" && m.abilityCd<=0 && d>120 && d<275){ m.abilityCd=5.5f; m.x+=(float)Math.Cos(Math.Atan2(player.y-m.y,player.x-m.x))*64; m.y+=(float)Math.Sin(Math.Atan2(player.y-m.y,player.x-m.x))*64; SpawnAoeEffect(m.x,m.y,42,"#e9a15e","ring"); }
+        if(m.type=="boss" && m.abilityCd<=0){ m.phase=m.hp/m.maxHp<0.5f?2:1; m.abilityCd=m.phase==2?2.6f:4.0f; CastBossAbility(m,d,(float)Math.Atan2(player.y-m.y,player.x-m.x)); }
+        if(m.type=="boar" && m.abilityCd<=0 && d>120 && d<275){ m.abilityCd=5.5f; float ba=(float)Math.Atan2(player.y-m.y,player.x-m.x); m.x+=(float)Math.Cos(ba)*64; m.y+=(float)Math.Sin(ba)*64; SpawnAoeEffect(m.x,m.y,42,"#e9a15e","ring"); }
+    }
+
+    void CastBossAbility(Monster boss, float d, float angle){
+        bool phase2 = boss.phase == 2;
+        int idx = boss.abilityIndex % 4;
+        boss.abilityIndex++;
+        float dmgMul = phase2 ? 1.3f : 1f;
+        if(idx == 0){
+            // 地裂震荡：玩家脚下AOE + 冲击环
+            SpawnAoeEffect(player.x, player.y, phase2 ? 110 : 88, "#d59aff", "ring");
+            SpawnShockRing(player.x, player.y, "#d59aff", phase2 ? 110 : 88);
+            if(d < (phase2 ? 175 : 155)) DamagePlayer(boss.damage * 0.72f * dmgMul);
+        } else if(idx == 1){
+            // 狂暴冲锋：向玩家突进 + 路径火花 + 终点冲击
+            float dashDist = phase2 ? 170 : 140;
+            boss.x = G.Clamp(boss.x + (float)Math.Cos(angle) * dashDist, 60, 2260);
+            boss.y = G.Clamp(boss.y + (float)Math.Sin(angle) * dashDist, 60, 2260);
+            for(int i = 0; i < 10; i++) SpawnHitParticles(boss.x - (float)Math.Cos(angle)*i*14, boss.y - (float)Math.Sin(angle)*i*14, "#ff9a3c");
+            SpawnShockRing(boss.x, boss.y, "#ff9a3c", 72);
+            if(d < 115) DamagePlayer(boss.damage * 0.9f * dmgMul);
+        } else if(idx == 2){
+            // 召唤兽群
+            int count = phase2 ? 3 : 2;
+            string[] types = {"wolf","spider","bat"};
+            for(int i = 0; i < count; i++){
+                float a = angle + (i - (count-1)/2f) * 0.6f;
+                float sx = G.Clamp(boss.x + (float)Math.Cos(a)*95, 60, 2260);
+                float sy = G.Clamp(boss.y + (float)Math.Sin(a)*95, 60, 2260);
+                SpawnAoeEffect(sx, sy, 38, "#9affd5", "ring");
+                string type = types[G.RandInt(0, types.Length-1)];
+                var data = GameData.Monsters[type];
+                monsters.Add(new Monster{ type=type,name=data.name,icon=data.icon,
+                    hp=(int)Math.Round(data.hp*balance.enemyHp*0.6), maxHp=(int)Math.Round(data.hp*balance.enemyHp*0.6),
+                    damage=Math.Max(2,(int)Math.Round(data.damage*balance.enemyDamage*0.7)),
+                    speed=data.speed*balance.enemySpeed, radius=data.radius,collisionRadius=data.collisionRadius,
+                    attackRange=data.attackRange,attackCooldown=data.attackCooldown,
+                    x=sx,y=sy,facing=a,animTime=0,elite=false,beastWave=false,state="idle" });
+            }
+        } else {
+            // 暗影弹幕：扇形投射物
+            int count = phase2 ? 8 : 6;
+            string color = phase2 ? "#ff6b9d" : "#d59aff";
+            for(int i = 0; i < count; i++){
+                float a = angle + (i - (count-1)/2f) * 0.18f;
+                projectiles.Add(new Projectile{ x=boss.x+(float)Math.Cos(a)*40, y=boss.y+(float)Math.Sin(a)*40,
+                    vx=(float)Math.Cos(a)*260, vy=(float)Math.Sin(a)*260,
+                    damage=boss.damage*0.45f*dmgMul, life=2.2f, fromMonster=true, radius=9, color=color });
+            }
+            SpawnMuzzleEffect(boss.x, boss.y, angle, color);
+        }
     }
 
     void UpdateRaiders(float dt){
@@ -60,7 +110,7 @@ public partial class Expedition
             if(p.life<=0){ projectiles.RemoveAt(i); continue; }
             if(p.fromTower){ if(p.target!=null){ var mt=p.target as Monster; if(mt==null||mt.hp<=0){ projectiles.RemoveAt(i); continue; } } continue; }
             if(p.fromPlayer){ bool remove=false;
-                foreach(var m in monsters){ if(m.hp<=0||p.hit.Contains(m)) continue; if(G.Dist(p.x,p.y,m.x,m.y)<m.radius+p.radius){ DamageEnemy(m,p.damage,p.color,p.weaponId=="vine_staff"); m.visualVz=Math.Max(m.visualVz,p.weaponId=="vine_staff"?82:52); p.hit.Add(m); if(p.weaponId=="vine_staff") m.stunned=Math.Max(m.stunned,0.18f); int pierce=int.TryParse(p.pierce,out var pi)?pi:1; p.pierce=(pierce-1).ToString(); if(pierce<=1){ remove=true; break; } } }
+                foreach(var m in monsters){ if(m.hp<=0||p.hit.Contains(m)) continue; if(G.Dist(p.x,p.y,m.x,m.y)<m.radius+p.radius){ DamageEnemy(m,p.damage,p.color,p.weaponId=="vine_staff"); m.visualVz=Math.Max(m.visualVz,p.weaponId=="vine_staff"?82:52); p.hit.Add(m); int pierce=int.TryParse(p.pierce,out var pi)?pi:1; p.pierce=(pierce-1).ToString(); if(pierce<=1){ remove=true; break; } } }
                 foreach(var r in raiders){ if(r.hp<=0||p.hit.Contains(r)) continue; if(G.Dist(p.x,p.y,r.x,r.y)<r.radius+p.radius){ DamageRaider(r,p.damage,p.color); p.hit.Add(r); int pierce=int.TryParse(p.pierce,out var pi)?pi:1; p.pierce=(pierce-1).ToString(); if(pierce<=1){ remove=true; break; } } }
                 if(remove){ projectiles.RemoveAt(i); continue; }
             }
@@ -84,9 +134,13 @@ public partial class Expedition
     public void PlayerAttack(){ if(player.attackCd>0) return; player.attackCd=weapon.cooldown;
         float wx=mouse.x+camera.x, wy=mouse.y+camera.y; float angle=(float)Math.Atan2(wy-player.y,wx-player.x); player.angle=angle;
         weaponPulse=0.18f; attackAnim=0.24f;
-        if(weapon.mode=="melee"){ foreach(var m in monsters){ if(m.hp<=0) continue; float d=G.Dist(m.x,m.y,player.x,player.y); if(d<weapon.range){ float ma=(float)Math.Atan2(m.y-player.y,m.x-player.x); float ad=(float)Math.Abs(((ma-angle+Math.PI*3)%(Math.PI*2))-Math.PI); if(ad<Math.PI/2){ DamageEnemy(m,weapon.damage,weapon.color,true); m.stunned=Math.Max(m.stunned,0.2f); m.visualVz=Math.Max(m.visualVz,105); } } }
+        attackCombo=(attackCombo+1)%3; int combo=attackCombo;
+        if(weapon.mode=="melee"){
+            float lungePower = new[]{10f,13f,17f}[combo];
+            player.x += (float)Math.Cos(angle)*lungePower; player.y += (float)Math.Sin(angle)*lungePower;
+            foreach(var m in monsters){ if(m.hp<=0) continue; float d=G.Dist(m.x,m.y,player.x,player.y); if(d<weapon.range){ float ma=(float)Math.Atan2(m.y-player.y,m.x-player.x); float ad=(float)Math.Abs(((ma-angle+Math.PI*3)%(Math.PI*2))-Math.PI); if(ad<Math.PI/2){ DamageEnemy(m,weapon.damage,weapon.color,combo==2); m.stunned=Math.Max(m.stunned,combo==2?0.45f:0.25f); m.visualVz=Math.Max(m.visualVz,combo==2?120:95); } } }
             foreach(var r in raiders){ if(r.hp<=0) continue; float d=G.Dist(r.x,r.y,player.x,player.y); if(d<weapon.range){ float ma=(float)Math.Atan2(r.y-player.y,r.x-player.x); float ad=(float)Math.Abs(((ma-angle+Math.PI*3)%(Math.PI*2))-Math.PI); if(ad<Math.PI/2){ DamageRaider(r,weapon.damage,weapon.color); } } }
-            SpawnSlashEffect(player.x,player.y,angle,weapon.color,64);
+            SpawnSlashEffect(player.x,player.y,angle,weapon.color,combo==2?70:58);
         } else { projectiles.Add(new Projectile{ x=player.x+(float)Math.Cos(angle)*24,y=player.y+(float)Math.Sin(angle)*24,vx=(float)Math.Cos(angle)*weapon.projectileSpeed,vy=(float)Math.Sin(angle)*weapon.projectileSpeed,damage=weapon.damage,life=weapon.range/weapon.projectileSpeed,radius=7,fromPlayer=true,weaponId=weapon.id,pierce=(weapon.pierce>0?weapon.pierce:1).ToString(),color=weapon.color }); SpawnMuzzleEffect(player.x,player.y,angle,weapon.color); } }
 
     public void TryInteract(){ float wx=mouse.x+camera.x, wy=mouse.y+camera.y;
@@ -159,10 +213,17 @@ public partial class Expedition
         if(player.hp<=0){ player.hp=0; PlayerDeath(); }
     }
 
-    void SpawnKillFeedback(Monster m){ bool boss=m.type=="boss"; killFlash=Math.Max(killFlash,boss?0.22f:0.11f); hitStop=Math.Max(hitStop,boss?0.13f:0.07f); screenShake=Math.Max(screenShake,boss?1:0.65f); SpawnRadialBurst(m.x,m.y,boss?"#ffe8a0":"#ff7868",boss?30:18); }
+    void SpawnKillFeedback(Monster m){ bool boss=m.type=="boss";
+        killFlash=Math.Max(killFlash,boss?0.10f:0.06f);
+        hitStop=Math.Max(hitStop,boss?0.07f:0.05f);
+        screenShake=Math.Max(screenShake,boss?0.45f:0.35f);
+        SpawnRadialBurst(m.x,m.y,boss?"#ffe8a0":"#ff7868",boss?18:14);
+        SpawnImpact(m.x,m.y,"#fff2c0",boss?1.2f:1.0f);
+        SpawnShockRing(m.x,m.y,boss?"#ffca7a":"#ff9a6a",boss?72:44);
+    }
 
     void SpawnBoss(){ if(bossSpawned) return; bossSpawned=true; var pos=FindSafeSpawn(650,2050,46);
-        boss=new Monster{ type="boss", name=new[]{"苔岩裂颚兽","幽潮骨翼龙","霜脉巨灵","紫月灾兽"}[map.tier-1], x=pos.Item1,y=pos.Item2,radius=46,hp=balance.bossHp,maxHp=balance.bossHp,damage=balance.bossDamage,speed=76+map.tier*5,attackRange=70,attackCd=1.5f,abilityCd=4,phase=1,elite=true,gold=100*map.tier };
+        boss=new Monster{ type="boss", name=new[]{"苔岩裂颚兽","幽潮骨翼龙","霜脉巨灵","紫月灾兽"}[map.tier-1], x=pos.Item1,y=pos.Item2,radius=46,hp=balance.bossHp,maxHp=balance.bossHp,damage=balance.bossDamage,speed=76+map.tier*5,attackRange=70,attackCd=1.5f,abilityCd=4,abilityIndex=0,phase=1,elite=true,gold=100*map.tier };
         monsters.Add(boss); Toast("区域首领「"+boss.name+"」已现身","warning");
     }
 

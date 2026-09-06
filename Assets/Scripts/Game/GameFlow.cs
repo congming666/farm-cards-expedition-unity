@@ -81,7 +81,9 @@ public class GameFlow : MonoBehaviour
 
     // ------------- 主循环 -------------
     void Update(){
-        if(screen=="expedition" && current!=null && !current.gameOver){
+        if(Keyboard.current!=null && Keyboard.current[Key.F10].wasPressedThisFrame) SettingsPanel.ToggleInstance();
+        bool freezeForSettings = SettingsPanel.IsOpenAny;
+        if(screen=="expedition" && current!=null && !current.gameOver && !freezeForSettings){
             PollInput();
             float frameTime=Math.Min(Time.deltaTime,0.25f);
             if(current.paused){
@@ -168,8 +170,7 @@ public class GameFlow : MonoBehaviour
             backend.hasExpedition=false;
         }
         UIHost.DrawUI(this);
-        // 世界浮动文字（远征中）
-        if(screen=="expedition" && current!=null){ DrawWorldOverlays(); }
+        // 世界浮动文字/交互提示已迁到 UGUI GlobalOverlay
         GUI.matrix=Matrix4x4.identity;
     }
 
@@ -190,7 +191,7 @@ public class GameFlow : MonoBehaviour
         }
     }
     // 计算最近可交互物提示（宝箱/塔/撤离点）
-    (float x,float y,string text)? InteractPrompt(){
+    public (float x,float y,string text)? InteractPrompt(){
         if(current==null) return null;
         var p=current.player;
         foreach(var c in current.chests){ if(!c.opened && current.IsWorldVisible(c.x,c.y) && G.Dist(p.x,p.y,c.x,c.y)<60) return (c.x,c.y,"左键打开宝箱"); }
@@ -210,12 +211,14 @@ public class GameFlow : MonoBehaviour
         GUI.color=Color.white;
     }
 
-    Canvas2D mmCanvas; Texture2D mmTex;
+    Canvas2D mmCanvas; public Texture2D mmTex; float mmTimer;
     void DrawMinimap(){
         if(current==null) return;
         if(mmCanvas==null){ mmCanvas=new Canvas2D(160,160); mmTex=new Texture2D(160,160,TextureFormat.RGBA32,false); }
-        current.RenderMinimap(mmCanvas,current.camera); mmCanvas.UploadTo(mmTex);
-        var r=backend.viewRect; float sc=r.width/1280f; float size=160*sc; GUI.DrawTexture(new Rect(r.x+r.width-size-12*sc,r.y+r.height-size-12*sc,size,size),mmTex);
+        // 小地图静态信息为主，降到 10Hz 重建上传（纹理仍每帧显示），避免每帧 SetPixels32+Apply
+        mmTimer-=Time.unscaledDeltaTime;
+        if(mmTimer<=0f){ mmTimer=0.1f; current.RenderMinimap(mmCanvas,current.camera); mmCanvas.UploadTo(mmTex); }
+        // 显示已迁到 UGUI（ExpeditionHUD 的 RawImage），这里只负责 10Hz 生成纹理
     }
 
     // 供 UI 调用的资源按钮

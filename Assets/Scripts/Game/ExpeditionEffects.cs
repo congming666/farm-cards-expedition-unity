@@ -1,11 +1,25 @@
 using System;
 using System.Collections.Generic;
 
-// ============ 远征特效（移植自 expedition.js spawn* 系列） ============
+// ============ 远征特效（移植自 expedition.js spawn* 系列，已加双层层次） ============
 public partial class Expedition
 {
-    public void SpawnAoeEffect(float x,float y,float size,string color,string type){ particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.5f,maxLife=0.5f,color=color,size=size,type="aoe" }); }
-    public void SpawnSlashEffect(float x,float y,float angle,string color,float size){ particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.2f,maxLife=0.2f,color=color,size=size,angle=angle,type="slash" }); }
+    public void SpawnAoeEffect(float x,float y,float size,string color,string type){
+        particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.5f,maxLife=0.5f,color=color,size=size,type="aoe" });
+        particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.35f,maxLife=0.35f,color="#ffffff",size=size*0.6f,type="aoe" });
+    }
+    public void SpawnSlashEffect(float x,float y,float angle,string color,float size){
+        particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.2f,maxLife=0.2f,color=color,size=size,angle=angle,type="slash" });
+        particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.14f,maxLife=0.14f,color="#ffffff",size=size*0.7f,angle=angle,type="slash" });
+    }
+    public void SpawnImpact(float x,float y,string color,float scale=1f){
+        particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.22f,maxLife=0.22f,color=color,size=10f*scale,type="impact" });
+        particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.28f,maxLife=0.28f,color=color,size=18f*scale,type="shock" });
+    }
+    public void SpawnShockRing(float x,float y,string color,float size=46f){
+        particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.3f,maxLife=0.3f,color=color,size=size,type="shock" });
+        particles.Add(new Particle{ x=x,y=y,vx=0,vy=0,life=0.2f,maxLife=0.2f,color="#ffffff",size=size*0.55f,type="shock" });
+    }
     public void SpawnMuzzleEffect(float x,float y,float angle,string color){ for(int i=0;i<6;i++){ float spread=angle+G.Rand(-0.32f,0.32f); particles.Add(new Particle{ x=x+(float)Math.Cos(angle)*22,y=y+(float)Math.Sin(angle)*22,vx=(float)Math.Cos(spread)*G.Rand(65,150),vy=(float)Math.Sin(spread)*G.Rand(65,150),life=0.22f,maxLife=0.22f,color=color,size=G.Rand(2,5),type="spark" }); } }
     public void SpawnRadialBurst(float x,float y,string color,int count){ for(int i=0;i<count;i++){ float angle=(float)(Math.PI*2*i/count)+G.Rand(-0.1f,0.1f); particles.Add(new Particle{ x=x,y=y,vx=(float)Math.Cos(angle)*G.Rand(100,230),vy=(float)Math.Sin(angle)*G.Rand(100,230),life=0.48f,maxLife=0.48f,color=color,size=G.Rand(3,7),type="chaff" }); } }
     public void SpawnHitParticles(float x,float y,string color){ for(int i=0;i<11;i++){ particles.Add(new Particle{ x=x,y=y,vx=G.Rand(-175,175),vy=G.Rand(-175,175),life=0.46f,maxLife=0.46f,color=color,size=G.Rand(2,6) }); } }

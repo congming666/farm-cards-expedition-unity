@@ -1,0 +1,21 @@
+// ============================================================================
+//  SteamPipe Depot（一个 depot = 一组要下发给玩家的文件）
+//  这里把 Unity 出包目录整体下发，剔除调试符号。
+// ============================================================================
+"DepotBuildConfig"
+{
+    "DepotID" "481"   // TODO: 替换为你的真实 DepotID
+
+    "FileMapping"
+    {
+        "LocalPath" "*"
+        "DepotPath" "."
+        "recursive" "1"
+    }
+
+    // 不把调试符号 / 开发期文件下发给玩家
+    "FileExclusion" "*.pdb"
+    "FileExclusion" "*_BurstDebugInformation_DoNotShip"
+    "FileExclusion" "*_BackUpThisFolder_ButDontShipItWithYourGame"
+    "FileExclusion" "last-build-report.txt"
+}

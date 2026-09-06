@@ -10,6 +10,7 @@ public class WorldRenderer
     public SpriteRenderer playerSprite;
     public GameCameraFollow camFollow;
     public FogOfWar fog;
+    public WorldFx fx;
     List<EntityRef> monsters = new List<EntityRef>();
     List<EntityRef> obstacles = new List<EntityRef>();
     Dictionary<Monster,EntityRef> monsterRefs = new Dictionary<Monster,EntityRef>();
@@ -30,6 +31,7 @@ public class WorldRenderer
         BuildFog();
         BuildLightShafts();
         MapTheme.Apply(GameFlow.I!=null?GameFlow.I.sceneBoot?.Key:null, GameFlow.I!=null?GameFlow.I.sceneBoot?.Volume:null, Camera.main, exp.map.tier);
+        fx = new WorldFx(); fx.Build(root.transform);
     }
 
     void BuildLightShafts(){
@@ -74,6 +76,7 @@ public class WorldRenderer
             er.sr.transform.localScale = new Vector3(scale,scale,1);
         }
         if(fog!=null) fog.Tick(exp.player);
+        if(fx!=null) fx.Sync(exp);
         // 障碍（静态，只放一次位置）
         foreach(var er in obstacles){ if(er.o!=null && er.sr!=null){ if(er.sr.transform.position==Vector3.zero){ er.sr.transform.position=new Vector3(er.o.x*S,0,er.o.y*S); er.sr.sortingOrder=(int)(er.o.y*S*100);} er.sr.enabled = exp.IsWorldVisible(er.o.x,er.o.y); } }
     }
@@ -166,7 +169,7 @@ public class WorldRenderer
     }
     void SyncMonsters(Expedition exp){ foreach(var m in exp.monsters) AddMonster(m); }
     static Color MonsterColor(string t){ switch(t){ case "boar": return new Color(0.62f,0.46f,0.32f); case "bat": return new Color(0.55f,0.4f,0.68f); case "spider": return new Color(0.5f,0.6f,0.4f); case "locust": return new Color(0.6f,0.7f,0.3f); case "wolf": return new Color(0.7f,0.72f,0.78f); default: return Color.white; } }
-    public void Clear(){ if(root!=null) UnityEngine.Object.Destroy(root); monsters.Clear(); monsterRefs.Clear(); obstacles.Clear(); }
+    public void Clear(){ if(root!=null) UnityEngine.Object.Destroy(root); fx=null; monsters.Clear(); monsterRefs.Clear(); obstacles.Clear(); }
     static Sprite MakeColorSprite(Color col){
         const int n=32; var t=new Texture2D(n,n,TextureFormat.RGBA32,false); var px=new Color32[n*n];
         for(int y=0;y<n;y++) for(int x=0;x<n;x++){ float dx=x-(n-1)*0.5f,dy=y-(n-1)*0.5f; px[y*n+x]=dx*dx+dy*dy<=(n*0.47f)*(n*0.47f)?(Color32)col:new Color32(0,0,0,0); }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerState { public float x,y,hp,maxHp,energy,maxEnergy,speed,radius,collisionRadius, angle, attackCd, invuln, stealth, slow, vx,vy, visualZ, visualVz; }
 
 public class Monster { public string type,name,icon,state; public float hp,maxHp,damage,speed,radius,collisionRadius,attackRange,attackCooldown,xp,gold; public bool aerial,ranged;
-    public float x,y,attackCd,stunned,facing,animTime,hitFlash,abilityCd,packOffset,stateTimer,deathTimer,visualZ,visualVz; public float? wanderX,wanderY; public int phase; public object target; public bool elite, beastWave, deathProcessed; }
+    public float x,y,attackCd,stunned,facing,animTime,hitFlash,abilityCd,packOffset,stateTimer,deathTimer,visualZ,visualVz; public float? wanderX,wanderY; public int phase, abilityIndex; public object target; public bool elite, beastWave, deathProcessed; }
 
 public class Chest { public float x,y,radius; public bool opened,hasSignal; }
 public class Tower { public float x,y,radius,range,damage,attackCd,hp,maxHp,captureProgress; public string state; }

@@ -52,33 +52,41 @@ public static class UIHost
     }
     static void Fill(Rect r,Color c){ GUI.color=c; GUI.DrawTexture(r,white); GUI.color=Color.white; }
     static void Outline(Rect r,Color c,float n=2){ Fill(new Rect(r.x,r.y,r.width,n),c); Fill(new Rect(r.x,r.yMax-n,r.width,n),c); Fill(new Rect(r.x,r.y,n,r.height),c); Fill(new Rect(r.xMax-n,r.y,n,r.height),c); }
-    static string CropGlyph(string id){ return id=="pea_shooter"?"🌱":id=="sunflower"?"🌻":id=="watermelon"?"🍉":id=="cabbage"?"🥬":id=="wheat"?"🌾":id=="carrot"?"🥕":id=="corn"?"🌽":id=="pumpkin"?"🎃":"🌿"; }
-    static string SkillGlyph(string id){ return id=="straw_smash"?"💥":id=="vine_bind"?"🌿":id=="earth_dash"?"💨":"🌫️"; }
-    static string ConsumableGlyph(string id){ return id=="herb_kit"?"💊":id=="thorn_storm"?"🌵":"🔥"; }
+    public static string CropGlyph(string id){ return id=="pea_shooter"?"🌱":id=="sunflower"?"🌻":id=="watermelon"?"🍉":id=="cabbage"?"🥬":id=="wheat"?"🌾":id=="carrot"?"🥕":id=="corn"?"🌽":id=="pumpkin"?"🎃":"🌿"; }
+    public static string SkillGlyph(string id){ return id=="straw_smash"?"💥":id=="vine_bind"?"🌿":id=="earth_dash"?"💨":"🌫️"; }
+    public static string ConsumableGlyph(string id){ return id=="herb_kit"?"💊":id=="thorn_storm"?"🌵":"🔥"; }
     static string ItemText(GroundLoot item){ return item==null?"":item.name; }
 
     static void DrawBar(float x,float y,float w,float h,float pct,Color fill,Color bg){ GUI.color=bg; GUI.DrawTexture(new Rect(x,y,w,h),white); GUI.color=fill; GUI.DrawTexture(new Rect(x,y,w*pct,h),white); GUI.color=Color.white; }
 
     public static void DrawUI(GameFlow gf){
         Init(); GUI.matrix=Matrix4x4.identity; GUI.color=Color.white;
+        MainMenuUI.Sync(gf.screen);
+        FarmUI.Sync(gf.screen);
+        ExpeditionHUD.Sync(gf.screen);
+        PrepUI.Sync(gf.screen);
+        ResultUI.Sync(gf.screen);
+        WorkshopUI.Sync(workshopOpen);
+        WarehouseUI.Sync(GreenhouseSystem.warehouseOpen);
+        GreenhouseUI.Sync(GreenhouseSystem.greenhouseOpen);
         var r = gf.backend.viewRect.width>0 ? gf.backend.viewRect : new Rect(0,0,Screen.width,Screen.height);
         GUI.matrix = Matrix4x4.TRS(new Vector3(r.x,r.y,0),Quaternion.identity,new Vector3(r.width/1280f,r.height/720f,1));
-        if(gf.screen!="expedition"){
+        if(gf.screen!="expedition" && gf.screen!="menu"){ // menu 背景已交给 UGUI(MainMenuUI)
             GUI.DrawTexture(new Rect(0,0,1280,720),gf.screen=="farm"?farmBackdrop:menuBackdrop,ScaleMode.StretchToFill);
             Fill(new Rect(0,0,1280,720),gf.screen=="farm"?new Color(0.02f,0.08f,0.045f,0.16f):new Color(0.01f,0.025f,0.035f,0.2f));
         }
         switch(gf.screen){
-            case "menu": DrawMenu(gf); break;
-            case "farm": DrawFarm(gf); break;
-            case "prep": DrawPrep(gf); break;
-            case "expedition": DrawHUD(gf); break;
-            case "result": DrawResult(gf); break;
+            case "menu": break; // 已迁移到 UGUI：MainMenuUI（DrawMenu 保留备查）
+            case "farm": break; // 已迁移到 UGUI：FarmUI（DrawFarm 保留备查，背景仍由 OnGUI 铺）
+            case "prep": break; // 已迁移到 UGUI：PrepUI（DrawPrep 保留备查，背景仍由 OnGUI 铺）
+            case "expedition": break; // 已迁移到 UGUI：ExpeditionHUD（DrawHUD 保留备查）
+            case "result": break; // 已迁移到 UGUI：ResultUI（DrawResult 保留备查）
         }
-        if(workshopOpen) DrawWorkshop(gf);
-        if(GreenhouseSystem.warehouseOpen) DrawWarehouse(gf);
-        if(GreenhouseSystem.greenhouseOpen) DrawGreenhouse(gf);
-        DrawToasts(gf); DrawDropBanners(gf);
-        if(gf.signalFlash>0){ GUI.color=new Color(1f,0.34f,0.24f,gf.signalFlash*0.72f); GUI.DrawTexture(new Rect(0,0,1280,720),white); GUI.color=Color.white; }
+        // workshop/warehouse/greenhouse overlay 已迁 UGUI
+        // warehouse overlay 已迁 UGUI
+        // greenhouse overlay 已迁 UGUI
+        // toast / drop / signalFlash 已迁 UGUI GlobalOverlay
+        GlobalOverlay.Refresh(gf);
         GUI.matrix=Matrix4x4.identity;
     }
 
@@ -157,8 +165,8 @@ public static class UIHost
         if(GUI.Button(new Rect(px+14,438,464,38),"进入远征准备大厅  →",new GUIStyle(GUI.skin.button){fontSize=17,fontStyle=FontStyle.Bold})){ gf.OpenPrep(); }
     }
 
-    static float CropProgress(Plot p){ if(p.crop==null) return 0; double now=DateTime.Now.Ticks/(double)TimeSpan.TicksPerMillisecond; double elapsed=(now-p.plantedAt)/1000.0; float f=p.status=="drought"?0.55f:p.status=="pest"?0.72f:p.status=="weeds"?0.82f:1f; double pr=(elapsed*f)/p.crop.growTime; return (float)Math.Min(1,Math.Max(0,pr)); }
-    static string StatusIcon(string s){ return s=="drought"?"缺水":s=="pest"?"虫害":"杂草"; }
+    public static float CropProgress(Plot p){ if(p.crop==null) return 0; double now=DateTime.Now.Ticks/(double)TimeSpan.TicksPerMillisecond; double elapsed=(now-p.plantedAt)/1000.0; float f=p.status=="drought"?0.55f:p.status=="pest"?0.72f:p.status=="weeds"?0.82f:1f; double pr=(elapsed*f)/p.crop.growTime; return (float)Math.Min(1,Math.Max(0,pr)); }
+    public static string StatusIcon(string s){ return s=="drought"?"缺水":s=="pest"?"虫害":"杂草"; }
     static void DrawResourceBadge(float x,float y,float w,string name,int value,Color c){ Fill(new Rect(x,y,w,38),new Color(0.04f,0.12f,0.085f,0.96f)); Outline(new Rect(x,y,w,38),new Color(c.r,c.g,c.b,0.52f),1); GUI.Label(new Rect(x+8,y+6,w-16,26),name+"  "+value,Col2(c,15,TextAnchor.MiddleCenter)); }
     static void DrawFacility(float x,float y,float w,float h,string icon,string name,Action onClick){
         DrawPanel(x,y,w,h,"");

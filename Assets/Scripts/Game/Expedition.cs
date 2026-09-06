@@ -11,6 +11,7 @@ public partial class Expedition
     public float[] skillCooldowns = new float[4];
     public float[] skillFlashes = new float[4];
     public float attackAnim, weaponPulse, hitStop, killFlash, screenShake, elapsed, nextEventAt;
+    public int attackCombo;
     public int weaponIndex;
     public WeaponDef weapon;
     public Dictionary<string,int> consumableFlashes = new Dictionary<string,int>();

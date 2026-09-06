@@ -1,0 +1,40 @@
+// ============================================================================
+//  SteamPipe 应用构建清单（模板）
+//  用法：
+//   1) 拿到 Valve 分配的 AppID / DepotID 后，把下面所有 480 / 481 替换成你的真实 ID
+//      （开发联调阶段可先用公共测试 AppID 480 = Spacewar，Depot 用 481）
+//   2) 先用 Unity 菜单 Build/Windows64 发布构建(Steam/STEAMWORKS) 出包到 Build/standalone
+//   3) 安装 Steamworks SDK 的 tools/contentbuilder，用 steamcmd 执行：
+//      steamcmd.exe +login <你的Steamworks账号> +run_app_build_http "<本文件绝对路径>" +quit
+//  路径说明：本文件中的相对路径都相对“本 vdf 所在目录(Steam/)”。
+// ============================================================================
+"appbuild"
+{
+    "appid"             "480"          // TODO: 替换为你的 AppID
+    "desc"              "FarmCards Expedition - Windows build"
+    "buildoutput"       "build/output" // SteamPipe 中间产物/清单输出目录
+    "contentroot"       "../Build/standalone"  // Unity 出包根目录（含 FarmCards.exe 与 FarmCards_Data）
+    "preview"           "0"            // 1 = 只演练不上传，建议第一次先设 1 检查文件列表
+
+    // 首次上传留空；要把某构建设为默认分支时填分支名（如 "release" / "beta"）
+    "setlive"           ""
+
+    "depots"
+    {
+        "481" "depot_481.vdf"          // TODO: 替换为你的 DepotID（通常为 AppID+1，以后台为准）
+    }
+
+    // 云存档（Auto Cloud）：让 Steam 自动在多台电脑间同步 persistentDataPath 下的存档目录。
+    // 路径里的 Steam 变量：%WinAppDataLocal% 等；Unity 的 persistentDataPath 在 Windows 为
+    // C:\Users\<用户>\AppData\LocalLow\<公司名>\<产品名>
+    "cloud"
+    {
+        "1"
+        {
+            "rootdir"       "..\..\AppData\LocalLow\FarmCards Studio\FarmCards Expedition\saves"
+            "cloudroot"     "saves"
+            "pattern"       "*.json"
+            "recursive"     "1"
+        }
+    }
+}

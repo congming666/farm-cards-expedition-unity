@@ -20,20 +20,23 @@ public class RenderBackend
 
     public RenderBackend()
     {
-        frame = new Canvas2D(VW, VH);
-        fog = new Canvas2D(VW, VH);
+        // 720p 软件像素缓冲改为懒加载：GPU 世界(WorldRenderer)已不走该软渲染链路，
+        // 避免启动就常驻两块约 3.7MB 的托管 Color32 数组。
         frameTex = new Texture2D(VW, VH, TextureFormat.RGBA32, false);
         fogTex = new Texture2D(VW, VH, TextureFormat.RGBA32, false);
     }
+    void EnsureCanvas(){ if(frame==null){ frame=new Canvas2D(VW,VH); fog=new Canvas2D(VW,VH); } }
 
     public void ClearFrame()
     {
+        EnsureCanvas();
         frame.Clear();
         frame.globalAlpha = 1; frame.composite = 0;
     }
 
     public void ClearFog()
     {
+        EnsureCanvas();
         fog.Clear();
         fog.globalAlpha = 1; fog.composite = 0;
     }
@@ -72,10 +75,12 @@ public class RenderBackend
     // 上传帧/雾到贴图（翻转 y 使 GUI 正确显示）
     public void UploadFrame()
     {
+        if(frame==null) return;
         FlipUpload(frame, frameTex);
     }
     public void UploadFog()
     {
+        if(fog==null) return;
         FlipUpload(fog, fogTex);
     }
     void FlipUpload(Canvas2D c, Texture2D tex)
