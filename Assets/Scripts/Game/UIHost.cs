@@ -7,7 +7,7 @@ public static class UIHost
 {
     public static bool workshopOpen;
     static GUIStyle title, subtitle, btn, small, label, panelTitle;
-    static Texture2D white, farmBackdrop, menuBackdrop, buttonTex, buttonHoverTex, buttonActiveTex, boxTex;
+    public static Texture2D white, farmBackdrop, menuBackdrop, buttonTex, buttonHoverTex, buttonActiveTex, boxTex;
     static bool init;
     static Font cjkFont;
 
@@ -71,7 +71,7 @@ public static class UIHost
         GreenhouseUI.Sync(GreenhouseSystem.greenhouseOpen);
         var r = gf.backend.viewRect.width>0 ? gf.backend.viewRect : new Rect(0,0,Screen.width,Screen.height);
         GUI.matrix = Matrix4x4.TRS(new Vector3(r.x,r.y,0),Quaternion.identity,new Vector3(r.width/1280f,r.height/720f,1));
-        if(gf.screen!="expedition" && gf.screen!="menu"){ // menu 背景已交给 UGUI(MainMenuUI)
+        if(gf.screen!="expedition" && gf.screen!="menu" && gf.screen!="farm" && gf.screen!="prep" && gf.screen!="result"){ // 各屏幕背景已交给 UGUI
             GUI.DrawTexture(new Rect(0,0,1280,720),gf.screen=="farm"?farmBackdrop:menuBackdrop,ScaleMode.StretchToFill);
             Fill(new Rect(0,0,1280,720),gf.screen=="farm"?new Color(0.02f,0.08f,0.045f,0.16f):new Color(0.01f,0.025f,0.035f,0.2f));
         }

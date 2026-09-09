@@ -59,6 +59,10 @@ public class FarmUI : MonoBehaviour
 
     void Build()
     {
+        // 全屏背景（从 OnGUI 迁移，避免 IMGUI 层遮住 UGUI 控件）
+        var bg = gameObject.AddComponent<Image>();
+        bg.sprite = Sprite.Create(UIHost.farmBackdrop, new Rect(0,0,UIHost.farmBackdrop.width,UIHost.farmBackdrop.height), new Vector2(0.5f,0.5f), 100f);
+        bg.type = Image.Type.Simple; bg.raycastTarget = false;
         // ---------- 顶部资源条 ----------
         Panel(0, 0, 1280, 64, new Color(0.025f, 0.105f, 0.075f, 0.94f), "TopBar");
         Lab(34, 14, 400, 34, "我的家园农场", 25, Color.white);

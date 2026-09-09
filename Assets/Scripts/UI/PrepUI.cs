@@ -76,6 +76,10 @@ public class PrepUI : MonoBehaviour
 
     void Build()
     {
+        // 全屏背景（从 OnGUI 迁移，避免 IMGUI 层遮住 UGUI 控件）
+        var bg = gameObject.AddComponent<Image>();
+        bg.sprite = Sprite.Create(UIHost.menuBackdrop, new Rect(0,0,UIHost.menuBackdrop.width,UIHost.menuBackdrop.height), new Vector2(0.5f,0.5f), 100f);
+        bg.type = Image.Type.Simple; bg.raycastTarget = false;
         // ---------- 顶部 ----------
         Panel(0, 0, 1280, 64, new Color(0.025f, 0.105f, 0.075f, 0.94f), "TopBar");
         Lab(34, 14, 470, 36, "荒野远征准备大厅", 26, Color.white);
