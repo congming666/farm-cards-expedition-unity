@@ -1,5 +1,38 @@
 # 更新日志
 
+## v0.6.0 — 2026-09-10 战斗系统大升级（双端同步）
+
+### 短期：体感提升
+- **连击计数系统**：连续命中累加 combo，每层伤害+5%（上限+100%），被击中清零
+- **完美闪避**：Space/Shift 闪避，前 200ms 内受击触发完美闪避——无敌 + 慢动作 0.3s + 下次必暴击
+- **敌人血条分段**：精英 2 段、Boss 3 段，破段触发硬直
+
+### 中期：系统级改动
+- **敌人 AI 多样化**：冲锋型/远程型/自爆型/治疗型，野猪固定冲锋型
+- **精英怪词缀**：狂暴/迅捷/吸血/分裂，随机 1-2 词缀
+- **战场环境互动**：油桶/落石/毒气瓶，攻击引爆范围伤害
+- **怒气/超杀槽**：F 键全屏大招清场 + 无敌
+
+### 长期：远征体验
+- **Boss 多阶段**：60%→阶段2，30%→阶段3
+- **Roguelike 岔路**：每 60 秒 3 选 1：宝箱/精英战/商店
+- **生存压力层**：火把燃料消耗，耗尽视野缩小
+- **处决系统重做**：G 键，仅精英/Boss 血量<15%可用
+
+### 新增文件
+- `Assets/Scripts/Game/CombatEnhancement.cs` — 战斗增强静态类（全部 11 系统）
+
+### 修改文件
+- `ExpeditionTypes.cs` — Monster 加 aiType/aiState/aiTimer/chargeAngle/affixes/exploding 字段
+- `ExpeditionCombat.cs` — DamageEnemy/DamagePlayer/UpdateMonsterAI/SpawnKillFeedback 集成
+- `Expedition.cs` — Init + Update tick + 输入键位（Space/F/G/1-3）
+- `ExpeditionTerrain.cs` — 怪物生成后 AI 分配 + 精英化
+
+### 验证
+- batchmode 编译 0 错，IL2CPP 出包通过
+
+---
+
 ## v0.5.0 — 2026-09-09 农场大更新
 
 ### 新增：作物机制差异化

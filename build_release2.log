@@ -1,0 +1,1831 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.0/staging' branch; Version is '6000.0.82f1 (2fb0dae735e1) revision 3125466'; Using compiler version '193933523'; Build Type 'Release'
+[Licensing::IpcConnector] Channel LicenseClient-29401 doesn't exist
+OS: 'Windows 11  (10.0.26200) CoreCountrySpecific' Language: 'zh' Physical Memory: 32373 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-09-05T02:56:10Z
+[Licensing::Module] Successfully launched the LicensingClient (PId: 12240)
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Unity.exe
+-batchmode
+-quit
+-nographics
+-projectPath
+C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity
+-executeMethod
+BuildPlayer.ReleaseCLI
+-logFile
+C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\build_release2.log
+Successfully changed project path to: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity
+C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [28360]  Target information:
+
+Player connection [28360]  * "[IP] 192.168.11.60 [Port] 55504 [Flags] 2 [Guid] 2609193495 [EditorId] 2609193495 [Version] 1048832 [Id] WindowsEditor(7,�Ƿ�) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28360]  * "[IP] 192.168.150.1 [Port] 55504 [Flags] 2 [Guid] 2609193495 [EditorId] 2609193495 [Version] 1048832 [Id] WindowsEditor(7,�Ƿ�) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28360]  * "[IP] 192.168.85.1 [Port] 55504 [Flags] 2 [Guid] 2609193495 [EditorId] 2609193495 [Version] 1048832 [Id] WindowsEditor(7,�Ƿ�) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28360]  * "[IP] 192.168.56.1 [Port] 55504 [Flags] 2 [Guid] 2609193495 [EditorId] 2609193495 [Version] 1048832 [Id] WindowsEditor(7,�Ƿ�) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28360]  * "[IP] 198.18.0.1 [Port] 55504 [Flags] 2 [Guid] 2609193495 [EditorId] 2609193495 [Version] 1048832 [Id] WindowsEditor(7,�Ƿ�) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28360] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [28360] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Starting IPC server.
+Waiting for clients to connect on \\.\pipe\Unity-LicenseClient-29401, press Ctrl-C to exit.
+[Package Manager] Connected to IPC stream "Upm-23208" after 0.2 seconds.
+Library Redirect Path: Library/
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-29401" at "2026-09-05T02:56:11.002258Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 12240, path: "C:/Program Files/Unity/Hub/Editor/6000.0.82f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              f83fbdd9317b4d56bde97d674b6590d6
+  Correlation Id:          227fbb4eb5b476bf75e7e60881ecf643
+  External correlation Id: 7100689597807214910
+  Machine Id:              DM/sgPmVEOTdNLm6Ses7npLsnWk=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-29401" (connect: 0.57s, validation: 0.16s, handshake: 0.06s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-29401-notifications" at "2026-09-05T02:56:11.2227281Z"
+[Licensing::Module] Connected to LicensingClient (PId: 12240, launch time: 0.01, total connection time: 0.79s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-W6CN-ZZMR-W65P-8P7C-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-15T03:27:08Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-W6CN-ZZMR-W65P-8P7C-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-15T03:27:08Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Module] Licensing Background thread has ended after 0.83s
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 2.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.82f1 (2fb0dae735e1)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.82f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity/Assets
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.82f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.82f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.82f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56208
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.82f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.82f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-W6CN-ZZMR-W65P-8P7C-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-15T03:56:11Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.82f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.017080 seconds.
+- Loaded All Assemblies, in  0.562 seconds
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 2314 ms
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.670 seconds
+Domain Reload Profiling: 3226ms
+	BeginReloadAssembly (288ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (70ms)
+	LoadAllAssembliesAndSetupDomain (158ms)
+		LoadAssemblies (284ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (152ms)
+			TypeCache.Refresh (151ms)
+				TypeCache.ScanAssembly (138ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2671ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2636ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2430ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (44ms)
+			ProcessInitializeOnLoadAttributes (100ms)
+			ProcessInitializeOnLoadMethodAttributes (58ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-W6CN-ZZMR-W65P-8P7C-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-15T03:56:11Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 56 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.navigation@2.0.14 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.ai.navigation@134dd6a3b97b)
+    com.unity.collab-proxy@2.13.6 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.collab-proxy@4628d2ba6ea4)
+    com.unity.ide.rider@3.0.39 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.ide.rider@4504839d03f7)
+    com.unity.ide.visualstudio@2.0.27 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.ide.visualstudio@dc1ddd4f09b6)
+    com.unity.inputsystem@1.19.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.inputsystem@21a28c3a6c83)
+    com.unity.timeline@1.8.12 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.timeline@8cd8509afae5)
+    com.unity.visualscripting@1.9.11 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.visualscripting@8bed5ad90189)
+    com.unity.searcher@4.9.3 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.searcher@1e17ce91558d)
+    com.unity.burst@1.8.30 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.burst@2f3d916873ea)
+    com.unity.mathematics@1.3.2 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.mathematics@8017b507cc74)
+    com.unity.collections@2.6.8 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.collections@84e8eb3fc12e)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.5.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546)
+    com.unity.render-pipelines.universal@17.0.4 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.render-pipelines.universal@c7abd84d7030)
+    com.unity.test-framework@1.6.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.test-framework@082c24152fd4)
+    com.unity.ugui@2.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.ugui@8bb446d869cd)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.ext.nunit@031a54704bff)
+    com.unity.render-pipelines.core@17.0.4 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.render-pipelines.core@f663854f0ceb)
+    com.unity.shadergraph@17.0.4 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.shadergraph@14250cfec0ec)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.render-pipelines.universal-config@dd206bf35d04)
+    com.unity.rendering.light-transport@1.0.1 (location: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Library\PackageCache\com.unity.rendering.light-transport@9bd588f963c0)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.04 seconds
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 36.5330ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity
+DisplayProgressbar: Compiling Scripts
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.runtime.interopservices.windowsruntime has duplicate hint path. Ignoring "C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" in favor of "C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\NetStandard\Extensions\2.0.0\System.Runtime.InteropServices.WindowsRuntime.dll"
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.componentmodel.composition has duplicate hint path. Ignoring "C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.ComponentModel.Composition.dll" in favor of "C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ComponentModel.Composition.dll"
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Burst.Cecil, Version=0.11.6.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.burst@2f3d916873ea\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Mono.Cecil, Version=0.11.5.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff\Mono.Cecil.dll
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 67.4288ms
+ExitCode: 0 Duration: 0s540ms
+[255/836    0s] WriteResponseFile Library/Bee/artifacts/rsp/4747638433968585886.rsp
+[658/836    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+*** Tundra build success (0.50 seconds), 2 items updated, 836 evaluated
+AssetDatabase: script compilation time: 1.041715s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.041 seconds
+Refreshing native plugins compatible for Editor in 7.08 ms, found 4 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 3.29 ms, found 4 plugins.
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.341 seconds
+Domain Reload Profiling: 2371ms
+	BeginReloadAssembly (275ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (133ms)
+	RebuildCommonClasses (27ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (684ms)
+		LoadAssemblies (558ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (222ms)
+			TypeCache.Refresh (153ms)
+				TypeCache.ScanAssembly (141ms)
+			BuildScriptInfoCaches (57ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (1342ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1071ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (36ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (136ms)
+			ProcessInitializeOnLoadAttributes (824ms)
+			ProcessInitializeOnLoadMethodAttributes (53ms)
+			AfterProcessingInitializeOnLoad (18ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Asset Pipeline Refresh (id=b54ab547413a17e42a66434855e3afe0): Total: 4.697 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2484 ms
+		Asset DB Callback time: managed=22 ms, native=41 ms
+		Scripting: domain reloads=1, domain reload time=1041 ms, compile time=1044 ms, other=62 ms
+		Project Asset Count: scripts=1302, non-scripts=2279
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.002ms
+	InvokePackagesCallback: 43.869ms
+	ApplyChangesToAssetFolders: 0.898ms
+	Scan: 735.255ms
+	OnSourceAssetsModified: 0.003ms
+	CategorizeAssetsWithTransientArtifact: 77.649ms
+	ProcessAssetsWithTransientArtifactChanges: 66.303ms
+	CategorizeAssets: 44.995ms
+	ImportOutOfDateAssets: 1365.582ms (319.750ms without children)
+		CompileScripts: 1043.706ms
+		ReloadNativeAssets: 0.030ms
+		UnloadImportedAssets: 0.850ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.566ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.680ms
+	PostProcessAllAssets: 22.855ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.002ms
+	UnloadStreamsBegin: 2.209ms
+	PersistCurrentRevisions: 0.115ms
+	UnloadStreamsEnd: 0.002ms
+	GenerateScriptTypeHashes: 2.810ms
+	Untracked: 2336.973ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 5.749ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-FarmCards Expedition
+Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6571 unused Assets / (2.7 MB). Loaded Objects now: 7306.
+Memory consumption went from 191.9 MB to 189.2 MB.
+Total: 8.380400 ms (FindLiveObjects: 0.588700 ms CreateObjectMapping: 0.583800 ms MarkObjects: 5.199800 ms  DeleteObjects: 2.006900 ms)
+
+[Build] 脚本后端：IL2CPP / x86_64 / Master
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildPlayer:EnsurePlayerSettings (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:95)
+BuildPlayer:BuildInternal (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:46)
+BuildPlayer:ReleaseCLI () (at Assets/Scripts/Editor/BuildPlayer.cs:39)
+
+(Filename: Assets/Scripts/Editor/BuildPlayer.cs Line: 95)
+
+[Build] 开始构建 -> C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Build\standalone\FarmCards.exe
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildPlayer:BuildInternal (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:71)
+BuildPlayer:ReleaseCLI () (at Assets/Scripts/Editor/BuildPlayer.cs:39)
+
+(Filename: Assets/Scripts/Editor/BuildPlayer.cs Line: 71)
+
+1 URP assets included in build
+- PC_RPAsset - Assets/Settings/PC_RPAsset.asset
+	 - PC_Renderer - Assets/Settings/PC_Renderer.asset - UnityEngine.Rendering.Universal.UniversalRendererData
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.Rendering.Universal.URPPreprocessBuild:LogIncludedAssets (System.Collections.Generic.List`1<UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset>) (at ./Library/PackageCache/com.unity.render-pipelines.universal@c7abd84d7030/Editor/BuildProcessors/URPPreprocessBuild.cs:52)
+UnityEditor.Rendering.Universal.URPPreprocessBuild:OnPreprocessBuild (UnityEditor.Build.Reporting.BuildReport) (at ./Library/PackageCache/com.unity.render-pipelines.universal@c7abd84d7030/Editor/BuildProcessors/URPPreprocessBuild.cs:30)
+UnityEditor.Build.BuildPipelineInterfaces/<>c__DisplayClass17_0:<OnBuildPreProcess>b__1 (UnityEditor.Build.IPreprocessBuildWithReport)
+UnityEditor.Build.BuildPipelineInterfaces:InvokeCallbackInterfacesPair<UnityEditor.Build.IPreprocessBuild, UnityEditor.Build.IPreprocessBuildWithReport> (System.Collections.Generic.List`1<UnityEditor.Build.IPreprocessBuild>,System.Action`1<UnityEditor.Build.IPreprocessBuild>,System.Collections.Generic.List`1<UnityEditor.Build.IPreprocessBuildWithReport>,System.Action`1<UnityEditor.Build.IPreprocessBuildWithReport>,bool)
+UnityEditor.Build.BuildPipelineInterfaces:OnBuildPreProcess (UnityEditor.Build.Reporting.BuildReport)
+UnityEditor.BuildPipeline:BuildPlayerInternalNoCheck (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[],bool)
+UnityEditor.BuildPipeline:BuildPlayerInternal (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (string[],string,string,UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget,int,UnityEditor.BuildOptions,string[])
+UnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)
+BuildPlayer:BuildInternal (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:72)
+BuildPlayer:ReleaseCLI () (at Assets/Scripts/Editor/BuildPlayer.cs:39)
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal@c7abd84d7030/Editor/BuildProcessors/URPPreprocessBuild.cs Line: 52)
+
+Start importing ProjectSettings/ProjectSettings.asset using Guid(00000000000000004000000000000000) (LibraryAssetImporter) -> (artifact id: 'dd951a27bb651b894539ba0b9a0b6043') in 0.0081943 seconds
+Start importing ProjectSettings/GraphicsSettings.asset using Guid(00000000000000006100000000000000) (LibraryAssetImporter) -> (artifact id: '7971743a43fa757e955096692620268d') in 0.0026762 seconds
+Start importing Assets/Settings/UniversalRenderPipelineGlobalSettings.asset using Guid(18dc0cd2c080841dea60987a38ce93fa) (NativeFormatImporter) -> (artifact id: '5032a476bf6441780c5aa438cad30bcd') in 0.008347 seconds
+Start importing Assets/Settings/PC_RPAsset.asset using Guid(4b83569d67af61e458304325a23e5dfd) (NativeFormatImporter) -> (artifact id: '74225053455e2af7fd7ea07ac6abbc81') in 0.0082895 seconds
+Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
+Refreshing native plugins compatible for Editor in 3.03 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9b3cf81a598679940a7636164f3d60ff): Total: 0.265 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 0.4512ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aESkipCompile.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssembliesAndTypeDB
+WorkingDir: C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity
+ExitCode: 0 Duration: 0s104ms
+*** Tundra build success (0.06 seconds), 0 items updated, 3 evaluated
+Asset Pipeline Refresh (id=332630ab993a03f40932240ea6ca67a5): Total: 0.004 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+[ScriptCompilation] Requested script compilation because: Recompiling scripts for player build.
+BuildPlayer: start building target 19
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 0.2022ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aP.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssembliesAndTypeDB
+WorkingDir: C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      ALC ILPP context 1 is unloading
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.runtime.interopservices.windowsruntime has duplicate hint path. Ignoring "C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" in favor of "C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\NetStandard\Extensions\2.0.0\System.Runtime.InteropServices.WindowsRuntime.dll"
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.componentmodel.composition has duplicate hint path. Ignoring "C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.ComponentModel.Composition.dll" in favor of "C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ComponentModel.Composition.dll"
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Burst.Cecil, Version=0.11.6.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.burst@2f3d916873ea\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Mono.Cecil, Version=0.11.5.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff\Mono.Cecil.dll
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 118.7381ms
+Total cache size 134586320
+Total cache size after purge 134586320, took 00:00:00.6448474
+ExitCode: 0 Duration: 2s72ms
+[315/566    0s] WriteResponseFile Library/Bee/artifacts/rsp/4747638433968585886.rsp
+[485/566    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[512/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll
+[513/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.ForUI.dll
+[514/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+[515/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.dll
+[516/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Mathematics.dll
+[517/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll
+[518/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll
+[519/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.AI.Navigation.dll
+[520/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.State.dll
+[521/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.GPUDriven.Runtime.dll
+[522/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Burst.dll
+[523/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll
+[524/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll
+[525/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Multiplayer.Center.Common.dll
+[526/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Flow.dll
+[527/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Collections.dll
+[528/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Rendering.LightTransport.Runtime.dll
+[529/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll
+[530/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Shared.dll
+[531/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll
+[532/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.dll
+[533/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll
+[534/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.DocCodeExamples.dll
+[535/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Universal.2D.Runtime.dll
+[536/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll
+[537/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.pdb
+[538/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Core.dll
+[539/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Shared.pdb
+[540/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Flow.pdb
+[541/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.pdb
+[542/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Collections.pdb
+[543/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.pdb
+[544/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Rendering.LightTransport.Runtime.pdb
+[545/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.AI.Navigation.pdb
+[546/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.pdb
+[547/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.State.pdb
+[548/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Timeline.pdb
+[549/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.GPUDriven.Runtime.pdb
+[550/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Burst.pdb
+[551/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Core.Runtime.pdb
+[552/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.pdb
+[553/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Mathematics.pdb
+[554/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Multiplayer.Center.Common.pdb
+[555/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.pdb
+[556/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.pdb
+[557/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InputSystem.ForUI.pdb
+[558/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.pdb
+[559/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.pdb
+[560/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.pdb
+[561/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Core.pdb
+[562/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.RenderPipelines.Universal.2D.Runtime.pdb
+[563/566    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.DocCodeExamples.pdb
+*** Tundra build success (2.03 seconds), 54 items updated, 566 evaluated
+Total cache size 134586320
+Total cache size after purge 134586320, took 00:00:00.2307356
+Not rebuilding Data files -- no changes
+
+
+Mono dependencies included in the build
+Dependency assembly - System.Reflection.DispatchProxy.dll
+Dependency assembly - System.Numerics.dll
+Dependency assembly - System.IdentityModel.dll
+Dependency assembly - System.Runtime.dll
+Dependency assembly - System.Xml.XDocument.dll
+Dependency assembly - netstandard.dll
+Dependency assembly - System.Runtime.Serialization.Xml.dll
+Dependency assembly - System.Data.DataSetExtensions.dll
+Dependency assembly - System.Reflection.dll
+Dependency assembly - Unity.RenderPipelines.Core.ShaderLibrary.dll
+Dependency assembly - Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Dependency assembly - Unity.Timeline.dll
+Dependency assembly - System.Collections.dll
+Dependency assembly - System.Diagnostics.Tracing.dll
+Dependency assembly - System.Linq.Queryable.dll
+Dependency assembly - System.Data.Services.Client.dll
+Dependency assembly - System.Web.DynamicData.dll
+Dependency assembly - System.Threading.Thread.dll
+Dependency assembly - System.ServiceModel.Web.dll
+Dependency assembly - System.Collections.NonGeneric.dll
+Dependency assembly - Unity.RenderPipelines.GPUDriven.Runtime.dll
+Dependency assembly - System.Drawing.dll
+Dependency assembly - System.ServiceModel.NetTcp.dll
+Dependency assembly - System.Windows.dll
+Dependency assembly - System.IO.IsolatedStorage.dll
+Dependency assembly - System.Security.Claims.dll
+Dependency assembly - System.Security.Principal.Windows.dll
+Dependency assembly - System.ComponentModel.Composition.dll
+Dependency assembly - System.Dynamic.Runtime.dll
+Dependency assembly - System.ComponentModel.DataAnnotations.dll
+Dependency assembly - System.Runtime.Handles.dll
+Dependency assembly - System.Numerics.Vectors.dll
+Dependency assembly - System.Threading.Overlapped.dll
+Dependency assembly - System.Xml.dll
+Dependency assembly - System.IO.FileSystem.Primitives.dll
+Dependency assembly - Accessibility.dll
+Dependency assembly - System.Web.Extensions.dll
+Dependency assembly - System.Net.Security.dll
+Dependency assembly - System.IO.Compression.FileSystem.dll
+Dependency assembly - Assembly-CSharp.dll
+Dependency assembly - System.Diagnostics.TraceEvent.dll
+Dependency assembly - System.Threading.Tasks.Extensions.dll
+Dependency assembly - System.Threading.Tasks.dll
+Dependency assembly - System.Resources.ReaderWriter.dll
+Dependency assembly - System.Security.Cryptography.Encryption.ECDsa.dll
+Dependency assembly - System.Linq.Expressions.dll
+Dependency assembly - System.Data.Entity.dll
+Dependency assembly - System.Design.dll
+Dependency assembly - I18N.Rare.dll
+Dependency assembly - System.Threading.ThreadPool.dll
+Dependency assembly - System.Xml.Linq.dll
+Dependency assembly - System.Threading.Tasks.Parallel.dll
+Dependency assembly - System.Web.dll
+Dependency assembly - System.Data.Services.dll
+Dependency assembly - System.Security.Cryptography.DeriveBytes.dll
+Dependency assembly - System.Reflection.Context.dll
+Dependency assembly - System.Net.HttpListener.dll
+Dependency assembly - System.Data.Linq.dll
+Dependency assembly - Microsoft.Win32.Primitives.dll
+Dependency assembly - System.IO.FileSystem.AccessControl.dll
+Dependency assembly - System.dll
+Dependency assembly - System.Globalization.Extensions.dll
+Dependency assembly - System.Net.Sockets.dll
+Dependency assembly - System.Security.Cryptography.Algorithms.dll
+Dependency assembly - System.Runtime.InteropServices.RuntimeInformation.dll
+Dependency assembly - System.EnterpriseServices.dll
+Dependency assembly - System.ServiceModel.Discovery.dll
+Dependency assembly - System.Security.Cryptography.Hashing.Algorithms.dll
+Dependency assembly - System.Windows.Forms.dll
+Dependency assembly - System.Runtime.Loader.dll
+Dependency assembly - System.IO.dll
+Dependency assembly - System.Xaml.dll
+Dependency assembly - System.Diagnostics.FileVersionInfo.dll
+Dependency assembly - System.Memory.dll
+Dependency assembly - System.Net.Primitives.dll
+Dependency assembly - Unity.VisualScripting.DocCodeExamples.dll
+Dependency assembly - System.Net.NameResolution.dll
+Dependency assembly - System.Security.Cryptography.Primitives.dll
+Dependency assembly - System.Management.dll
+Dependency assembly - System.Security.Principal.dll
+Dependency assembly - System.Reflection.Emit.ILGeneration.dll
+Dependency assembly - System.Runtime.Remoting.dll
+Dependency assembly - System.ComponentModel.TypeConverter.dll
+Dependency assembly - System.Reflection.Extensions.dll
+Dependency assembly - System.Data.SqlClient.dll
+Dependency assembly - System.ServiceModel.Routing.dll
+Dependency assembly - System.IO.MemoryMappedFiles.dll
+Dependency assembly - System.Xml.XPath.XDocument.dll
+Dependency assembly - System.DirectoryServices.Protocols.dll
+Dependency assembly - System.Threading.AccessControl.dll
+Dependency assembly - System.Diagnostics.TraceSource.dll
+Dependency assembly - System.ServiceModel.Http.dll
+Dependency assembly - I18N.MidEast.dll
+Dependency assembly - System.Text.Encoding.Extensions.dll
+Dependency assembly - System.Runtime.Caching.dll
+Dependency assembly - System.ServiceModel.dll
+Dependency assembly - Unity.RenderPipelines.Core.Runtime.Shared.dll
+Dependency assembly - Unity.RenderPipelines.Universal.Runtime.dll
+Dependency assembly - System.Diagnostics.Tools.dll
+Dependency assembly - System.Runtime.InteropServices.dll
+Dependency assembly - Unity.RenderPipelines.Universal.Shaders.dll
+Dependency assembly - System.Security.Cryptography.RSA.dll
+Dependency assembly - System.Resources.Writer.dll
+Dependency assembly - Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Dependency assembly - System.Net.ServicePoint.dll
+Dependency assembly - System.Runtime.Serialization.dll
+Dependency assembly - System.Security.AccessControl.dll
+Dependency assembly - System.ServiceProcess.dll
+Dependency assembly - Unity.Burst.Unsafe.dll
+Dependency assembly - Unity.Rendering.LightTransport.Runtime.dll
+Dependency assembly - System.IO.FileSystem.Watcher.dll
+Dependency assembly - System.Security.dll
+Dependency assembly - Microsoft.Win32.Registry.dll
+Dependency assembly - System.ComponentModel.Annotations.dll
+Dependency assembly - System.Configuration.Install.dll
+Dependency assembly - System.ComponentModel.dll
+Dependency assembly - System.DirectoryServices.dll
+Dependency assembly - System.Runtime.Serialization.Formatters.Soap.dll
+Dependency assembly - Mono.Security.dll
+Dependency assembly - I18N.Other.dll
+Dependency assembly - System.Reflection.Emit.Lightweight.dll
+Dependency assembly - System.Text.Encoding.dll
+Dependency assembly - System.Xml.XmlDocument.dll
+Dependency assembly - System.Net.Http.dll
+Dependency assembly - System.Diagnostics.Contracts.dll
+Dependency assembly - System.Reflection.Emit.dll
+Dependency assembly - System.Web.Extensions.Design.dll
+Dependency assembly - System.Net.Utilities.dll
+Dependency assembly - System.Data.OracleClient.dll
+Dependency assembly - System.Runtime.Serialization.Formatters.dll
+Dependency assembly - Unity.Multiplayer.Center.Common.dll
+Dependency assembly - System.Security.Cryptography.X509Certificates.dll
+Dependency assembly - System.ServiceModel.Primitives.dll
+Dependency assembly - System.Net.WebSockets.Client.dll
+Dependency assembly - System.IdentityModel.Selectors.dll
+Dependency assembly - System.Net.Mail.dll
+Dependency assembly - System.Security.Cryptography.Encryption.dll
+Dependency assembly - UnityEngine.UI.dll
+Dependency assembly - System.ServiceProcess.ServiceController.dll
+Dependency assembly - System.ComponentModel.Primitives.dll
+Dependency assembly - System.Drawing.Primitives.dll
+Dependency assembly - System.ServiceModel.Activation.dll
+Dependency assembly - System.Runtime.Extensions.dll
+Dependency assembly - System.IO.Compression.ZipFile.dll
+Dependency assembly - Unity.Collections.dll
+Dependency assembly - I18N.CJK.dll
+Dependency assembly - System.Transactions.dll
+Dependency assembly - System.Json.dll
+Dependency assembly - System.Diagnostics.Process.dll
+Dependency assembly - System.AppContext.dll
+Dependency assembly - System.ComponentModel.EventBasedAsync.dll
+Dependency assembly - System.Security.Cryptography.Csp.dll
+Dependency assembly - System.Data.dll
+Dependency assembly - Unity.VisualScripting.State.dll
+Dependency assembly - System.IO.FileSystem.dll
+Dependency assembly - Unity.RenderPipelines.Universal.Config.Runtime.dll
+Dependency assembly - System.Runtime.Serialization.Json.dll
+Dependency assembly - System.Buffers.dll
+Dependency assembly - System.IO.Pipes.dll
+Dependency assembly - System.IO.Compression.dll
+Dependency assembly - System.Security.Cryptography.Pkcs.dll
+Dependency assembly - System.Configuration.dll
+Dependency assembly - Mono.Data.Sqlite.dll
+Dependency assembly - Unity.TextMeshPro.dll
+Dependency assembly - System.Diagnostics.Debug.dll
+Dependency assembly - System.Xml.XPath.dll
+Dependency assembly - System.Net.WebHeaderCollection.dll
+Dependency assembly - System.Net.Http.WebRequest.dll
+Dependency assembly - Microsoft.CSharp.dll
+Dependency assembly - System.Runtime.CompilerServices.VisualC.dll
+Dependency assembly - Unity.InputSystem.ForUI.dll
+Dependency assembly - System.Xml.Xsl.Primitives.dll
+Dependency assembly - System.Threading.Timer.dll
+Dependency assembly - System.Security.Cryptography.OpenSsl.dll
+Dependency assembly - System.Resources.ResourceManager.dll
+Dependency assembly - System.Security.Cryptography.Encoding.dll
+Dependency assembly - Unity.VisualScripting.Flow.dll
+Dependency assembly - System.Net.AuthenticationManager.dll
+Dependency assembly - Unity.AI.Navigation.dll
+Dependency assembly - System.Security.Cryptography.Cng.dll
+Dependency assembly - System.Xml.XmlSerializer.dll
+Dependency assembly - System.Security.Cryptography.Hashing.dll
+Dependency assembly - System.IO.UnmanagedMemoryStream.dll
+Dependency assembly - System.ServiceModel.Duplex.dll
+Dependency assembly - System.Security.Cryptography.RandomNumberGenerator.dll
+Dependency assembly - System.Resources.Reader.dll
+Dependency assembly - Unity.Burst.dll
+Dependency assembly - System.Net.WebSockets.dll
+Dependency assembly - System.Xml.ReaderWriter.dll
+Dependency assembly - Unity.RenderPipelines.Universal.2D.Runtime.dll
+Dependency assembly - Unity.VisualScripting.Core.dll
+Dependency assembly - System.ObjectModel.dll
+Dependency assembly - System.Reflection.Primitives.dll
+Dependency assembly - Microsoft.Win32.Registry.AccessControl.dll
+Dependency assembly - System.Runtime.Serialization.Primitives.dll
+Dependency assembly - System.Diagnostics.TextWriterTraceListener.dll
+Dependency assembly - System.Xml.XPath.XmlDocument.dll
+Dependency assembly - I18N.dll
+Dependency assembly - System.Web.RegularExpressions.dll
+Dependency assembly - System.Security.Cryptography.Encryption.Aes.dll
+Dependency assembly - System.Linq.dll
+Dependency assembly - System.Net.Ping.dll
+Dependency assembly - Unity.Collections.LowLevel.ILSupport.dll
+Dependency assembly - System.ServiceModel.Internals.dll
+Dependency assembly - System.Reflection.TypeExtensions.dll
+Dependency assembly - System.Runtime.Numerics.dll
+Dependency assembly - I18N.West.dll
+Dependency assembly - System.ServiceModel.Security.dll
+Dependency assembly - System.Runtime.DurableInstancing.dll
+Dependency assembly - System.Text.Encoding.CodePages.dll
+Dependency assembly - System.Net.Requests.dll
+Dependency assembly - System.Globalization.dll
+Dependency assembly - System.Security.SecureString.dll
+Dependency assembly - System.ValueTuple.dll
+Dependency assembly - Unity.RenderPipelines.Core.Runtime.dll
+Dependency assembly - Unity.Mathematics.dll
+Dependency assembly - System.Security.Cryptography.ProtectedData.dll
+Dependency assembly - System.IO.FileSystem.DriveInfo.dll
+Dependency assembly - System.Core.dll
+Dependency assembly - Mono.Data.Tds.dll
+Dependency assembly - System.Web.ApplicationServices.dll
+Dependency assembly - mscorlib.dll
+Dependency assembly - System.Collections.Concurrent.dll
+Dependency assembly - System.Data.Common.dll
+Dependency assembly - System.Net.Cache.dll
+Dependency assembly - System.Threading.dll
+Dependency assembly - System.Collections.Specialized.dll
+Dependency assembly - System.Xml.Serialization.dll
+Dependency assembly - System.Runtime.InteropServices.WindowsRuntime.dll
+Dependency assembly - System.Globalization.Calendars.dll
+Dependency assembly - System.Text.RegularExpressions.dll
+Dependency assembly - System.Drawing.Design.dll
+Dependency assembly - System.Web.Services.dll
+Dependency assembly - System.Windows.Forms.DataVisualization.dll
+Dependency assembly - Unity.VisualScripting.Antlr3.Runtime.dll
+Dependency assembly - Unity.InputSystem.dll
+Dependency assembly - System.Security.Cryptography.Encryption.ECDiffieHellman.dll
+Dependency assembly - System.Net.dll
+Dependency assembly - System.Console.dll
+Dependency assembly - System.Net.NetworkInformation.dll
+Dependency assembly - System.Diagnostics.StackTrace.dll
+Dependency assembly - System.Linq.Parallel.dll
+Dependency assembly - System.Messaging.dll
+
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 0.4118ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.82f1\Editor\Data\bee_backend.exe --ipc --dagfile="Library/Bee/Playereb270a72.dag" --profile="Library/Bee/backend1.traceevents" Player
+WorkingDir: C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity
+DisplayProgressbar: Incremental Player Build
+[  10/1166  0s] WriteText Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/pch-c-12437278970804829809.cpp
+[ 190/1166  0s] WriteResponseFile Library/Bee/artifacts/rsp/504953375231396620.rsp
+[ 359/1166  0s] C_Win_x64_VS2022_VBPch Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/pch-c-12437278970804829809.pch (+obj)
+pch-c-12437278970804829809.cpp
+[ 360/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/x0kelz4eet0r.obj
+[ 361/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/13tm62mnw8yp.obj
+[ 362/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/px4n56lvzhpq.obj
+[ 363/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/29nzb7qnp8ck.obj
+[ 364/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/j59450s149wm.obj
+[ 365/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/20kwlvh4tzyl.obj
+[ 366/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/duuc3qh5cvun.obj
+[ 367/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/lq2mvx7d40di.obj
+[ 368/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8aplb46z41yn.obj
+[ 369/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/u6ojutr2zr0x.obj
+[ 370/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/a97amrm0s9xi.obj
+[ 371/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/krlaf8uz2u70.obj
+[ 372/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/dfml5klwv88t.obj
+[ 373/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/fyzczd9e98as.obj
+[ 374/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/2k8u9k1hfwlq.obj
+[ 375/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/384c6ay2x1f1.obj
+[ 376/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8xv4tn3tzdp5.obj
+[ 377/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/5w60q8hlgxwh.obj
+[ 378/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8f1fmm9zm0cj.obj
+UnityEngine.AndroidJNIModule_CodeGen.c
+[ 379/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/w0vgl5uo9vt8.obj
+[ 380/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/bzcc01c06ktx.obj
+[ 381/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/pwdeyv2is8j3.obj
+[ 382/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1cokztryzhwn.obj
+[ 383/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ogbg8nfsklgg.obj
+[ 384/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/it2e4myjibz2.obj
+[ 385/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/s90ruz6llmux.obj
+[ 386/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/2vh5st7gay9l.obj
+[ 387/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/i2luzcrselrw.obj
+[ 388/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/qh37xub3b4eg.obj
+[ 389/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/2bdjjm1zdtzo.obj
+[ 390/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/cnj83w5a9vec.obj
+[ 391/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/35f53k3p4ygu.obj
+[ 392/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/tqiejuic1e0a.obj
+[ 393/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/jc4e9fpglr6s.obj
+[ 394/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/17641w9h16bb.obj
+[ 395/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/bxxxugpr76ry.obj
+[ 396/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/qhakiv7162t3.obj
+[ 397/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/f6oafgf50cpr.obj
+[ 398/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0lgpj2dimszv.obj
+[ 399/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/i9pm20brdylb.obj
+[ 400/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/iflejj559vko.obj
+[ 401/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/96vxe0nf0we6.obj
+[ 402/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1u55delltfns.obj
+[ 403/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/3j469tiyg4ju.obj
+[ 404/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/w5bj0z58qyqu.obj
+[ 405/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/4t6178pzwgex.obj
+[ 406/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/9mfj2k06e9kq.obj
+[ 407/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mwqrcmpinicf.obj
+[ 408/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/hb6p8hqt1q08.obj
+[ 409/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/dyaj914m8r10.obj
+[ 410/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/6971aitfcj7m.obj
+[ 411/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/etivhlteqptd.obj
+[ 412/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/a87c65sc7bxj.obj
+[ 413/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/5uhw78l7uwl3.obj
+[ 414/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/k2ujj4bjb9va.obj
+[ 415/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/2m86msdd5mzc.obj
+[ 416/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/x5zceh1r9qwr.obj
+[ 417/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/cef3tjat6jlt.obj
+[ 418/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/d9qcngxnq2ph.obj
+[ 419/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/hxry87138w4k.obj
+[ 420/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/6nfjtg4gw75q.obj
+[ 421/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/zwrb31td0w6e.obj
+[ 422/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/cph543oeh116.obj
+[ 423/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/rrn6y2hn6mgk.obj
+[ 424/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/6h2qqanx4769.obj
+[ 425/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7lfr21xuffzc.obj
+[ 426/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/br4ktpwnajxc.obj
+[ 427/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/x9vkmqnir2h0.obj
+[ 428/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/vnysvjkvp2ec.obj
+[ 429/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/o7uep6xdbq7p.obj
+[ 430/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/3ohvfj4sc3ra.obj
+[ 431/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/lewcgwstemza.obj
+[ 432/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/q0fzupqgylgz.obj
+[ 433/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/rj81bpaxzj0l.obj
+[ 434/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7tr3ucjpcb0m.obj
+[ 435/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/86zm0evfb60r.obj
+[ 436/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/e3bs4h4c7f3n.obj
+[ 437/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/3cinquia4zgl.obj
+[ 438/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/r2z4b4ilt4bd.obj
+[ 439/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/6ryb4h8hudqs.obj
+[ 440/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/eec1puiftkbi.obj
+[ 441/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/q1qdwwrr6nle.obj
+[ 442/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/kzgj5q4r2n4x.obj
+[ 443/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gfv3hdukqgbk.obj
+[ 444/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/s0upkzemshde.obj
+[ 445/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/i7ancpk3jaei.obj
+[ 446/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/iw0pf2q5z7s0.obj
+[ 447/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/j3mdbx1tp08b.obj
+[ 448/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/l67okqpa6r1t.obj
+[ 449/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gdsbndtl21ns.obj
+[ 450/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/07tjjrz84bfv.obj
+[ 451/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/kbwgnr73hckw.obj
+[ 452/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/x14055c6uzmv.obj
+[ 453/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/pcdus3gzje40.obj
+[ 454/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/lsp02cciwthh.obj
+[ 455/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/lqxu5yao9our.obj
+[ 456/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/097o8ca4t3wb.obj
+[ 457/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0d30ennccxmb.obj
+[ 458/1166  1s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ktovfdg1eg9h.obj
+[ 459/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/u5x9mi8psiva.obj
+[ 460/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/a2deeder2t5o.obj
+[ 461/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0azyfotg1c2y.obj
+[ 462/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/iluvyuzdvizx.obj
+[ 463/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/9ive6fmmouv6.obj
+[ 464/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/nvlxvus21dn4.obj
+[ 465/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/kideljup5mdc.obj
+[ 466/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/blss5vgr67hp.obj
+[ 467/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mso902jbmfhc.obj
+[ 468/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/bkkk5hxrudh7.obj
+[ 469/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/469x1jhx50jh.obj
+[ 470/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8fce1re7s59a.obj
+[ 471/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0hq44u2sznvq.obj
+[ 472/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/n9r4rvow50ek.obj
+[ 473/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/6m0vfyld2ebw.obj
+[ 474/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/wz46dubc2mol.obj
+[ 475/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/3l2yxqw7vakp.obj
+[ 476/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7gutulw5lbrt.obj
+[ 477/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/x10q7d8k53pf.obj
+[ 478/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/275fxkoyaq29.obj
+[ 479/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/kdulqg9z8be2.obj
+[ 480/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/x77o56rn1395.obj
+[ 481/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/10c9jgrcexqh.obj
+[ 482/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7dy45xtxnayy.obj
+[ 483/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/zaxxrq562ujy.obj
+[ 484/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7qb7o7y3ijy9.obj
+[ 485/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/v4enhmf50byr.obj
+[ 486/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/j3b02br5da3g.obj
+[ 487/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/3yphh40y1y21.obj
+[ 488/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/l4ecwtnkj2ay.obj
+[ 489/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/6ji0b31hmqmh.obj
+[ 490/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/i1cp414qdlte.obj
+[ 491/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/hmte5sw3l13s.obj
+[ 492/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/nx3gahvrgwxe.obj
+[ 493/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/4tmfi6c6zc14.obj
+[ 494/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/wwvfmghwzzqh.obj
+[ 495/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/bk8h4vgjk5f9.obj
+[ 496/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/i6yaihiatm85.obj
+[ 497/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/vxt35w8aklu3.obj
+[ 498/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/95fle3js3f6k.obj
+[ 499/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mw4j1qlntkkn.obj
+[ 500/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/jg8eh2ify01p.obj
+[ 501/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/i1khjyfiahv3.obj
+[ 502/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0vqd5skwhwzn.obj
+[ 503/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/a4cp7dwiv28u.obj
+[ 504/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gxhx5jrgg3t9.obj
+[ 505/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/nisgeepwwpdm.obj
+[ 506/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/l55l346wqbgl.obj
+[ 507/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/bul55zzc2cn7.obj
+[ 508/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/02m5wn39cdtn.obj
+[ 509/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/leukk3v72ezw.obj
+[ 510/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/s8wej3fq0pk3.obj
+[ 511/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/idsjxgzjptsh.obj
+[ 512/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/4agge803f39i.obj
+[ 513/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ach2d5ggvwvm.obj
+[ 514/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ad8blg0s2509.obj
+[ 515/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/iqn5atmqh3gc.obj
+[ 516/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/tfqlw7ccxiwv.obj
+[ 517/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/113irrapl6v4.obj
+[ 518/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/v6w6v8hufu81.obj
+[ 519/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1a7lh3j8gfa3.obj
+[ 520/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0sgp1ehe5u15.obj
+[ 521/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/18o22ghj2wzs.obj
+[ 522/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/pwwf5s2vnno8.obj
+[ 523/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/hlh85l36qbn2.obj
+[ 524/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0p2xnvsznn41.obj
+[ 525/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/nn93cu2vdeet.obj
+[ 526/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/eklmak5yvpvb.obj
+[ 527/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/stonlxjhj3y9.obj
+[ 528/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mpj0p1etcugz.obj
+[ 529/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mxvt814z0tpa.obj
+[ 530/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/vobz100xvx91.obj
+[ 531/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/28wp4v7aiz7w.obj
+[ 532/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/uxlg4hij4imz.obj
+[ 533/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/d9rb16xemrat.obj
+[ 534/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/5ne28gye2bxt.obj
+[ 535/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7bhs98b4tp2g.obj
+[ 536/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/miyteco9igfe.obj
+[ 537/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/tzvchpug3yo5.obj
+[ 538/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gxkq9v6l85sr.obj
+[ 539/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/65dolidzj8gj.obj
+[ 540/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/17xsv5x6unu5.obj
+[ 541/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/pevgl5xhxkfi.obj
+[ 542/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/oeq9dojvv3cq.obj
+[ 543/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/rxv3ou0p2r77.obj
+[ 544/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/19fcas0v954f.obj
+[ 545/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/hgz40e9lck5r.obj
+[ 546/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/5i69b6kus19d.obj
+[ 547/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/bk1iykxezyc2.obj
+[ 548/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/f1mx9lcn9rtn.obj
+[ 549/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/xxovh7kmm5gy.obj
+[ 550/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/tezbpwtzp9q8.obj
+[ 551/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/egqa49rqdw5b.obj
+[ 552/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/lxtsk4gq2b79.obj
+[ 553/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ydj1cwuwioc2.obj
+[ 554/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/z29p59fs2y1s.obj
+[ 555/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1l4zr6t0yaml.obj
+[ 556/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/k32lww6wpdyu.obj
+[ 557/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8oeaf1c4pd88.obj
+[ 558/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/38p9x67mlir4.obj
+[ 559/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1lnhz23agz3q.obj
+[ 560/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1ju34ffnl8fr.obj
+[ 561/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/2fi9fle5ypbl.obj
+[ 562/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/insbej678chk.obj
+[ 563/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/eu2z457wsx2r.obj
+[ 564/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/j1ynw7ncu9ec.obj
+[ 565/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/n3xqevi9pdwf.obj
+[ 566/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/t4hyuar1s1js.obj
+[ 567/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ty429db4vpji.obj
+[ 568/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gtlen72lz8n9.obj
+[ 569/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8i1eu4w6s17y.obj
+[ 570/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/yxla4re1kbd2.obj
+[ 571/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7r2gwiigqs3w.obj
+[ 572/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0hdenbk5v5in.obj
+[ 573/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/fms7925z2fch.obj
+[ 574/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/3sv7cqdhsh40.obj
+[ 575/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/iclhauxgjalf.obj
+[ 576/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8bgvifqccb4a.obj
+[ 577/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/32e10pki7fx8.obj
+[ 578/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/geo1sh6kuiba.obj
+[ 579/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/emkk8nf8md4c.obj
+[ 580/1166  3s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/nradtb0bfmux.obj
+[ 581/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/hgkg4ok3650f.obj
+[ 582/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/bxd8x4lz9q5m.obj
+[ 583/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/g96du1sldua3.obj
+[ 584/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/uycqbt1vbsrm.obj
+[ 585/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/tppwlg8kvgxn.obj
+[ 586/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gucouimy6htw.obj
+[ 587/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/h546tbnkc896.obj
+[ 588/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/fl1x2rmnv66t.obj
+[ 589/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8r4hkg6poamx.obj
+[ 590/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/wp4exr4ni3zi.obj
+[ 591/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/xk1cytgvghyl.obj
+[ 592/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/jtmps58tlcol.obj
+[ 593/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ou2aqyzha7pl.obj
+[ 594/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/39gj5hrzsrwr.obj
+[ 595/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/m5d94jxo6dop.obj
+[ 596/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/i458j31bhovz.obj
+[ 597/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ykn9siplsxsb.obj
+[ 598/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1bdctfxqy8a3.obj
+[ 599/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/g1cu388jes9k.obj
+[ 600/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/yp6gqre41ll3.obj
+[ 601/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/77et7a7lxqf0.obj
+[ 602/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/t6gwse1akpst.obj
+[ 603/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/711rlrdpoq4o.obj
+[ 604/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/lyzmjvx4ov63.obj
+[ 605/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0obogk9mgeze.obj
+[ 606/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0jizcj3t4l2r.obj
+[ 607/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/nwc725bf9msr.obj
+[ 608/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/axmqb4e1lqcd.obj
+[ 609/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/eqfweysg56tc.obj
+[ 610/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7stq3t1sx18j.obj
+[ 611/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7jk1z0prk84h.obj
+[ 612/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/6yw3bwk464lr.obj
+[ 613/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8kjy8qzv7ji9.obj
+[ 614/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mosqiqvg5kbc.obj
+[ 615/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ruko8bk4h9wq.obj
+[ 616/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/khqo2mytn2z0.obj
+[ 617/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/inbdlg6k4rlp.obj
+[ 618/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/s6ev4gd1l79s.obj
+[ 619/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/e2etn6x3gxb3.obj
+[ 620/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/o2l0oticw0q5.obj
+[ 621/1166  1s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/c9sx9ts44sgm.obj
+[ 622/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8jso1fgj0adm.obj
+[ 623/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/q3hqoqcc5z8c.obj
+[ 624/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/9i91vjny83f3.obj
+[ 625/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/l8jdhovb8idp.obj
+[ 626/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/fnjhhepcaph4.obj
+[ 627/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/szixpb7yskxa.obj
+[ 628/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/lrjmlm1l2fs6.obj
+[ 629/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/fu40s3v6qfls.obj
+[ 630/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/a2gax29rbd7j.obj
+[ 631/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/n4o0l61lxm12.obj
+[ 632/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/m17n7f8x1yx4.obj
+[ 633/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/lyk2rf029kcx.obj
+[ 634/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gkibxvt23z9a.obj
+[ 635/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/k9i4gn4aybwr.obj
+[ 636/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/vtu301ot4gk2.obj
+[ 637/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gm0ubiwriikl.obj
+[ 638/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/wchwde0wcfh6.obj
+[ 639/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mg4t13baclu4.obj
+[ 640/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gf1nyfg3mb93.obj
+[ 641/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/4azhl50gbieo.obj
+[ 642/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8cxkhckk5wh1.obj
+[ 643/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/26e6p94l3gxm.obj
+[ 644/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/3ezmaplk7ie2.obj
+[ 645/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/6k99ielutzr4.obj
+[ 646/1166  1s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/9ax8cjxrk46r.obj
+[ 647/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/uq0wssbpnsib.obj
+[ 648/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/uz3zi4k8i1w9.obj
+[ 649/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0ihec6l56w0d.obj
+[ 650/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/k8aet7jhznla.obj
+[ 651/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/9ttxtxxsyro9.obj
+[ 652/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/evt9bhr9z67e.obj
+[ 653/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/aiqfqnudhxik.obj
+[ 654/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/fpxgl4aic1cu.obj
+[ 655/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/o2e48ypoy6yw.obj
+[ 656/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ulj9tcyp63h4.obj
+[ 657/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1clllt5djr5s.obj
+[ 658/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/jd36dktnevnp.obj
+[ 659/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ovtkx9iuhgv8.obj
+[ 660/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/xa4zpb8npjt0.obj
+[ 661/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/32vztsk5b1s3.obj
+[ 662/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/iudvp8c2p3k8.obj
+[ 663/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1g1vlh7pqw83.obj
+[ 664/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/g3v35eh6za4m.obj
+[ 665/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ac03k2gtqb0r.obj
+[ 666/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/u7ft14af705k.obj
+[ 667/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/u3zi1g92zv29.obj
+[ 668/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/na8r964gjkli.obj
+[ 669/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/fvva0efjyoqf.obj
+[ 670/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/wzn8krbpx1sq.obj
+[ 671/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/0ki7niro3doe.obj
+[ 672/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/pmdmhtvu8ov0.obj
+[ 673/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/j0qx8r3ivl4u.obj
+[ 674/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/cmx2r4tn2few.obj
+[ 675/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/p9p3xfr320co.obj
+[ 676/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/y9k7rtoj956u.obj
+Unity.RenderPipelines.Core.Runtime__8.cpp
+[ 677/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7ykk0inv2rxu.obj
+[ 678/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/08gf11qrmuro.obj
+[ 679/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/z95nkfmuvleb.obj
+[ 680/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/m1q5eci8infa.obj
+[ 681/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/m4gdkrbuhkty.obj
+[ 682/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/q36kb0z4o1vv.obj
+[ 683/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/am1olkjeya6r.obj
+[ 684/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/qogxkcajem54.obj
+[ 685/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/cuzy8zo3eatf.obj
+[ 686/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/hwcqze5z9zqj.obj
+[ 687/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mp6iw99dky78.obj
+[ 688/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/t1frprjdpjlq.obj
+[ 689/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/xqvm273cqywm.obj
+[ 690/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/9boikug4rdcf.obj
+[ 691/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/rco59jzmiwv0.obj
+[ 692/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/t0mmo0dta8ts.obj
+[ 693/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mkljmlrdzxf4.obj
+[ 694/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ohmuq5agxk7h.obj
+[ 695/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/lkm147mj2lig.obj
+[ 696/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/vykdd8rnruzq.obj
+[ 697/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/itph7ofsuevf.obj
+[ 698/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/x5yksgeyemvm.obj
+[ 699/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/h00ua6p9dw8m.obj
+[ 700/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1u4bepu0pzkn.obj
+[ 701/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7ut48s95romx.obj
+[ 702/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/4gaqimolpk8j.obj
+[ 703/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/qy9xrfzrvplx.obj
+[ 704/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/en61p01uzaq9.obj
+[ 705/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7v7hhdq7e95n.obj
+[ 706/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/4gtrpjoykzcp.obj
+[ 707/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/v55woxyh8k3e.obj
+[ 708/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/1hs5ssq2x5dr.obj
+[ 709/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gl9k46cfb9ey.obj
+[ 710/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/9nwul7u5w7qq.obj
+[ 711/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/9hiso83l1uag.obj
+[ 712/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8tw9nuf1xdwo.obj
+[ 713/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/vjq1ukk2e1hk.obj
+[ 714/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/zhih3fc1jlnm.obj
+[ 715/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/hgueyrcthk9l.obj
+[ 716/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ewkjjsam7fd2.obj
+[ 717/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ms6hpn3h6nzv.obj
+[ 718/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/t775zpknryxg.obj
+[ 719/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/uhfjhc5ku2fx.obj
+[ 720/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/x7ony9ra6o50.obj
+[ 721/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/89l856tnssl4.obj
+[ 722/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7czhobjx3h1t.obj
+[ 723/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/no0dk5l8knjg.obj
+[ 724/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/aw6b41w6eh2x.obj
+[ 725/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/do02ycun3dwm.obj
+[ 726/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/fdd1l52g26pm.obj
+[ 727/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/8c74pq9ojk9x.obj
+[ 728/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/w6pqpji6ids9.obj
+[ 729/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/habmj22s5283.obj
+[ 730/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/9j0b3u6agdlq.obj
+[ 731/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/mym3fdoc82ux.obj
+[ 732/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/q1nf0lwfnsn9.obj
+[ 733/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/22osy4azt112.obj
+[ 734/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/gdxrl6m8m95m.obj
+[ 735/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ba1qhiqqffoz.obj
+[ 736/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/ff7nydz5lp8s.obj
+[ 737/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7dqrvm29ar6g.obj
+[ 738/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/iihcowl4xm6l.obj
+[ 739/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__114.cpp
+[ 740/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__115.cpp
+[ 741/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/e5sk1pmiy486.obj
+[ 742/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__12.cpp
+[ 743/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__16.cpp
+[ 744/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__30.cpp
+[ 745/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__28.cpp
+[ 746/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__19.cpp
+[ 747/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__11.cpp
+[ 748/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__32.cpp
+[ 749/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__29.cpp
+[ 750/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__25.cpp
+[ 751/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__20.cpp
+[ 752/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__26.cpp
+[ 753/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__21.cpp
+[ 754/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__33.cpp
+[ 755/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__22.cpp
+[ 756/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__24.cpp
+[ 757/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__15.cpp
+[ 758/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__27.cpp
+[ 759/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__18.cpp
+[ 760/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__34.cpp
+[ 761/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__13.cpp
+[ 762/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__37.cpp
+[ 763/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__23.cpp
+[ 764/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__10.cpp
+[ 765/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/s3p47x816qlh.obj
+[ 766/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__31.cpp
+[ 767/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__17.cpp
+[ 768/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__14.cpp
+[ 769/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__36.cpp
+[ 770/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreFontEngineModule.cpp
+[ 771/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__35.cpp
+[ 772/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule.cpp
+[ 773/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Collections.LowLevel.ILSupport.cpp
+[ 774/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityConsentModule_CodeGen.c
+[ 775/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime_CodeGen.c
+[ 776/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__45.cpp
+[ 777/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.JSONSerializeModule.cpp
+[ 778/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AccessibilityModule.cpp
+[ 779/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__8.cpp
+[ 780/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__7.cpp
+[ 781/1166  0s] CopyFiles C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity/Library/Bee/artifacts/WinPlayerBuildProgram/il2cppOutput/build/Data/Resources/mscorlib.dll-resources.dat
+[ 782/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__3.cpp
+[ 783/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__2.cpp
+[ 784/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextRenderingModule.cpp
+[ 785/1166  0s] CopyFiles Build/standalone/FarmCards_Data/il2cpp_data/Metadata/global-metadata.dat
+[ 786/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__5.cpp
+[ 787/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TilemapModule_CodeGen.c
+[ 788/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TerrainModule_CodeGen.c
+[ 789/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.PhysicsModule_CodeGen.c
+[ 790/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.HierarchyCoreModule.cpp
+[ 791/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__4.cpp
+[ 792/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__1.cpp
+[ 793/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__6.cpp
+[ 794/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/rpc3rdjdc7dp.obj
+[ 795/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods.cpp
+[ 796/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__9.cpp
+[ 797/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__8.cpp
+[ 798/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics.cpp
+[ 799/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__2.cpp
+[ 800/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__5.cpp
+[ 801/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__6.cpp
+[ 802/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__7.cpp
+[ 803/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__1.cpp
+[ 804/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__4.cpp
+[ 805/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__3.cpp
+[ 806/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__8.cpp
+[ 807/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__6.cpp
+[ 808/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__9.cpp
+[ 809/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__9.cpp
+[ 810/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__1.cpp
+[ 811/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__7.cpp
+[ 812/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__2.cpp
+[ 813/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__5.cpp
+[ 814/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__98.cpp
+[ 815/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__79.cpp
+[ 816/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__4.cpp
+[ 817/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__27.cpp
+[ 818/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__58.cpp
+[ 819/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__22.cpp
+[ 820/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__51.cpp
+[ 821/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__17.cpp
+[ 822/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__3.cpp
+[ 823/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__33.cpp
+[ 824/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__50.cpp
+[ 825/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__87.cpp
+[ 826/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__37.cpp
+[ 827/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__19.cpp
+[ 828/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__24.cpp
+[ 829/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__89.cpp
+[ 830/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__14.cpp
+[ 831/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__88.cpp
+[ 832/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__71.cpp
+[ 833/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__32.cpp
+[ 834/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__21.cpp
+[ 835/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__40.cpp
+[ 836/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__47.cpp
+[ 837/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__85.cpp
+[ 838/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__53.cpp
+[ 839/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__97.cpp
+[ 840/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__36.cpp
+[ 841/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__61.cpp
+[ 842/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__55.cpp
+[ 843/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__15.cpp
+[ 844/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__62.cpp
+[ 845/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__26.cpp
+[ 846/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__91.cpp
+[ 847/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__56.cpp
+[ 848/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__60.cpp
+[ 849/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__80.cpp
+[ 850/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__66.cpp
+[ 851/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__23.cpp
+[ 852/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__75.cpp
+[ 853/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__30.cpp
+[ 854/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__54.cpp
+[ 855/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__31.cpp
+[ 856/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__25.cpp
+[ 857/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__44.cpp
+[ 858/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__48.cpp
+[ 859/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__12.cpp
+[ 860/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__73.cpp
+[ 861/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__41.cpp
+[ 862/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__64.cpp
+[ 863/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__43.cpp
+[ 864/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__78.cpp
+[ 865/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__69.cpp
+[ 866/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__10.cpp
+[ 867/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__83.cpp
+[ 868/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__52.cpp
+[ 869/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__65.cpp
+[ 870/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__13.cpp
+[ 871/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__68.cpp
+[ 872/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__92.cpp
+[ 873/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__11.cpp
+[ 874/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__94.cpp
+[ 875/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__16.cpp
+[ 876/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__42.cpp
+[ 877/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__84.cpp
+[ 878/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/7dlz5n5jgfnq.obj
+[ 879/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__77.cpp
+[ 880/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__59.cpp
+[ 881/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__96.cpp
+[ 882/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__90.cpp
+[ 883/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__82.cpp
+[ 884/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__57.cpp
+[ 885/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__20.cpp
+[ 886/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__29.cpp
+[ 887/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__93.cpp
+[ 888/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__34.cpp
+[ 889/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__74.cpp
+[ 890/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__38.cpp
+[ 891/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__39.cpp
+[ 892/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__28.cpp
+[ 893/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__86.cpp
+[ 894/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__63.cpp
+[ 895/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__70.cpp
+[ 896/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__81.cpp
+[ 897/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__67.cpp
+[ 898/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__72.cpp
+[ 899/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__35.cpp
+[ 900/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__49.cpp
+[ 901/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__99.cpp
+[ 902/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__18.cpp
+[ 903/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__46.cpp
+[ 904/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__101.cpp
+[ 905/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__76.cpp
+[ 906/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__95.cpp
+[ 907/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__107.cpp
+[ 908/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__104.cpp
+[ 909/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__110.cpp
+[ 910/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__120.cpp
+[ 911/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__102.cpp
+[ 912/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__112.cpp
+[ 913/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__117.cpp
+[ 914/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__119.cpp
+[ 915/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__109.cpp
+[ 916/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__103.cpp
+[ 917/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__100.cpp
+[ 918/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__111.cpp
+[ 919/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__105.cpp
+[ 920/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__113.cpp
+[ 921/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__108.cpp
+[ 922/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__118.cpp
+[ 923/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__106.cpp
+[ 924/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__116.cpp
+[ 925/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime.Shared_CodeGen.c
+[ 926/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Mono.Security_CodeGen.c
+[ 927/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Mono.Security.cpp
+[ 928/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.VFXModule.cpp
+[ 929/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__11.cpp
+[ 930/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI_CodeGen.c
+[ 931/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__11.cpp
+[ 932/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__10.cpp
+[ 933/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.XRModule.cpp
+[ 934/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__8.cpp
+[ 935/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__10.cpp
+[ 936/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__9.cpp
+[ 937/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__9.cpp
+[ 938/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__8.cpp
+[ 939/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AIModule.cpp
+[ 940/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/jvi5bhqylbhf.obj
+[ 941/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__6.cpp
+[ 942/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__6.cpp
+[ 943/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__1.cpp
+[ 944/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__7.cpp
+[ 945/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__3.cpp
+[ 946/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__3.cpp
+[ 947/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIModule.cpp
+[ 948/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Collections__1.cpp
+[ 949/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__5.cpp
+[ 950/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__2.cpp
+[ 951/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__1.cpp
+[ 952/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__5.cpp
+[ 953/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.VRModule.cpp
+[ 954/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__7.cpp
+[ 955/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__2.cpp
+[ 956/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule__5.cpp
+[ 957/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/650il8olcd6a.obj
+[ 958/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics__4.cpp
+[ 959/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule__4.cpp
+[ 960/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule__1.cpp
+[ 961/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem__4.cpp
+[ 962/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.PhysicsModule.cpp
+[ 963/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TerrainModule.cpp
+[ 964/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule__3.cpp
+[ 965/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TilemapModule.cpp
+[ 966/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule__2.cpp
+[ 967/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Burst__2.cpp
+[ 968/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Burst__1.cpp
+[ 969/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI.cpp
+[ 970/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine_CodeGen.c
+[ 971/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Burst_CodeGen.c
+[ 972/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Burst.Unsafe_CodeGen.c
+[ 973/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI__1.cpp
+[ 974/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics.cpp
+[ 975/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Collections.cpp
+[ 976/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI__3.cpp
+[ 977/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI__2.cpp
+[ 978/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule_CodeGen.c
+[ 979/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule.cpp
+[ 980/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem.cpp
+[ 981/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputForUIModule.cpp
+[ 982/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.GridModule_CodeGen.c
+[ 983/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SubsystemsModule.cpp
+[ 984/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/s9ij20k5s1rh.obj
+[ 985/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AndroidJNIModule.cpp
+[ 986/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.PropertiesModule.cpp
+[ 987/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.cpp
+[ 988/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Burst.cpp
+[ 989/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AnimationModule.cpp
+[ 990/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.VFXModule_CodeGen.c
+[ 991/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.Physics2DModule.cpp
+[ 992/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.IMGUIModule__1.cpp
+[ 993/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/c306wxvn3tga.obj
+[ 994/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.XRModule_CodeGen.c
+[ 995/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AIModule_CodeGen.c
+[ 996/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIModule_CodeGen.c
+[ 997/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.VRModule_CodeGen.c
+[ 998/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Burst.Unsafe.cpp
+[ 999/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityConsentModule.cpp
+[1000/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputModule.cpp
+[1001/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.DirectorModule.cpp
+[1002/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AudioModule.cpp
+[1003/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.VideoModule.cpp
+[1004/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem.ForUI.cpp
+[1005/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Mathematics_CodeGen.c
+[1006/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem_CodeGen.c
+[1007/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Collections_CodeGen.c
+[1008/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.IMGUIModule.cpp
+[1009/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule.cpp
+[1010/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.GridModule.cpp
+[1011/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputLegacyModule.cpp
+[1012/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem.ForUI_CodeGen.c
+[1013/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AssetBundleModule.cpp
+[1014/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.VideoModule_CodeGen.c
+[1015/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputModule_CodeGen.c
+[1016/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AudioModule_CodeGen.c
+[1017/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.IMGUIModule_CodeGen.c
+[1018/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SpriteShapeModule.cpp
+[1019/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule__3.cpp
+[1020/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.ImageConversionModule_CodeGen.c
+[1021/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityWebRequestModule_CodeGen.c
+[1022/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/r6tecvfqzr2c.obj
+[1023/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule__1.cpp
+[1024/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SharedInternalsModule_CodeGen.c
+[1025/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule__2.cpp
+[1026/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipeline.Universal.ShaderLibrary.cpp
+[1027/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.GPUDriven.Runtime.cpp
+[1028/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityAnalyticsCommonModule_CodeGen.c
+[1029/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime.cpp
+[1030/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AndroidJNIModule_CodeGen.c
+[1031/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.PropertiesModule_CodeGen.c
+[1032/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SubsystemsModule_CodeGen.c
+[1033/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime.cpp
+[1034/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputForUIModule_CodeGen.c
+[1035/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule_CodeGen.c
+[1036/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.GPUDriven.Runtime__2.cpp
+[1037/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime__5.cpp
+[1038/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime__2.cpp
+[1039/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime__3.cpp
+[1040/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime__7.cpp
+[1041/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime__1.cpp
+[1042/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule_CodeGen.c
+[1043/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime__8.cpp
+[1044/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.GPUDriven.Runtime__1.cpp
+[1045/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.Collections.LowLevel.ILSupport_CodeGen.c
+[1046/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreFontEngineModule_CodeGen.c
+[1047/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime__6.cpp
+[1048/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime__4.cpp
+[1049/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime__2.cpp
+[1050/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime__4.cpp
+[1051/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime__3.cpp
+[1052/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime__1.cpp
+[1053/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime__6.cpp
+[1054/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime__7.cpp
+[1055/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.HierarchyCoreModule_CodeGen.c
+[1056/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AccessibilityModule_CodeGen.c
+[1057/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.JSONSerializeModule_CodeGen.c
+[1058/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextRenderingModule_CodeGen.c
+[1059/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime__8.cpp
+[1060/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime__5.cpp
+[1061/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__10.cpp
+[1062/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityAnalyticsModule.cpp
+[1063/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.ParticleSystemModule.cpp
+[1064/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.DirectorModule_CodeGen.c
+[1065/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__14.cpp
+[1066/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__16.cpp
+[1067/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__12.cpp
+[1068/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__18.cpp
+[1069/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__15.cpp
+[1070/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__17.cpp
+[1071/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__19.cpp
+[1072/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__11.cpp
+[1073/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__5.cpp
+[1074/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__13.cpp
+[1075/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib_CodeGen.c
+[1076/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib.cpp
+[1077/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__6.cpp
+[1078/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__7.cpp
+[1079/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__9.cpp
+[1080/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/vhh2tmso5hh8.obj
+[1081/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__1.cpp
+[1082/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__2.cpp
+[1083/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/opk7kr5wvf8a.obj
+[1084/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__8.cpp
+[1085/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__4.cpp
+[1086/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__10.cpp
+[1087/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__14.cpp
+[1088/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__17.cpp
+[1089/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__3.cpp
+[1090/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__15.cpp
+[1091/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__16.cpp
+[1092/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__12.cpp
+[1093/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__11.cpp
+[1094/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AnimationModule_CodeGen.c
+[1095/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__13.cpp
+[1096/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.Physics2DModule_CodeGen.c
+[1097/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.ImageConversionModule.cpp
+[1098/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SharedInternalsModule.cpp
+[1099/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityWebRequestModule.cpp
+[1100/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppReversePInvokeWrapperTable.cpp
+[1101/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Assembly-CSharp_CodeGen.c
+[1102/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/s754bswdtgfg.obj
+[1103/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Assembly-CSharp__2.cpp
+[1104/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Assembly-CSharp.cpp
+[1105/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Assembly-CSharp__3.cpp
+[1106/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Assembly-CSharp__1.cpp
+[1107/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Core.Runtime.Shared.cpp
+[1108/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericClassTable.c
+[1109/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppRgctxTable.c
+[1110/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppMetadataRegistration.c
+[1111/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCFieldValuesTable.cpp
+[1112/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppMetadataUsage.c
+[1113/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateFieldValues2.cpp
+[1114/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericMethodDefinitions.c
+[1115/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateFieldValues.cpp
+[1116/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateTypeValues1.cpp
+[1117/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateFieldValues1.cpp
+[1118/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCodeRegistration.cpp
+[1119/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCTypeValuesTable.cpp
+[1120/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericInstDefinitions.c
+[1121/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateTypeValues.cpp
+[1122/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppInteropDataTable.cpp
+[1123/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericMethodTable.c
+[1124/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppInvokerTable.cpp
+[1125/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputLegacyModule_CodeGen.c
+[1126/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericAdjustorThunkTable.c
+[1127/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppTypeDefinitions.c
+[1128/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SpriteShapeModule_CodeGen.c
+[1129/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AssetBundleModule_CodeGen.c
+[1130/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__3.cpp
+[1131/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__1.cpp
+[1132/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__2.cpp
+[1133/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml.cpp
+[1134/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Configuration.cpp
+[1135/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Core_CodeGen.c
+[1136/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml_CodeGen.c
+[1137/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericMethodPointerTable.c
+[1138/1166  0s] CopyFiles Build/standalone/FarmCards_Data/il2cpp_data/Resources/mscorlib.dll-resources.dat
+[1139/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System_CodeGen.c
+[1140/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Core.cpp
+[1141/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Configuration_CodeGen.c
+[1142/1166  0s] CopyFiles C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity/Library/Bee/artifacts/WinPlayerBuildProgram/il2cppOutput/build/Data/Metadata/global-metadata.dat
+[1143/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.cpp
+[1144/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/__Generated.cpp
+[1145/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipeline.Universal.ShaderLibrary_CodeGen.c
+[1146/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.GPUDriven.Runtime_CodeGen.c
+[1147/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/__Generated_CodeGen.c
+[1148/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.ParticleSystemModule_CodeGen.c
+[1149/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppUnresolvedIndirectCallStubs.cpp
+[1150/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityAnalyticsCommonModule.cpp
+[1151/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.RenderPipelines.Universal.Runtime_CodeGen.c
+[1152/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityAnalyticsModule_CodeGen.c
+[1153/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/analytics.json
+[1154/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/eb6wj4ktinkh.obj
+[1155/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/hs2rhba171qq.obj
+[1156/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/995y57dfdv14.obj
+[1157/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/n65st82wr1va.obj
+[1158/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/n08pli09phyr.obj
+[1159/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/enbufzykum9z.obj
+[1160/1166  0s] C_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/owku4k26op0v.obj
+[BUSY       6s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY      16s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY      26s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY      36s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY      46s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY      56s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY      66s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY      76s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY      86s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY      96s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     107s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     117s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     127s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     137s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     147s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     157s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     167s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     177s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     187s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     198s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     208s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     218s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     228s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     238s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     248s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     258s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     268s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     278s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     288s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     299s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     309s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     319s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     329s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     339s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     349s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     359s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     369s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     379s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     390s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[BUSY     400s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+[1161/1166 400s] Link_Win_x64_VS2022_VB Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll (+pdb,lib)
+  正在创建库 Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll.lib 和对象 Library/Bee/artifacts/WinPlayerBuildProgram/x04p4/GameAssembly.dll.exp
+正在生成代码
+已完成代码的生成
+[1162/1166  0s] CopyFiles Build/standalone/GameAssembly.dll
+[1163/1166  0s] CopyFiles Build/standalone/FarmCards_BackUpThisFolder_ButDontShipItWithYourGame/GameAssembly.pdb
+[1164/1166  0s] CopyFiles C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity/Library/Bee/artifacts/WinPlayerBuildProgram/il2cppOutput/build/GameAssembly.pdb
+[1165/1166  0s] CopyFiles C:/Users/29401/Desktop/youxi/farm-cards-expedition-unity/Library/Bee/artifacts/WinPlayerBuildProgram/il2cppOutput/build/GameAssembly.dll
+[           0s] Destroying MsPDBSrv (14.44) 17
+[           0s] Destroying Visual Studio Telemetry (VCTIP.EXE)
+*** Tundra build success (412.82 seconds - 0:06:52), 809 items updated, 1166 evaluated
+ExitCode: 0 Duration: 6m:52s
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-W6CN-ZZMR-W65P-8P7C-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-15T03:56:11Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Total cache size 134586320
+Total cache size after purge 134586320, took 00:00:00.3361074
+Refreshing native plugins compatible for Editor in 3.55 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=c5555ba81f8dd964289bd808ff2a6366): Total: 0.063 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 3.45 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+-------------------------------------------------------------------------------
+Build Report
+Information on used Assets is not available, since player data was not rebuilt.
+Do a clean build to view the Asset build report information.
+-------------------------------------------------------------------------------
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-W6CN-ZZMR-W65P-8P7C-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-09-15T03:56:11Z
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 78 unused Assets / (0.5 MB). Loaded Objects now: 7350.
+Memory consumption went from 202.3 MB to 201.7 MB.
+Total: 8.663200 ms (FindLiveObjects: 0.401000 ms CreateObjectMapping: 0.189100 ms MarkObjects: 7.103200 ms  DeleteObjects: 0.968100 ms)
+
+DisplayProgressNotification: Build Successful
+Build Finished, Result: Success.
+##utp:{"type":"PlayerBuildInfo","version":2,"phase":"Immediate","time":1788577403670,"processId":23208,"steps":[{"description":"Preprocess Player","duration":91},{"description":"Prepare For Build","duration":10},{"description":"ProducePlayerScriptAssemblies","duration":2597},{"description":"Verify Build setup","duration":498},{"description":"Prepare assets for target platform","duration":3},{"description":"Prepare splash screen","duration":1},{"description":"Run script only build","duration":104},{"description":"Postprocess built player","duration":413811}],"duration":417115}
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            1.021 ms
+	Integration:            187.122 ms
+	Integration of assets:  0.003 ms
+	Thread Wait Time:       0.014 ms
+	Total Operation Time:   188.161 ms
+Unloading 0 unused Assets / (80 B). Loaded Objects now: 7350.
+Memory consumption went from 201.4 MB to 201.4 MB.
+Total: 6.155000 ms (FindLiveObjects: 0.392800 ms CreateObjectMapping: 0.182100 ms MarkObjects: 5.565800 ms  DeleteObjects: 0.013700 ms)
+
+[Build] ===== 构建报告 2026/9/5 11:03:23 =====
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildPlayer:PrintReport (UnityEditor.Build.Reporting.BuildReport,string) (at Assets/Scripts/Editor/BuildPlayer.cs:142)
+BuildPlayer:BuildInternal (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:74)
+BuildPlayer:ReleaseCLI () (at Assets/Scripts/Editor/BuildPlayer.cs:39)
+
+(Filename: Assets/Scripts/Editor/BuildPlayer.cs Line: 142)
+
+[Build] 结果: Succeeded
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildPlayer:PrintReport (UnityEditor.Build.Reporting.BuildReport,string) (at Assets/Scripts/Editor/BuildPlayer.cs:142)
+BuildPlayer:BuildInternal (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:74)
+BuildPlayer:ReleaseCLI () (at Assets/Scripts/Editor/BuildPlayer.cs:39)
+
+(Filename: Assets/Scripts/Editor/BuildPlayer.cs Line: 142)
+
+[Build] 输出目录: C:\Users\29401\Desktop\youxi\farm-cards-expedition-unity\Build\standalone
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildPlayer:PrintReport (UnityEditor.Build.Reporting.BuildReport,string) (at Assets/Scripts/Editor/BuildPlayer.cs:142)
+BuildPlayer:BuildInternal (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:74)
+BuildPlayer:ReleaseCLI () (at Assets/Scripts/Editor/BuildPlayer.cs:39)
+
+(Filename: Assets/Scripts/Editor/BuildPlayer.cs Line: 142)
+
+[Build] 总大小: 1074.3 MB / 文件数 558
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildPlayer:PrintReport (UnityEditor.Build.Reporting.BuildReport,string) (at Assets/Scripts/Editor/BuildPlayer.cs:142)
+BuildPlayer:BuildInternal (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:74)
+BuildPlayer:ReleaseCLI () (at Assets/Scripts/Editor/BuildPlayer.cs:39)
+
+(Filename: Assets/Scripts/Editor/BuildPlayer.cs Line: 142)
+
+[Build] 耗时: 417.6s
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildPlayer:PrintReport (UnityEditor.Build.Reporting.BuildReport,string) (at Assets/Scripts/Editor/BuildPlayer.cs:142)
+BuildPlayer:BuildInternal (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:74)
+BuildPlayer:ReleaseCLI () (at Assets/Scripts/Editor/BuildPlayer.cs:39)
+
+(Filename: Assets/Scripts/Editor/BuildPlayer.cs Line: 142)
+
+[Build] 错误数: 0  警告数: 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildPlayer:PrintReport (UnityEditor.Build.Reporting.BuildReport,string) (at Assets/Scripts/Editor/BuildPlayer.cs:142)
+BuildPlayer:BuildInternal (bool) (at Assets/Scripts/Editor/BuildPlayer.cs:74)
+BuildPlayer:ReleaseCLI () (at Assets/Scripts/Editor/BuildPlayer.cs:39)
+
+(Filename: Assets/Scripts/Editor/BuildPlayer.cs Line: 142)
+
+Killing ADB server in 0.073954 seconds.
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-29401-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-29401 channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Shut down.
+Cleanup mono
+abort_threads: Failed aborting id: 0000000000003A78, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 0000000000003A78, mono_thread_manage will ignore it
+
+debugger-agent: Unable to listen on 3464
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1788577405442,"processId":23208,"allocatedMemory":18059733,"memoryLabels":[{"Default":28597},{"Permanent":15356},{"NewDelete":72169},{"Thread":4230464},{"Manager":34314},{"VertexData":8},{"Geometry":816},{"VFX":-104},{"Texture":160},{"Shader":78795},{"Material":24},{"GfxDevice":55784},{"Animation":392},{"Audio":4040},{"FontEngine":256},{"Physics":2081},{"Serialization":496},{"Input":14824},{"JobScheduler":33024},{"TextLib":160},{"Mono":32},{"MonoCode":192},{"ScriptingNativeRuntime":155060},{"BaseObject":1620304},{"Resource":1304},{"Renderer":2928},{"Transform":4646},{"File":1016},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":11249},{"DynamicArray":100676},{"HashMap":3882063},{"Utility":2661438},{"Curl":48},{"PoolAlloc":1864},{"AI":104},{"TypeTree":5005},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7888},{"Director":8240},{"CloudService":6448},{"WebRequest":17829},{"VR":45969},{"SceneManager":496},{"Video":64},{"LazyScriptCache":32},{"Camera":17},{"Secure":265},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":464},{"Hierarchy":272},{"CoreStats":12536},{"Identifiers":6192},{"Gui":80},{"EditorUtility":56460},{"VersionControl":4},{"Undo":947},{"AssetDatabase":4473753},{"EditorGi":328},{"UnityConnect":24184},{"Upm":2036},{"DrivenProperties":72},{"LocalIPC":211},{"ProfilerEditor":9746},{"CoreBusinessMetrics":2877},{"Licensing":1232},{"AssetReference":32},{"IPCStream":32}]}

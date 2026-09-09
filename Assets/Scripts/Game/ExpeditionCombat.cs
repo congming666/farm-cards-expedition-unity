@@ -28,6 +28,8 @@ public partial class Expedition
             MoveEntityWithCollisions(m,(float)Math.Cos(angle)*m.speed*0.3f*dt,(float)Math.Sin(angle)*m.speed*0.3f*dt);
         }
         // 首领与特殊能力（沿 web updateWorldSystems）
+        // v0.6.0 多样化AI
+        if(m.aiType!=null&&m.aiType!="chaser"&&m.type!="boss"&&m.stunned<=0){CombatEnhancement.UpdateMonsterAI(m,dt);return;}
         if(m.type=="boss" && m.abilityCd<=0){ m.phase=m.hp/m.maxHp<0.5f?2:1; m.abilityCd=m.phase==2?2.6f:4.0f; CastBossAbility(m,d,(float)Math.Atan2(player.y-m.y,player.x-m.x)); }
         if(m.type=="boar" && m.abilityCd<=0 && d>120 && d<275){ m.abilityCd=5.5f; float ba=(float)Math.Atan2(player.y-m.y,player.x-m.x); m.x+=(float)Math.Cos(ba)*64; m.y+=(float)Math.Sin(ba)*64; SpawnAoeEffect(m.x,m.y,42,"#e9a15e","ring"); }
     }
@@ -132,6 +134,7 @@ public partial class Expedition
     }
 
     public void PlayerAttack(){ if(player.attackCd>0) return; player.attackCd=weapon.cooldown;
+        // v0.6.0 怒气积累在DamageEnemy中处理
         float wx=mouse.x+camera.x, wy=mouse.y+camera.y; float angle=(float)Math.Atan2(wy-player.y,wx-player.x); player.angle=angle;
         weaponPulse=0.18f; attackAnim=0.24f;
         attackCombo=(attackCombo+1)%3; int combo=attackCombo;
@@ -199,13 +202,24 @@ public partial class Expedition
     string CropName(string id){ var c=SaveSystem.CropById(id); return c!=null?c.name:id; }
 
     public void DamageEnemy(Monster m,float amount,string color,bool heavy){
-        if(m==null||m.hp<=0) return; m.hp-=amount; m.hitFlash=heavy?0.22f:0.14f; m.state=m.hp<=0?"death":"hit"; m.stateTimer=m.hp<=0?0.4f:0.18f;
+        if(m==null||m.hp<=0) return;
+        amount*=CombatEnhancement.GetComboMul();
+        if(CombatEnhancement.nextAttackCrit){CombatEnhancement.nextAttackCrit=false;amount*=2f;heavy=true;}
+        CombatEnhancement.OnEnemyHit();
+        CombatEnhancement.DamageDestructible(m.x,m.y,amount);
+        float _prevSeg=m.maxHp>0?Math.Min(CombatEnhancement.GetSegments(m),(int)Math.Ceiling(m.hp/m.maxHp*CombatEnhancement.GetSegments(m))):0;
+        m.hp-=amount;
+        if(m.maxHp>0&&m.hp>0){int curSeg=Math.Min(CombatEnhancement.GetSegments(m),(int)Math.Ceiling(m.hp/m.maxHp*CombatEnhancement.GetSegments(m)));if(curSeg<_prevSeg)CombatEnhancement.OnSegmentBreak(m);} m.hitFlash=heavy?0.22f:0.14f; m.state=m.hp<=0?"death":"hit"; m.stateTimer=m.hp<=0?0.4f:0.18f;
         damageNumbers.Add(new DamageNumber{ x=m.x+G.Rand(-8,8), y=m.y-m.radius-8, value=(int)Math.Round(amount), color=color, life=0.72f, maxLife=0.72f, vx=G.Rand(-10,10), vy=heavy?-64:-48, heavy=heavy });
         SpawnHitParticles(m.x,m.y,color); hitStop=Math.Max(hitStop,heavy?0.065f:0.032f);
     }
     public void DamageRaider(Raider r,float amount,string color){ if(r==null||r.hp<=0) return; r.hp-=amount; damageNumbers.Add(new DamageNumber{ x=r.x+G.Rand(-8,8), y=r.y-r.radius-8, value=(int)Math.Round(amount), color=color, life=0.72f, maxLife=0.72f, vx=G.Rand(-10,10), vy=-48 }); SpawnHitParticles(r.x,r.y,color); }
 
     public void DamagePlayer(float amount){ if(player.invuln>0) return;
+        if(CombatEnhancement.CheckPerfectDodge()) return;
+        CombatEnhancement.OnPlayerHit();
+        Monster _atk=monsters.Find(m=>m.hp>0&&G.Dist(m.x,m.y,player.x,player.y)<60);
+        if(_atk!=null)CombatEnhancement.OnEliteHitPlayer(_atk);
         bool tower=false; foreach(var t in towers) if(t.state=="player" && G.Dist(t.x,t.y,player.x,player.y)<=t.range){ tower=true; break; }
         if(beastWave.active) amount*=tower?0.38f:1.45f; else if(tower) amount*=0.76f;
         player.hp-=amount; damageTaken+=amount; screenShake=Math.Min(1,screenShake+0.48f); SpawnHitParticles(player.x,player.y,"#ff4444");
@@ -214,6 +228,7 @@ public partial class Expedition
     }
 
     void SpawnKillFeedback(Monster m){ bool boss=m.type=="boss";
+        CombatEnhancement.OnEliteDeath(m);
         killFlash=Math.Max(killFlash,boss?0.10f:0.06f);
         hitStop=Math.Max(hitStop,boss?0.07f:0.05f);
         screenShake=Math.Max(screenShake,boss?0.45f:0.35f);

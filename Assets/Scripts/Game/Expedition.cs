@@ -73,6 +73,8 @@ public partial class Expedition
         else if(map.tier==4) sunVector=new Vector2(-0.55f,0.34f); else sunVector=new Vector2(0.72f,0.38f);
         GenerateTerrain();
         SpawnEntities();
+        CombatEnhancement.Init(this);
+        CombatEnhancement.ResetBossPhase();
         SetupMission();
         UpdateVision();
     }
@@ -147,6 +149,12 @@ public partial class Expedition
     // ---------------- 主更新（移植自 update，含固定步长与怪物AI、弹道、粒子、陷阱、塔、事件） ----------------
     public void Update(float dt){
         if (paused || gameOver) return;
+        CombatEnhancement.Update(dt);
+        // v0.6.0 战斗增强输入
+        if(Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.LeftShift))CombatEnhancement.TryDodge();
+        if(Input.GetKeyDown(KeyCode.F))CombatEnhancement.TryUltimate();
+        if(Input.GetKeyDown(KeyCode.G)){var ex=monsters.Find(m=>CombatEnhancement.CanExecute(m));if(ex!=null)CombatEnhancement.TryExecute(ex);}
+        if(CombatEnhancement.branchActive){if(Input.GetKeyDown(KeyCode.Alpha1))CombatEnhancement.ChooseBranch(0);if(Input.GetKeyDown(KeyCode.Alpha2))CombatEnhancement.ChooseBranch(1);if(Input.GetKeyDown(KeyCode.Alpha3))CombatEnhancement.ChooseBranch(2);}
         // 视口尺寸见 RenderBackend
         UpdateWorldSystems(dt);
         fogUpdateTimer -= dt;

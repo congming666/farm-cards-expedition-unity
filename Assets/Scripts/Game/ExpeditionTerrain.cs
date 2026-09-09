@@ -102,6 +102,8 @@ public partial class Expedition
             var pos=FindSafeSpawn(300,size-300,data.radius); bool elite=RandPct(balance.eliteChance*100);
             float hpScale=balance.enemyHp*(elite?1.75f:1);
             monsters.Add(new Monster{ type=type,name=data.name,icon=data.icon,x=pos.Item1,y=pos.Item2,hp=(int)Math.Round(data.hp*hpScale),maxHp=(int)Math.Round(data.hp*hpScale),damage=(int)Math.Round(data.damage*balance.enemyDamage*(elite?1.25f:1)),speed=data.speed*balance.enemySpeed,radius=data.radius,collisionRadius=data.collisionRadius,attackRange=data.attackRange,attackCooldown=data.attackCooldown,xp=data.xp,gold=data.gold,aerial=data.aerial,ranged=data.ranged,facing=G.Rand(0f,(float)(Math.PI*2)),animTime=G.Rand(0,10),hitFlash=0,elite=elite,abilityCd=G.Rand(1,4),packOffset=G.Rand(-1,1),state="idle",stateTimer=0 });
+            CombatEnhancement.AssignAIType(monsters[monsters.Count-1]);
+            if(elite)CombatEnhancement.MakeElite(monsters[monsters.Count-1]);
         }
         for(int i=0;i<map.chestCount;i++){ var pos=FindSafeSpawn(200,size-200,24); chests.Add(new Chest{x=pos.Item1,y=pos.Item2,opened=false,radius=24,hasSignal=RandPct(15) }); }
         int towerCount=3+map.tier;
