@@ -102,6 +102,13 @@ public class GameFlow : MonoBehaviour
         for(int i=toasts.Count-1;i>=0;i--){ toasts[i].life-=Time.deltaTime; if(toasts[i].life<=0) toasts.RemoveAt(i); }
         for(int i=dropBanners.Count-1;i>=0;i--){ dropBanners[i].life-=Time.deltaTime; if(dropBanners[i].life<=0) dropBanners.RemoveAt(i); }
         if(signalFlash>0) signalFlash=Math.Max(0,signalFlash-Time.deltaTime);
+        // 农场系统 Tick（天气/湿度/加工/访客）
+        if(screen=="farm" && !freezeForSettings){
+            float dt=Time.deltaTime;
+            FarmCareSystem.Tick(dt);
+            FarmProcessingSystem.Tick(dt);
+            FarmDecorationSystem.Tick(dt);
+        }
     }
 
     void PollInput(){

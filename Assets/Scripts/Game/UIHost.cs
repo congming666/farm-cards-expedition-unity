@@ -165,8 +165,8 @@ public static class UIHost
         if(GUI.Button(new Rect(px+14,438,464,38),"进入远征准备大厅  →",new GUIStyle(GUI.skin.button){fontSize=17,fontStyle=FontStyle.Bold})){ gf.OpenPrep(); }
     }
 
-    public static float CropProgress(Plot p){ if(p.crop==null) return 0; double now=DateTime.Now.Ticks/(double)TimeSpan.TicksPerMillisecond; double elapsed=(now-p.plantedAt)/1000.0; float f=p.status=="drought"?0.55f:p.status=="pest"?0.72f:p.status=="weeds"?0.82f:1f; double pr=(elapsed*f)/p.crop.growTime; return (float)Math.Min(1,Math.Max(0,pr)); }
-    public static string StatusIcon(string s){ return s=="drought"?"缺水":s=="pest"?"虫害":"杂草"; }
+    public static float CropProgress(Plot p,int idx=-1){ if(p.crop==null) return 0; double now=DateTime.Now.Ticks/(double)TimeSpan.TicksPerMillisecond; double elapsed=(now-p.plantedAt)/1000.0; float f=p.status=="drought"?0.55f:p.status=="pest"?0.72f:p.status=="weeds"?0.82f:p.status=="burn"?0.3f:1f; if(idx>=0) f*=FarmTraitSystem.GrowSpeedMultiplier(idx)*FarmCollectionSystem.CollectionBonus(); double pr=(elapsed*f)/p.crop.growTime; return (float)Math.Min(1,Math.Max(0,pr)); }
+    public static string StatusIcon(string s){ return s=="drought"?"缺水":s=="pest"?"虫害":s=="weeds"?"杂草":s=="burn"?"烧苗":s=="beast"?"野兽":s; }
     static void DrawResourceBadge(float x,float y,float w,string name,int value,Color c){ Fill(new Rect(x,y,w,38),new Color(0.04f,0.12f,0.085f,0.96f)); Outline(new Rect(x,y,w,38),new Color(c.r,c.g,c.b,0.52f),1); GUI.Label(new Rect(x+8,y+6,w-16,26),name+"  "+value,Col2(c,15,TextAnchor.MiddleCenter)); }
     static void DrawFacility(float x,float y,float w,float h,string icon,string name,Action onClick){
         DrawPanel(x,y,w,h,"");

@@ -58,34 +58,54 @@ public static class FarmSystem
         if(GreenhouseSystem.GetWarehouseCount("seeds")<=0){ UIHost.ShowToast("种子不足！去远征获取更多种子","warning"); return; }
         var crop=SaveSystem.CropById(GameState.selectedCrop)??GameData.Crops[0];
         var plot=GameState.farmPlots[idx]; plot.crop=crop; plot.plantedAt=CurrentMs(); plot.ready=false; plot.status=null;
+        plot.moisture=100f; plot.quality=FarmCollectionSystem.RollQuality(crop); plot.harvestCount=0; plot.fertilized=false; plot.pestType=null;
         float roll=(float)G.Rng.NextDouble(); plot.status=roll<0.08f?"drought":(roll<0.14f?"pest":(roll<0.21f?"weeds":null));
-        GreenhouseSystem.RemoveWarehouseItem("seeds",1); UIHost.ShowToast("种下了"+crop.name,"success"); SaveSystem.Save();
+        GreenhouseSystem.RemoveWarehouseItem("seeds",1); UIHost.ShowToast("种下了"+crop.name+"（"+FarmCollectionSystem.QualityName(plot.quality)+"）","success"); SaveSystem.Save();
     }
 
     public static void Harvest(int idx){
         var plot=GameState.farmPlots[idx]; if(plot.crop==null||!plot.ready){ UIHost.ShowToast("还没成熟呢","warning"); return; }
         var crop=plot.crop;
+        // 变异检查（胡萝卜）
+        FarmCollectionSystem.TryMutate(idx);
+        // 产量计算（品质+特性）
+        int yield = FarmTraitSystem.HarvestYield(idx);
         // 作物存入仓库
-        int added = GreenhouseSystem.AddWarehouseItem(crop.id, 1);
-        string rewardText = crop.name+" ×"+added+" 已入仓";
+        int added = GreenhouseSystem.AddWarehouseItem(crop.id, yield);
+        string rewardText = crop.name+" ×"+added+"（"+FarmCollectionSystem.QualityName(plot.quality)+"）已入仓";
+        // 图鉴记录
+        FarmCollectionSystem.RecordCollection(crop.id, plot.quality);
         // 30%概率额外获得种子，存入仓库
         if((float)G.Rng.NextDouble()<0.3f){ GreenhouseSystem.AddWarehouseItem("seeds",1); rewardText+="，种子 ×1 已入仓"; }
         // 稀有作物额外获得材料，存入仓库
         if(crop.rare){ int matCount=G.RandInt(1,3); GreenhouseSystem.AddWarehouseItem("materials",matCount); rewardText+="，材料 ×"+matCount+" 已入仓"; }
-        if(crop.rewardType=="gold"){ int bonus=G.RandInt(25,45); GameState.gold+=bonus; rewardText+="，额外金币 +"+bonus; }
+        if(crop.rewardType=="gold"){ int bonus=G.RandInt(25,45); GameState.gold+=(int)Math.Round(bonus*FarmDecorationSystem.BeautyGoldBonus()); rewardText+="，额外金币 +"+bonus; }
         else if(crop.rewardType=="healing"){ GreenhouseSystem.AddWarehouseItem("herb_kit",1); rewardText+="，草药包扎包 ×1 已入仓"; }
         else if(crop.rewardType=="attack_card"){ var card=CardSystem.CreateCard(crop); card.name="豌豆连射 · "+card.name; card.desc="远征攻击强化：提高基础攻击与稻草猛击等级。"; GameState.cardInventory.Add(card); UIHost.ShowDrop(card); rewardText+="，豌豆攻击强化卡 x1"; }
         else if(crop.rewardType=="skill_card"){ var card=CardSystem.CreateCard(crop); GameState.cardInventory.Add(card); UIHost.ShowDrop(card); rewardText+="，强化技能卡："+card.name+" x1"; }
         else if(crop.rewardType=="consumable_skill_card"){ var card=CardSystem.CreateCard(crop); card.singleUse=true; card.name=card.name+"（一次性）"; card.desc="本次远征可使用一次：临时提升「"+SaveSystem.SkillById(card.skillId).name+"」"+card.power+"级，撤离后消耗。"; GameState.cardInventory.Add(card); UIHost.ShowDrop(card); rewardText+="，一次性技能卡："+card.name+" x1"; }
         else CardSystem.TryDrop(crop);
         UIHost.ShowToast("收获"+crop.name+"，"+rewardText,"gold");
-        plot.crop=null; plot.ready=false; plot.status=null; SaveSystem.Save();
+        // 反复收获（豌豆）
+        plot.harvestCount++;
+        if(FarmTraitSystem.ShouldRemainAfterHarvest(idx)){
+            plot.ready=false; plot.plantedAt=CurrentMs(); plot.moisture=80f;
+            UIHost.ShowToast("豌豆再生中，还可收获"+(3-plot.harvestCount)+"次","info");
+        } else {
+            plot.crop=null; plot.ready=false; plot.status=null; plot.harvestCount=0; plot.fertilized=false;
+        }
+        SaveSystem.Save();
     }
 
     public static void Tend(int idx){
         var plot=GameState.farmPlots[idx]; if(plot==null||plot.status==null) return;
+        if(plot.status=="beast"){ FarmCareSystem.ChaseBeast(idx); return; }
+        if(plot.status=="burn"){
+            if(GameState.gold<6){ UIHost.ShowToast("需要6金币修复烧苗","warning"); return; }
+            GameState.gold-=6; plot.status=null; plot.fertilized=false; SaveSystem.Save(); UIHost.ShowToast("烧苗已修复","success"); return;
+        }
         if(GameState.gold<4){ UIHost.ShowToast("需要4金币购买基础农具","warning"); return; }
-        GameState.gold-=4; plot.status=null; SaveSystem.Save(); UIHost.ShowToast("照顾完成，作物恢复正常生长","success");
+        GameState.gold-=4; plot.status=null; plot.moisture=Math.Max(plot.moisture,60f); SaveSystem.Save(); UIHost.ShowToast("照顾完成，作物恢复正常生长","success");
     }
 
     public static void UseGrowthCatalyst(){

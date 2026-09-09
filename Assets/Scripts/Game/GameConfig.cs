@@ -9,7 +9,7 @@ using UnityEngine;
 [Serializable] public class SkillDef { public string id, name, icon, key, type, color, desc; public float cooldown, energyCost, damage, range, stunDuration, dashDistance, invulnDuration, stealthDuration; public bool aoe; }
 [Serializable] public class ConsumableDef { public string id, name, icon, key, desc; public float value, heal, damage, range; public bool aoe; }
 [Serializable] public class MonsterDef { public string name, icon, type; public float hp, damage, speed, radius, collisionRadius, attackRange, attackCooldown, xp, gold; public bool aerial, ranged; }
-[Serializable] public class CropDef { public string id, name, icon, rarity, rewardType, rewardLabel, upgradeSkill; public float growTime, sellPrice, seedPrice, cardChance; public bool rare; }
+[Serializable] public class CropDef { public string id, name, icon, rarity, rewardType, rewardLabel, upgradeSkill, trait; public float growTime, sellPrice, seedPrice, cardChance; public bool rare; }
 [Serializable] public class TerrainDef { public string[] decor; }
 
 public static class GameData
@@ -55,15 +55,15 @@ public static class GameData
 
     public static readonly CropDef[] Crops = new CropDef[]
     {
-        new CropDef{ id="pea_shooter", name="豌豆射手", icon="🫛", growTime=24, sellPrice=12, seedPrice=8, rarity="rare", cardChance=1, upgradeSkill="straw_smash", rewardType="attack_card", rewardLabel="必得攻击卡" },
-        new CropDef{ id="sunflower", name="向日葵", icon="🌻", growTime=18, sellPrice=45, seedPrice=6, rarity="common", cardChance=1, upgradeSkill="all", rewardType="skill_card", rewardLabel="永久技能强化卡" },
-        new CropDef{ id="watermelon", name="西瓜", icon="🍉", growTime=36, sellPrice=20, seedPrice=15, rarity="rare", cardChance=1, upgradeSkill="all", rewardType="consumable_skill_card", rewardLabel="一次性技能卡" },
-        new CropDef{ id="cabbage", name="卷心菜", icon="🥬", growTime=28, sellPrice=18, seedPrice=10, rarity="common", cardChance=0, upgradeSkill="earth_dash", rewardType="healing", rewardLabel="草药包扎包" },
-        new CropDef{ id="wheat", name="小麦", icon="🌾", growTime=15, sellPrice=15, seedPrice=5, rarity="common", cardChance=0, upgradeSkill=null, rewardType="gold", rewardLabel="金币" },
-        new CropDef{ id="carrot", name="胡萝卜", icon="🥕", growTime=20, sellPrice=25, seedPrice=10, rarity="common", cardChance=0.14f, upgradeSkill="earth_dash" },
-        new CropDef{ id="corn", name="玉米", icon="🌽", growTime=30, sellPrice=45, seedPrice=15, rarity="rare", cardChance=0.20f, upgradeSkill="vine_bind" },
-        new CropDef{ id="pumpkin", name="南瓜", icon="🎃", growTime=45, sellPrice=80, seedPrice=25, rarity="rare", cardChance=0.30f, upgradeSkill="smoke_screen" },
-        new CropDef{ id="moon_rice", name="月光稻", icon="✨", growTime=60, sellPrice=200, seedPrice=0, rarity="legendary", cardChance=0.58f, upgradeSkill="all", rare=true },
+        new CropDef{ id="pea_shooter", name="豌豆射手", icon="🫛", growTime=24, sellPrice=12, seedPrice=8, rarity="rare", cardChance=1, upgradeSkill="straw_smash", rewardType="attack_card", rewardLabel="必得攻击卡", trait="reharvest" },
+        new CropDef{ id="sunflower", name="向日葵", icon="🌻", growTime=18, sellPrice=45, seedPrice=6, rarity="common", cardChance=1, upgradeSkill="all", rewardType="skill_card", rewardLabel="永久技能强化卡", trait="aura" },
+        new CropDef{ id="watermelon", name="西瓜", icon="🍉", growTime=36, sellPrice=20, seedPrice=15, rarity="rare", cardChance=1, upgradeSkill="all", rewardType="consumable_skill_card", rewardLabel="一次性技能卡", trait="giant" },
+        new CropDef{ id="cabbage", name="卷心菜", icon="🥬", growTime=28, sellPrice=18, seedPrice=10, rarity="common", cardChance=0, upgradeSkill="earth_dash", rewardType="healing", rewardLabel="草药包扎包", trait="hardy" },
+        new CropDef{ id="wheat", name="小麦", icon="🌾", growTime=15, sellPrice=15, seedPrice=5, rarity="common", cardChance=0, upgradeSkill=null, rewardType="gold", rewardLabel="金币", trait="monoculture" },
+        new CropDef{ id="carrot", name="胡萝卜", icon="🥕", growTime=20, sellPrice=25, seedPrice=10, rarity="common", cardChance=0.14f, upgradeSkill="earth_dash", trait="mutate" },
+        new CropDef{ id="corn", name="玉米", icon="🌽", growTime=30, sellPrice=45, seedPrice=15, rarity="rare", cardChance=0.20f, upgradeSkill="vine_bind", trait="beast" },
+        new CropDef{ id="pumpkin", name="南瓜", icon="🎃", growTime=45, sellPrice=80, seedPrice=25, rarity="rare", cardChance=0.30f, upgradeSkill="smoke_screen", trait="carve" },
+        new CropDef{ id="moon_rice", name="月光稻", icon="✨", growTime=60, sellPrice=200, seedPrice=0, rarity="legendary", cardChance=0.58f, upgradeSkill="all", rare=true, trait="legendary" },
     };
 }
 
@@ -89,6 +89,22 @@ public static class GameState
     public static int dailyStreak = 0;
     public static string lastReliefClaim = "";
     public static Expedition expedition = null;
+
+    // ===== v2.0 农场大更新 =====
+    public static string weather = "sunny";       // sunny / rain / storm / fog
+    public static float weatherTimer = 120f;
+    public static string season = "spring";       // spring / summer / autumn / winter
+    public static int seasonDay = 1;
+    public static int workshopLevel = 1;
+    public static List<ProcessingJob> processingQueue = new List<ProcessingJob>();
+    public static Dictionary<string,string> cropCollection = new Dictionary<string,string>(); // cropId -> bestQuality
+    public static List<DecorationItem> decorations = new List<DecorationItem>();
+    public static int farmBeauty = 0;
+    public static string visitorState = "none";   // none / visiting / leaving
+    public static string visitorName = "";
+    public static float visitorTimer = 0f;
+    public static double lastFarmTick = 0;
+    public static float waterCooldown = 0f;
 
     // ===== v1.9 物资仓库 =====
     public static int warehouseCapacity = 50;
@@ -117,7 +133,9 @@ public static class GameState
     }
 }
 
-[Serializable] public class Plot { public CropDef crop; public double plantedAt; public bool ready; public string status; }
+[Serializable] public class Plot { public CropDef crop; public double plantedAt; public bool ready; public string status; public float moisture=100; public string quality="common"; public int harvestCount; public bool fertilized; public string pestType; }
+[Serializable] public class ProcessingJob { public string recipeId; public float remaining; public float total; public int qty; }
+[Serializable] public class DecorationItem { public string id; public string name; public string icon; public int x; public int y; public int beauty; }
 [Serializable] public class Card { public string id, rarity, skillId, icon, name, desc; public int power; public bool singleUse; }
 [Serializable] public class GreenhousePlot { public GreenhousePlantDef plant; public double plantedAt; public bool ready; public string status; }
 

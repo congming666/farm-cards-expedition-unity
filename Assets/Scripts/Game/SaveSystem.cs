@@ -9,7 +9,7 @@ using UnityEngine;
 //       支持 schema 版本迁移；首次运行把旧的单文件 farm-cards-save.json 导入到 0 号槽。
 [Serializable] public class KeyVal { public string key; public int val; public KeyVal(){} public KeyVal(string k, int v){ key=k; val=v; } }
 [Serializable] public class CardSave { public string id, rarity, skillId, icon, name, desc; public int power; public bool singleUse; }
-[Serializable] public class PlotSave { public string cropId; public double plantedAt; public string status; }
+[Serializable] public class PlotSave { public string cropId; public double plantedAt; public string status; public float moisture=100; public string quality="common"; public int harvestCount; public bool fertilized; public string pestType; }
 [Serializable] public class GreenhousePlotSave { public string plantId; public double plantedAt; public string status; }
 [Serializable] public class SaveData
 {
@@ -38,6 +38,17 @@ using UnityEngine;
     public float weaponBonus = 0f;
     public bool expBoostActive = false;
     public List<GreenhousePlotSave> greenhousePlots = new List<GreenhousePlotSave>();
+
+    // v2.0 农场大更新
+    public string weather = "sunny";
+    public float weatherTimer = 120f;
+    public string season = "spring";
+    public int seasonDay = 1;
+    public int workshopLevel = 1;
+    public List<ProcessingJob> processingQueue = new List<ProcessingJob>();
+    public List<KeyVal> cropCollection = new List<KeyVal>();
+    public List<DecorationItem> decorations = new List<DecorationItem>();
+    public int farmBeauty = 0;
 
     public const int SAVE_VERSION = 2;
 }
@@ -169,7 +180,7 @@ public static class SaveSystem
         GameState.lastDailyClaim = d.lastDailyClaim; GameState.dailyStreak = Math.Max(0, d.dailyStreak); GameState.lastReliefClaim = d.lastReliefClaim;
         GameState.EnsurePlots();
         if (d.farmPlots != null && d.farmPlots.Count == 36) {
-            for (int i=0;i<36;i++){ var p=d.farmPlots[i]; GameState.farmPlots[i]=new Plot{ crop=CropById(p.cropId), plantedAt=p.plantedAt, status=p.status, ready=false }; }
+            for (int i=0;i<36;i++){ var p=d.farmPlots[i]; GameState.farmPlots[i]=new Plot{ crop=CropById(p.cropId), plantedAt=p.plantedAt, status=p.status, ready=false, moisture=p.moisture>0?p.moisture:100f, quality=string.IsNullOrEmpty(p.quality)?"common":p.quality, harvestCount=p.harvestCount, fertilized=p.fertilized, pestType=p.pestType }; }
         }
 
         // 物资仓库
@@ -189,6 +200,18 @@ public static class SaveSystem
         if (d.greenhousePlots != null && d.greenhousePlots.Count == 16) {
             for (int i=0;i<16;i++){ var p=d.greenhousePlots[i]; var plant=GreenhousePlantById(p.plantId); GameState.greenhousePlots[i]=new GreenhousePlot{ plant=plant, plantedAt=p.plantedAt, status=p.status, ready=false }; }
         }
+
+        // v2.0 农场大更新
+        GameState.weather = string.IsNullOrEmpty(d.weather)?"sunny":d.weather;
+        GameState.weatherTimer = d.weatherTimer>0?d.weatherTimer:120f;
+        GameState.season = string.IsNullOrEmpty(d.season)?"spring":d.season;
+        GameState.seasonDay = d.seasonDay>0?d.seasonDay:1;
+        GameState.workshopLevel = d.workshopLevel>0?d.workshopLevel:1;
+        GameState.processingQueue = d.processingQueue??new List<ProcessingJob>();
+        GameState.cropCollection = new Dictionary<string,string>();
+        if (d.cropCollection != null) foreach (var kv in d.cropCollection) GameState.cropCollection[kv.key]=kv.val.ToString();
+        GameState.decorations = d.decorations??new List<DecorationItem>();
+        GameState.farmBeauty = d.farmBeauty;
     }
 
     // ============ GameState -> SaveData（原 Save 主体，逻辑不变） ============
@@ -204,7 +227,7 @@ public static class SaveSystem
         d.selectedBoostCards=new List<string>(GameState.selectedBoostCards);
         d.lastDailyClaim=GameState.lastDailyClaim; d.dailyStreak=GameState.dailyStreak; d.lastReliefClaim=GameState.lastReliefClaim;
         d.farmPlots=new List<PlotSave>();
-        for (int i=0;i<GameState.farmPlots.Length;i++){ var p=GameState.farmPlots[i]; d.farmPlots.Add(new PlotSave{ cropId=p.crop?.id, plantedAt=p.plantedAt, status=p.status }); }
+        for (int i=0;i<GameState.farmPlots.Length;i++){ var p=GameState.farmPlots[i]; d.farmPlots.Add(new PlotSave{ cropId=p.crop?.id, plantedAt=p.plantedAt, status=p.status, moisture=p.moisture, quality=p.quality, harvestCount=p.harvestCount, fertilized=p.fertilized, pestType=p.pestType }); }
 
         d.warehouseCapacity = GameState.warehouseCapacity;
         d.warehouseItems = ToKv(GameState.warehouseItems);
@@ -217,6 +240,19 @@ public static class SaveSystem
         d.greenhousePlots = new List<GreenhousePlotSave>();
         GameState.EnsureGreenhousePlots();
         for (int i=0;i<GameState.greenhousePlots.Length;i++){ var p=GameState.greenhousePlots[i]; d.greenhousePlots.Add(new GreenhousePlotSave{ plantId=p.plant?.id, plantedAt=p.plantedAt, status=p.status }); }
+
+        // v2.0 农场大更新
+        d.weather = GameState.weather;
+        d.weatherTimer = GameState.weatherTimer;
+        d.season = GameState.season;
+        d.seasonDay = GameState.seasonDay;
+        d.workshopLevel = GameState.workshopLevel;
+        d.processingQueue = GameState.processingQueue;
+        d.cropCollection = new List<KeyVal>();
+        foreach (var kv in GameState.cropCollection) d.cropCollection.Add(new KeyVal(kv.Key, Array.IndexOf(new[]{"common","fine","rare","legendary"}, kv.Value)));
+        d.decorations = GameState.decorations;
+        d.farmBeauty = GameState.farmBeauty;
+
         return d;
     }
 

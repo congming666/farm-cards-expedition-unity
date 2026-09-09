@@ -15,6 +15,8 @@ public class FarmUI : MonoBehaviour
     Text _catalyst, _daily, _relief;
     Button _dailyBtn, _reliefBtn;
     Text _dailyBtnText, _reliefBtnText;
+    Text _weatherLab, _seasonLab, _beautyLab;
+    Button _visitorBtn;
 
     class Cell { public Button btn; public Text lab; public Image bg; public RectTransform fill; public Image fillImg; string _t; Color _c; }
     readonly Cell[] _cells = new Cell[36];
@@ -124,6 +126,18 @@ public class FarmUI : MonoBehaviour
         Btn(px + 14, 438, 464, 38, "进入远征准备大厅  →", 17, () => { if (GameFlow.I != null) GameFlow.I.OpenPrep(); },
             new Color(0.14f, 0.30f, 0.20f, 1f));
 
+        // ---------- 天气与季节 ----------
+        _weatherLab = Lab(px + 14, 500, 200, 28, "", 14, G.ParseColor("#aaddff"));
+        _seasonLab = Lab(px + 220, 500, 140, 28, "", 14, G.ParseColor("#ffddaa"));
+        _beautyLab = Lab(px + 370, 500, 120, 28, "", 14, G.ParseColor("#ddaaff"));
+
+        // ---------- 农场新功能 ----------
+        Btn(px + 14, 536, 110, 32, "🏭 工坊", 13, () => { ProcessingUI.Toggle(); }, new Color(0.16f, 0.20f, 0.28f, 0.98f));
+        Btn(px + 132, 536, 110, 32, "📖 图鉴", 13, () => { CollectionUI.Toggle(); }, new Color(0.16f, 0.20f, 0.28f, 0.98f));
+        Btn(px + 250, 536, 110, 32, "🎨 装饰", 13, () => { DecorationUI.Toggle(); }, new Color(0.16f, 0.20f, 0.28f, 0.98f));
+        _visitorBtn = Btn(px + 368, 536, 110, 32, "🚶 访客", 13, () => { FarmDecorationSystem.InteractVisitor(); }, new Color(0.20f, 0.16f, 0.28f, 0.98f));
+        _visitorBtn.gameObject.SetActive(false);
+
         // ---------- 选择作物 ----------
         TitledPanel(760, 502, 492, 174, "选择作物");
         float cx = 772;
@@ -183,6 +197,22 @@ public class FarmUI : MonoBehaviour
         SetText(_dailyBtnText, claimed ? "今日已领" : "领取奖励");
         SetText(_relief, RewardSystem.IsReliefEligible() ? "可领保障" : "保障暂不可领");
 
+        // 天气/季节/美观
+        SetText(_weatherLab, FarmCareSystem.WeatherIcon(GameState.weather) + " " + FarmCareSystem.WeatherName(GameState.weather));
+        SetText(_seasonLab, FarmCareSystem.SeasonIcon(GameState.season) + " " + FarmCareSystem.SeasonName(GameState.season) + " D" + GameState.seasonDay);
+        SetText(_beautyLab, "✨ 美观 " + GameState.farmBeauty);
+        // 访客
+        if (_visitorBtn != null)
+        {
+            bool visiting = GameState.visitorState == "visiting";
+            _visitorBtn.gameObject.SetActive(visiting);
+            if (visiting)
+            {
+                var vt = _visitorBtn.GetComponentInChildren<Text>();
+                if (vt != null) vt.text = "🚶 " + GameState.visitorName;
+            }
+        }
+
         for (int i = 0; i < 36; i++) RefreshCell(i);
         foreach (var c in _cropBtns)
         {
@@ -211,13 +241,19 @@ public class FarmUI : MonoBehaviour
         }
         else if (plot.crop != null)
         {
-            float progress = UIHost.CropProgress(plot);
+            float progress = UIHost.CropProgress(plot, i);
             bg = new Color(0.19f, 0.115f, 0.045f, 0.98f);
+            // 湿度低时背景偏红
+            if (plot.moisture < 30f) bg = new Color(0.25f, 0.10f, 0.08f, 0.98f);
             bool hasStatus = !string.IsNullOrEmpty(plot.status);
             string state = hasStatus ? ("\n" + UIHost.StatusIcon(plot.status)) : progress >= 1 ? "\n可收获" : "";
+            // 豌豆显示剩余次数
+            if (plot.crop.trait == "reharvest" && plot.harvestCount > 0) state += "\n剩" + (3 - plot.harvestCount) + "次";
             text = UIHost.CropGlyph(plot.crop.id) + state;
             pct = progress; showBar = true; fontSize = progress >= 1 ? 29 : 36;
-            cell.fillImg.color = progress >= 1 ? G.ParseColor("#e7c946") : G.ParseColor("#70ef72");
+            cell.fillImg.color = progress >= 1 ? G.ParseColor("#e7c946") : (plot.moisture < 30f ? G.ParseColor("#ff6b6b") : G.ParseColor("#70ef72"));
+            // 品质文字颜色
+            cell.lab.color = FarmCollectionSystem.QualityColor(plot.quality);
         }
         else
         {
