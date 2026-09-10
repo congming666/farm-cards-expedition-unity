@@ -86,6 +86,11 @@ public static class GameState
     // v0.7.0 难度系统
     public static string difficulty = "normal";
     public static List<string> heatModifiers = new List<string>();
+    // v0.8.0 NPC+建筑+科技
+    public static List<string> diaryPages = new List<string>();
+    public static Dictionary<string, int> buildingLevels = new Dictionary<string, int>();
+    public static int techPoints = 0;
+    public static List<string> unlockedTech = new List<string>();
     public static Dictionary<string,int> loadout = new Dictionary<string,int>{{"herb_kit",2},{"thorn_storm",1},{"signal_flare",0}};
     public static Dictionary<string,int> farmItems = new Dictionary<string,int>{{"growth_catalyst",0}};
     public static string lastDailyClaim = "";

@@ -1,5 +1,31 @@
 # 更新日志
 
+## v0.8.0 — 2026-09-10 NPC + 剧情线 + 建筑科技树（双端同步）
+
+### NPC系统
+- 4个常驻NPC：流浪商人/老农夫/远征老兵/神秘旅人
+- 智能对话：好感度/任务/剧情动态选择
+- 好感度：对话/送礼/任务提升，解锁专属奖励
+- 5页日记残页碎片化剧情
+
+### 建筑+科技树
+- 4个可升级建筑：工坊/温室/畜舍/研究所
+- 3条科技树：农业/战斗/生存，共15个科技节点
+- 科技点来自远征通关
+
+### 新增文件
+- `Assets/Scripts/Game/NpcSystem.cs`
+- `Assets/Scripts/Game/TechSystem.cs`
+- `Assets/Scripts/UI/NpcTechUI.cs`
+
+### 修改文件
+- `GameConfig.cs` — GameState加diaryPages/buildingLevels/techPoints/unlockedTech
+
+### 验证
+- batchmode 编译 0 错，IL2CPP 出包通过
+
+---
+
 ## v0.7.0 — 2026-09-10 难度系统大升级（双端同步）
 
 ### 难度分级
