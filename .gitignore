@@ -55,3 +55,7 @@ Thumbs.db
 # ==========================================
 # 散落的空场景备份（Assets/cundang/d.unity）
 Assets/cundang/
+
+# build logs
+build_*.log
+compile_*.log
