@@ -72,6 +72,9 @@ public partial class Expedition
         if (map.tier==2) sunVector=new Vector2(0.82f,0.28f); else if(map.tier==3) sunVector=new Vector2(0.58f,0.48f);
         else if(map.tier==4) sunVector=new Vector2(-0.55f,0.34f); else sunVector=new Vector2(0.72f,0.38f);
         GenerateTerrain();
+        // v0.7.0 难度系统
+        DifficultySystem.ApplyDifficulty(GameState.difficulty, GameState.heatModifiers, map.tier);
+        visionRadius = 360f * DifficultySystem.VisionMul;
         SpawnEntities();
         CombatEnhancement.Init(this);
         CombatEnhancement.ResetBossPhase();
@@ -79,7 +82,7 @@ public partial class Expedition
         UpdateVision();
     }
 
-    Balance GetBalanceProfile(){ int t=map.tier; var b=new Balance(); b.enemyHp=1+(t-1)*0.32f; b.enemyDamage=1+(t-1)*0.22f; b.enemySpeed=1+(t-1)*0.055f; b.reward=1+(t-1)*0.48f; b.eliteChance=t<3?0:0.08f+t*0.025f; b.bossHp=520+t*260; b.bossDamage=14+t*5; return b; }
+    Balance GetBalanceProfile(){ int t=map.tier; var b=new Balance(); b.enemyHp=(1+(t-1)*0.32f)*DifficultySystem.HpMul; b.enemyDamage=(1+(t-1)*0.22f)*DifficultySystem.DmgMul; b.enemySpeed=(1+(t-1)*0.055f)*DifficultySystem.SpeedMulExtra; b.reward=(1+(t-1)*0.48f)*DifficultySystem.RewardMul*DifficultySystem.GetHeatRewardMultiplier(); b.eliteChance=(t<3?0:0.08f+t*0.025f); b.bossHp=(520+t*260)*DifficultySystem.HpMul; b.bossDamage=(14+t*5)*DifficultySystem.DmgMul; return b; }
 
     void SetupMission(){
         int targetKills=3+map.tier*2;
@@ -150,6 +153,8 @@ public partial class Expedition
     public void Update(float dt){
         if (paused || gameOver) return;
         CombatEnhancement.Update(dt);
+        DifficultySystem.Tick(dt, this);
+        DifficultySystem.TickPoison(dt, this);
         // v0.6.0 战斗增强输入
         if(Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.LeftShift))CombatEnhancement.TryDodge();
         if(Input.GetKeyDown(KeyCode.F))CombatEnhancement.TryUltimate();

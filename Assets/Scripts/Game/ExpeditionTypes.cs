@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // ================= 远征实体类型（移植自 expedition.js 数据结构 + performance.js SpatialHash） =================
-public class PlayerState { public float x,y,hp,maxHp,energy,maxEnergy,speed,radius,collisionRadius, angle, attackCd, invuln, stealth, slow, vx,vy, visualZ, visualVz; }
+public class PlayerState { public float x,y,hp,maxHp,energy,maxEnergy,speed,radius,collisionRadius, angle, attackCd, invuln, stealth, slow, vx,vy, visualZ, visualVz; public bool poisoned; public float poisonTimer, poisonDPS; }
 
 public class Monster { public string type,name,icon,state; public float hp,maxHp,damage,speed,radius,collisionRadius,attackRange,attackCooldown,xp,gold; public bool aerial,ranged;
     public float x,y,attackCd,stunned,facing,animTime,hitFlash,abilityCd,packOffset,stateTimer,deathTimer,visualZ,visualVz; public float? wanderX,wanderY; public int phase, abilityIndex; public object target; public bool elite, beastWave, deathProcessed;
     // v0.6.0 战斗增强字段
-    public string aiType, aiState; public float aiTimer, chargeAngle; public List<string> affixes; public bool exploding; public float knockX, knockY; }
+    public string aiType, aiState; public float aiTimer, chargeAngle; public List<string> affixes; public bool exploding; public float knockX, knockY;
+    // v0.7.0 难度系统字段
+    public float shield, maxHpWithShield, summonTimer; public string immuneType; }
 
 public class Chest { public float x,y,radius; public bool opened,hasSignal; }
 public class Tower { public float x,y,radius,range,damage,attackCd,hp,maxHp,captureProgress; public string state; }

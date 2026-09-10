@@ -83,6 +83,9 @@ public static class GameState
     public static List<string> selectedBoostCards = new List<string>();
     public static string selectedMap = "t1";
     public static string selectedWeapon = "harvest_sickle";
+    // v0.7.0 难度系统
+    public static string difficulty = "normal";
+    public static List<string> heatModifiers = new List<string>();
     public static Dictionary<string,int> loadout = new Dictionary<string,int>{{"herb_kit",2},{"thorn_storm",1},{"signal_flare",0}};
     public static Dictionary<string,int> farmItems = new Dictionary<string,int>{{"growth_catalyst",0}};
     public static string lastDailyClaim = "";

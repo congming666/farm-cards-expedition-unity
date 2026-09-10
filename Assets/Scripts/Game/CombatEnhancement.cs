@@ -14,6 +14,7 @@ public static class CombatEnhancement
     public static float perfectDodgeWindow = 0;
     public static float slowMotion = 0;
     public static bool nextAttackCrit = false;
+    public static float nextAttackCritMul = 2f;
     public static float hitStop = 0;
     public static float torchFuel = 100;
     public static int bossPhase = 1;
@@ -47,7 +48,7 @@ public static class CombatEnhancement
     // ===== 系统1：连击 =====
     public static void OnEnemyHit() { combo++; comboTimer = 3f; AddRage(2); }
     public static void OnPlayerHit() { if (combo > 5) Debug.Log($"连击中断！{combo}"); combo = 0; comboTimer = 0; AddRage(8); }
-    public static float GetComboMul() { return 1f + Mathf.Min(combo * 0.05f, 1f); }
+    public static float GetComboMul() { return 1f + Mathf.Min(combo * 0.05f, DifficultySystem.ComboCap); }
 
     // ===== 系统2：完美闪避 =====
     public static bool TryDodge()
@@ -64,7 +65,7 @@ public static class CombatEnhancement
         p.x = Mathf.Clamp(p.x + dx / len * 120, 30, 2260);
         p.y = Mathf.Clamp(p.y + dy / len * 120, 30, 2260);
         p.invuln = Mathf.Max(p.invuln, 0.35f);
-        perfectDodgeWindow = 0.2f;
+        perfectDodgeWindow = DifficultySystem.DodgeWindow / 1000f;
         dodgeCd = 1.2f;
         return true;
     }
@@ -74,7 +75,8 @@ public static class CombatEnhancement
         {
             perfectDodgeWindow = 0;
             slowMotion = 0.3f;
-            nextAttackCrit = true;
+            nextAttackCrit = DifficultySystem.DodgeCrit;
+            nextAttackCritMul = DifficultySystem.DodgeCrit ? 2f : 1.5f;
             AddRage(15);
             Debug.Log("完美闪避！下次必暴击");
             return true;
@@ -238,7 +240,7 @@ public static class CombatEnhancement
                 _exp.DamageEnemy(m, d.explodeDamage, d.color, true);
         }
         if (Vector2.Distance(new Vector2(_exp.player.x, _exp.player.y), new Vector2(d.x, d.y)) < d.explodeRadius)
-            _exp.DamagePlayer(d.explodeDamage * 0.5f);
+            _exp.DamagePlayer(d.explodeDamage * DifficultySystem.EnvPlayerMul);
         Debug.Log($"{d.name}爆炸！");
     }
 
@@ -261,7 +263,7 @@ public static class CombatEnhancement
         {
             if (m.hp <= 0) continue;
             float d = Vector2.Distance(new Vector2(m.x, m.y), new Vector2(p.x, p.y));
-            if (d < 400) _exp.DamageEnemy(m, m.type == "boss" ? m.maxHp * 0.25f : 999, "#ffdd44", true);
+            if (d < 400) { if(DifficultySystem.UltDisabled){Debug.Log("无头：超杀禁用");return false;} float _ud = m.type=="boss"?m.maxHp*DifficultySystem.UltBossDmg:(m.elite?m.maxHp*DifficultySystem.UltEliteDmg:999); _exp.DamageEnemy(m, _ud, "#ffdd44", true); }
         }
         Debug.Log("⚡ 超杀释放！");
         return true;
@@ -315,7 +317,7 @@ public static class CombatEnhancement
         execTimer -= dt;
         if (execTimer <= 0 && execTarget != null)
         {
-            execTarget.hp = 0;
+            if(DifficultySystem.ExecuteKill) execTarget.hp = 0; else execTarget.hp = Mathf.Max(1, execTarget.hp * (1f - DifficultySystem.ExecuteDmg));
             AddRage(40); GameState.gold += 30;
             executing = false; execTarget = null;
             Debug.Log("处决成功！");

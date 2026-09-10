@@ -1,5 +1,42 @@
 # 更新日志
 
+## v0.7.0 — 2026-09-10 难度系统大升级（双端同步）
+
+### 难度分级
+- 休闲/普通/困难/噩梦四档，影响怪物血量/伤害/词缀数/补给/火把/奖励
+- 准备大厅可选择难度和Heat修改器
+
+### 每层机制
+- T1：兽潮频发+夜间突袭，冲锋野猪T1出现
+- T2：常驻雾天+毒DOT，远程+治疗怪
+- T3：峡谷落石+冲锋自爆混编
+- T4：永恒黑暗+小Boss巡逻+全类型混编
+
+### 高层词缀
+- 护盾/反弹（T3+），召唤/免疫（T4）
+
+### 玩家削弱
+- 连击上限随难度降低，闪避窗口缩短，超杀/处决削弱，环境伤害无衰减
+
+### Heat系统
+- 铁壁/狂乱/黑暗/贫瘠/无头，自选负面换奖励倍率
+
+### 新增文件
+- `Assets/Scripts/Game/DifficultySystem.cs`
+
+### 修改文件
+- `CombatEnhancement.cs` — 难度参数应用
+- `Expedition.cs` — 初始化+balance+update tick
+- `ExpeditionCombat.cs` — 毒DOT
+- `ExpeditionTypes.cs` — PlayerState/Monster加字段
+- `GameConfig.cs` — GameState加difficulty/heatModifiers
+- `PrepUI.cs` — 难度选择+Heat选择UI
+
+### 验证
+- batchmode 编译 0 错，IL2CPP 出包通过
+
+---
+
 ## v0.6.0 — 2026-09-10 战斗系统大升级（双端同步）
 
 ### 短期：体感提升

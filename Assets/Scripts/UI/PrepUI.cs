@@ -20,6 +20,10 @@ public class PrepUI : MonoBehaviour
 
     class ConsumeRow { public string id; public Text lab; }
     readonly List<ConsumeRow> _consumes = new List<ConsumeRow>();
+    class DiffRow { public string id; public Button btn; }
+    readonly List<DiffRow> _diffBtns = new List<DiffRow>();
+    class HeatRow { public string id; public Toggle tog; }
+    readonly List<HeatRow> _heatTogs = new List<HeatRow>();
 
     RectTransform _cardHost;
     string _cardSig = "";
@@ -104,7 +108,7 @@ public class PrepUI : MonoBehaviour
         }
 
         // ---------- 左下：本次常驻技能（纯展示，每帧随强化卡刷新） ----------
-        TitledPanel(28, 378, 374, 314, "本次常驻技能");
+        TitledPanel(28, 378, 374, 200, "本次常驻技能");
         float sy = 410;
         foreach (var sk in GameData.Skills)
         {
@@ -112,6 +116,22 @@ public class PrepUI : MonoBehaviour
             var info = Lab(42, sy + 20, 340, 18, "", 12, G.ParseColor("#aeb8ae"));
             _skills.Add(new SkillRow { name = name, info = info });
             sy += 46;
+        }
+
+        // ---------- v0.7.0 难度选择 ----------
+        TitledPanel(28, 590, 374, 80, "难度选择");
+        string[] diffIds = { "casual", "normal", "hard", "nightmare" };
+        string[] diffNames = { "🌱休闲", "⚔️普通", "🔥困难", "💀噩梦" };
+        float dx = 38;
+        foreach (var did in diffIds)
+        {
+            string dname = diffNames[Array.IndexOf(diffIds, did)];
+            var b = Btn(dx, 620, 82, 40, dname, 12, () =>
+            {
+                GameState.difficulty = did; SaveSystem.Save();
+            }, new Color(0.13f, 0.20f, 0.16f, 0.98f));
+            _diffBtns.Add(new DiffRow { id = did, btn = b });
+            dx += 88;
         }
 
         // ---------- 右上：携带消耗品 ----------
@@ -131,10 +151,30 @@ public class PrepUI : MonoBehaviour
         _cardHint = Lab(432, 250, 376, 20, "", 12, G.ParseColor("#aeb8ae"));
         _cardHost = UIFactory.Rect("CardHost", transform);
 
-        // ---------- 区域提示 + 出发 ----------
-        TitledPanel(420, 462, 410, 118, "区域提示");
-        _areaTip = Lab(432, 480, 376, 80, "", 12, G.ParseColor("#cfd6c8"));
-        Btn(420, 596, 410, 56, "确认配置并出发", 20, () => { if (GameFlow.I != null) GameFlow.I.StartExpedition(); },
+        // ---------- 区域提示 + Heat + 出发 ----------
+        TitledPanel(420, 462, 410, 180, "区域提示 / Heat 修改器");
+        _areaTip = Lab(432, 480, 376, 40, "", 12, G.ParseColor("#cfd6c8"));
+        // Heat选择
+        string[] heatIds = { "ironwall", "frenzy", "darkness", "barren", "headless" };
+        string[] heatNames = { "铁壁 +50%怪血", "狂乱 +30%攻速", "黑暗 -30%视野", "贫瘠 -50%补给", "无头 禁用超杀" };
+        var heatHost = UIFactory.Rect("HeatHost", transform);
+        heatHost.anchoredPosition = new Vector2(432, -520); heatHost.sizeDelta = new Vector2(380, 130);
+        float hy = 0;
+        for (int hi = 0; hi < heatIds.Length; hi++)
+        {
+            string hid = heatIds[hi]; string hname = heatNames[hi];
+            var row = UIFactory.Rect("HeatRow" + hi, heatHost);
+            row.anchoredPosition = new Vector2(0, -hy); row.sizeDelta = new Vector2(380, 24);
+            var tog = UIFactory.Toggle(row, hname, GameState.heatModifiers.Contains(hid), v =>
+            {
+                if (v) { if (!GameState.heatModifiers.Contains(hid)) GameState.heatModifiers.Add(hid); }
+                else GameState.heatModifiers.Remove(hid);
+                SaveSystem.Save();
+            });
+            _heatTogs.Add(new HeatRow { id = hid, tog = tog });
+            hy += 26;
+        }
+        Btn(420, 656, 410, 56, "确认配置并出发", 20, () => { if (GameFlow.I != null) GameFlow.I.StartExpedition(); },
             new Color(0.14f, 0.32f, 0.20f, 1f));
     }
 
@@ -175,6 +215,13 @@ public class PrepUI : MonoBehaviour
             bool locked = GameState.gold < mp.entryFee;
             bool sel = mp.id == GameState.selectedMap;
             r.lab.color = locked ? new Color(0.5f, 0.5f, 0.5f) : (sel ? G.ParseColor("#7fff7f") : Color.white);
+        }
+
+        // v0.7.0 难度按钮高亮
+        foreach (var d in _diffBtns)
+        {
+            var img = d.btn.GetComponent<Image>();
+            if (img != null) img.color = GameState.difficulty == d.id ? new Color(0.2f, 0.4f, 0.25f, 1f) : new Color(0.13f, 0.20f, 0.16f, 0.98f);
         }
 
         // 常驻技能数值（随已装备强化卡变化）

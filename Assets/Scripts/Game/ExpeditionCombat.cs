@@ -20,7 +20,7 @@ public partial class Expedition
             if(d>m.attackRange){ m.state="move"; MoveEntityWithCollisions(m,(float)Math.Cos(angle)*m.speed*dt,(float)Math.Sin(angle)*m.speed*dt); }
             else if(m.attackCd<=0){ m.state="attack"; m.stateTimer=0.28f; m.attackCd=m.attackCooldown;
                 if(m.ranged){ projectiles.Add(new Projectile{ x=m.x,y=m.y,vx=(float)Math.Cos(angle)*300,vy=(float)Math.Sin(angle)*300,damage=m.damage,life=2,fromMonster=true,radius=6,color=m.type=="spider"?"#9bea55":"#ff6644",monsterType=m.type }); }
-                else DamagePlayer(m.damage);
+                else { DamagePlayer(m.damage); DifficultySystem.ApplyPoison(m, this); }
             } else m.state="idle";
         } else {
             if(!m.wanderX.HasValue || G.Dist(m.x,m.y,m.wanderX.Value,m.wanderY.Value)<30){ m.wanderX=m.x+G.Rand(-200,200); m.wanderY=m.y+G.Rand(-200,200); }
@@ -204,7 +204,7 @@ public partial class Expedition
     public void DamageEnemy(Monster m,float amount,string color,bool heavy){
         if(m==null||m.hp<=0) return;
         amount*=CombatEnhancement.GetComboMul();
-        if(CombatEnhancement.nextAttackCrit){CombatEnhancement.nextAttackCrit=false;amount*=2f;heavy=true;}
+        if(CombatEnhancement.nextAttackCrit){CombatEnhancement.nextAttackCrit=false;amount*=CombatEnhancement.nextAttackCritMul;heavy=true;}
         CombatEnhancement.OnEnemyHit();
         CombatEnhancement.DamageDestructible(m.x,m.y,amount);
         float _prevSeg=m.maxHp>0?Math.Min(CombatEnhancement.GetSegments(m),(int)Math.Ceiling(m.hp/m.maxHp*CombatEnhancement.GetSegments(m))):0;
